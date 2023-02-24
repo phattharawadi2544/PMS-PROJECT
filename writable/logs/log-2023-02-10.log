@@ -1,0 +1,128 @@
+CRITICAL - 2023-02-10 08:45:02 --> include(server.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 1.
+ 1 APPPATH\Views\template\login2.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(server.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 1)
+ 2 APPPATH\Views\template\login2.php(1): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(11): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 08:45:11 --> include(server.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 1.
+ 1 APPPATH\Views\template\login2.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(server.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 1)
+ 2 APPPATH\Views\template\login2.php(1): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(11): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 08:46:28 --> include(server.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 1.
+ 1 APPPATH\Views\template\login2.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(server.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 1)
+ 2 APPPATH\Views\template\login2.php(1): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(11): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 08:46:59 --> include(server.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 1.
+ 1 APPPATH\Views\template\login2.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(server.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 1)
+ 2 APPPATH\Views\template\login2.php(1): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(10): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 08:47:00 --> include(server.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 1.
+ 1 APPPATH\Views\template\login2.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(server.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 1)
+ 2 APPPATH\Views\template\login2.php(1): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(10): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 08:51:28 --> include(errors.php): Failed to open stream: No such file or directory
+in APPPATH\Views\template\login2.php on line 14.
+ 1 APPPATH\Views\template\login2.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(errors.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\template\\login2.php', 14)
+ 2 APPPATH\Views\template\login2.php(14): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\template\\login2.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('template/login2.php', [], true)
+ 6 APPPATH\Controllers\Login.php(11): view('template/login2.php')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:36:08 --> Unsupported operand types: string + bool
+in APPPATH\Controllers\Login.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->check_user_login()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:40:33 --> Class "Codeigniter\Controller" not found
+in APPPATH\Controllers\Login.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Login.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Login', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:40:36 --> Class "Codeigniter\Controller" not found
+in APPPATH\Controllers\Login.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Login.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Login', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:41:33 --> Class "Codeigniter\Controller" not found
+in APPPATH\Controllers\Login.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Login.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Login', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:41:46 --> Class "Codeigniter\Controller" not found
+in APPPATH\Controllers\Login.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Login.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Login', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-02-10 09:41:47 --> Class "Codeigniter\Controller" not found
+in APPPATH\Controllers\Login.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Login.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Login', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
