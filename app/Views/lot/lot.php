@@ -7,7 +7,8 @@
                         <h4 class="mb-3">คลังยา</h4>
                         <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
                     </div>
-                    <a href="page-add-product.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>เพิ่มคลังยา</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
+                        data-bs-whatever="@mdo">บันทึกการซื้อยา</button>
                 </div>
             </div>
             <div class="col-lg-12">

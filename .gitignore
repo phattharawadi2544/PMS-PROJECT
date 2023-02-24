@@ -1,2 +1,4 @@
 
 app/Config/App.php
+*.log
+writable/session/ci_sessionvnh1nh152vl3jduqebosm76f35tuncj6
