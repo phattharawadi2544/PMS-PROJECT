@@ -91,10 +91,10 @@
                                                 title="" data-original-title="ดู" href="#" onclick="view_data('<?php echo $users_row["user_id"]; ?>')"><i
                                                     class="ri-eye-line mr-0"></i></a>
                                             <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="แก้ไข" href="#"><i
+                                                title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $users_row["user_id"]; ?>')"><i
                                                     class="ri-pencil-line mr-0"></i></a>
                                             <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="ลบ" href="#"><i
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $users_row["user_id"]; ?>')"><i
                                                     class="ri-delete-bin-line mr-0"></i></a>
                                         </div>
                                     </td>
@@ -294,10 +294,100 @@
 
 
 
-
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มผู้ใช้</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
+                        <div class="col-md-12">
+                            <label for="inputuserID" class="form-label">รหัสผู้ใช้</label>
+                            <input type="text" class="form-control was-validated" id="inputuserID" name="userID" readonly >
+
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputfname" class="form-label">ชื่อ *</label>
+                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" onchange="clr_border(this);" >
+
+                            
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputlname" class="form-label">นามสกุล *</label>
+                            <input type="text" class="form-control" id="inputlname" name="lname" onchange="clr_border(this);">
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="inputusername" class="form-label">username *</label>
+                            <input type="text" class="form-control" id="inputusername" name="username">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputpassword" class="form-label">password *</label>
+                            <input type="password" class="form-control" id="inputpassword" name="password">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputemail" class="form-label">Email *</label>
+                            <input type="text" class="form-control" id="inputemail" name="email">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputtel" class="form-label">เบอร์โทร *</label>
+                            <input type="text" class="form-control" id="inputtel" name="telno">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputaddress" class="form-label">ที่อยู่ *</label>
+                            <textarea type="text" class="form-control" id="inputaddress" name="address"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
+                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="" class="form-label">หน้าที่ *</label>
+                            <div class="col-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="role1" name="role" class="custom-control-input" value='1'>
+                                <label class="custom-control-label" for="role1"> ผู้ประกอบการ</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="role2" name="role" class="custom-control-input" checked value='2'>
+                                <label class="custom-control-label" for="role2"> เภสัชกร </label>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="" class="form-label">สถานะ *</label>
+                            <div class="col-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="status1" name="status" class="custom-control-input" checked value="1">
+                                <label class="custom-control-label" for="status1"> ใช้งานอยู่ </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="status2" name="status" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="status2"> ปิดการใช้งาน </label>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_user()">บันทึก</button>
                 </div>
             </div>
         </div>
@@ -358,8 +448,11 @@
 
 
     function view_data(id){
-        alert(id);
         $('#viewModal').modal('show');
+    }
+
+    function edit_data(id){
+        $('#editModal').modal('show');
     }
 
     function clr_border(obj){
