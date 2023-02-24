@@ -22,7 +22,7 @@ class App extends BaseConfig
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
      */
-    public string $baseURL = 'http://localhost/project/PMS/';
+    public string $baseURL = 'http://localhost/project/PMSV2/PMS-PROJECT/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
