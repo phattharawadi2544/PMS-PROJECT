@@ -29,6 +29,7 @@
                             <th>อายุการเก็บรักษา</th>
                             <th>ผู้ขาย</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
