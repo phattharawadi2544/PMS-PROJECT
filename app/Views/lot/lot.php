@@ -19,16 +19,17 @@
                             
                             <th>ลำดับ</th>
                             <th>รหัสคลังยา</th>
-                            <th>ชื่อ</th>
+                            <th>รหัสรับ</th>
                             <th>เลขที่ครั้งที่ผลิต</th>
-                            <th>วันหมดอายุ</th>
                             <th>วันที่ผลิต</th>
+                            <th>วันหมดอายุ</th>
                             <th>จำนวน</th>
-                            <th>ราคาขาย</th>
                             <th>ราคาทุน</th>
+                            <th>ราคาขาย</th>
+                            <th>จำนวนคงเหลือ</th>
                             <th>อายุการเก็บรักษา</th>
-                            <th>ผู้ขาย</th>
-                            <th></th>
+                            
+                            
                             <th></th>
                         </tr>
                     </thead>
@@ -45,15 +46,16 @@
                             </td>
                             <td><?php echo  $lot_row["pharmacy_id"];?></td>
                             <td><?php echo  $lot_row["lot_id"];?></td>
+                            <td><?php echo  $lot_row["id_supplie"];?></td>
                             <td><?php echo  $lot_row["batch_no"];?></td>
-                            <td><?php echo  $lot_row["exp_date"];?></td>
                             <td><?php echo  $lot_row["manu_date"];?></td>
+                            <td><?php echo  $lot_row["exp_date"];?></td>
                             <td><?php echo  $lot_row["amount"];?></td>
-                            <td><?php echo  $lot_row["sale_price"];?></td>
                             <td><?php echo  $lot_row["cost_price"];?></td>
+                            <td><?php echo  $lot_row["sale_price"];?></td>
                             <td><?php echo  $lot_row["remain"];?></td>
                             <td><?php echo  $lot_row["shelf_life"];?></td>
-                            <td><?php echo  $lot_row["id_supplie"];?></td>
+                            
 
                             <td>
                                 <div class="d-flex align-items-center list-action">
@@ -74,40 +76,75 @@
         </div> 
         <!-- Page end  -->
     </div>
-    <!-- Modal Edit -->
-    <div class="modal fade" id="edit-note" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    
+ <!-- Button trigger modal -->
+ <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกการซื้อยา</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+
                 <div class="modal-body">
-                    <div class="popup text-left">
-                        <div class="media align-items-top justify-content-between">                            
-                            <h3 class="mb-3">Product</h3>
-                            <div class="btn-cancel p-0" data-dismiss="modal"><i class="las la-times"></i></div>
+                    <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
+                        <div class="col-md-6">
+                            <label for="inputfname" class="form-label">เลขที่ครั้งที่ผลิต</label>
+                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" onchange="clr_border(this);" >
                         </div>
-                        <div class="content edit-notes">
-                            <div class="card card-transparent card-block card-stretch event-note mb-0">
-                                <div class="card-body px-0 bukmark">
-                                    <div class="d-flex align-items-center justify-content-between pb-2 mb-3 border-bottom">                                                    
-                                        <div class="quill-tool">
-                                        </div>
-                                    </div>
-                                    <div id="quill-toolbar1">
-                                        <p>Virtual Digital Marketing Course every week on Monday, Wednesday and Saturday.Virtual Digital Marketing Course every week on Monday</p>
-                                    </div>
-                                </div>
-                                <div class="card-footer border-0">
-                                    <div class="d-flex flex-wrap align-items-ceter justify-content-end">
-                                        <div class="btn btn-primary mr-3" data-dismiss="modal">Cancel</div>
-                                        <div class="btn btn-outline-primary" data-dismiss="modal">Save</div>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div class="col-md-6">
+                            <label for="inputhiredate" class="form-label">วันที่ผลิต</label>
+                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
                         </div>
-                    </div>
+
+                        <div class="col-md-6">
+                            <label for="inputhiredate" class="form-label">วันหมดอายุ</label>
+                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputpassword" class="form-label">จำนวน</label>
+                            <input type="password" class="form-control" id="inputpassword" name="password">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputemail" class="form-label">ราคาทุน</label>
+                            <input type="text" class="form-control" id="inputemail" name="email">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputtel" class="form-label">ราคาขาย</label>
+                            <input type="text" class="form-control" id="inputtel" name="telno">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputtel" class="form-label">อายุการเก็บรักษา</label>
+                            <input type="text" class="form-control" id="inputtel" name="telno">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_user()">บันทึก</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
     
