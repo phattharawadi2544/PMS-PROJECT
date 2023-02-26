@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\PharmacyModel;
 
 class Pharmacies extends BaseController
@@ -22,12 +21,13 @@ class Pharmacies extends BaseController
 
         $data = array(
             'pharmacy_id'=>null, 
-            'reg_no'=>$_POST['reg'], 
-            'pharmacy_name' => $_POST['pharmacyname'],
-            'pharmacy_details'=>$_POST['pharmacydetails'], 
-            'pharmacy_warning'=>$_POST['pharmacywarning'], 
-            'pharmacy_group'=>$_POST['pmtype'], 
-            'counting_unit'=>$_POST['unit'], 
+            'img'=>$_POST['img'], 
+            'reg'=>$_POST['reg'], 
+            'pharmacyname' => $_POST['pharmacyname'],
+            'pharmacydetails'=>$_POST['pharmacydetails'], 
+            'pharmacywarning'=>$_POST['pharmacywarning'], 
+            'pharmacygroup'=>$_POST['pharmacygroup'], 
+            'unit'=>$_POST['unit'], 
             
         );
         

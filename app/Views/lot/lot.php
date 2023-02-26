@@ -1,5 +1,10 @@
 <div class="content-page">
-     <div class="container-fluid">
+    <div class="container-fluid">
+    <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
+        <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+        <?php endif;?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
@@ -19,7 +24,7 @@
                             
                             <th>ลำดับ</th>
                             <th>รหัสคลังยา</th>
-                            <th>รหัสรับ</th>
+                            <th>รหัสผู้ขาย</th>
                             <th>เลขที่ครั้งที่ผลิต</th>
                             <th>วันที่ผลิต</th>
                             <th>วันหมดอายุ</th>
@@ -28,9 +33,6 @@
                             <th>ราคาขาย</th>
                             <th>จำนวนคงเหลือ</th>
                             <th>อายุการเก็บรักษา</th>
-                            
-                            
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -44,7 +46,7 @@
                             <td>
                                 
                             </td>
-                            <td><?php echo  $lot_row["pharmacy_id"];?></td>
+                            
                             <td><?php echo  $lot_row["lot_id"];?></td>
                             <td><?php echo  $lot_row["id_supplie"];?></td>
                             <td><?php echo  $lot_row["batch_no"];?></td>
@@ -57,16 +59,23 @@
                             <td><?php echo  $lot_row["shelf_life"];?></td>
                             
 
-                            <td>
+                            <!-- <td>
                                 <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ดู"
-                                        href="#"><i class="ri-eye-line mr-0"></i></a>
-                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="แก้ไข"
-                                        href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ลบ"
-                                        href="#"><i class="ri-delete-bin-line mr-0"></i></a>
+                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                        title="" data-original-title="ดู" href="#" onclick="view_data('<?php echo $lot_row["lot_id"]; ?>')">
+                                        <i class="ri-eye-line mr-0"></i>
+                                    </a>
+                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                        title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $lot_row["lot_id"]; ?>')">
+                                        <i class="ri-pencil-line mr-0"></i>
+                                    </a>
+                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                        title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $lot_row["lot_id"]; ?>')">
+                                        <i class="ri-delete-bin-line mr-0"></i>
+                                    </a>
                                 </div>
-                            </td>
+                            </td> -->
+
                         </tr>
                         <?php endforeach;?>
                     </tbody>
@@ -78,7 +87,7 @@
     </div>
     
  <!-- Button trigger modal -->
- <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -87,43 +96,43 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
+                    <form class="row g-3" id="form_lot_new" method="post" action="<?php echo site_url('add_lot'); ?>">
                         <div class="col-md-6">
-                            <label for="inputfname" class="form-label">เลขที่ครั้งที่ผลิต</label>
-                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" onchange="clr_border(this);" >
+                            <label for="inputbatch" class="form-label">เลขที่ครั้งที่ผลิต *</label>
+                            <input type="text" class="form-control was-validated" id="inputbatch" name="batch" onchange="clr_border(this);" >
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="inputmanu" class="form-label">วันที่ผลิต *</label>
+                            <input type="date" class="form-control" id="inputmanu" name="manu" onchange="clr_border(this);" >
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputhiredate" class="form-label">วันที่ผลิต</label>
-                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
+                            <label for="inputexp" class="form-label">วันหมดอายุ *</label>
+                            <input type="date" class="form-control" id="inputexp" name="exp" onchange="clr_border(this);" >
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputhiredate" class="form-label">วันหมดอายุ</label>
-                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="inputpassword" class="form-label">จำนวน</label>
-                            <input type="password" class="form-control" id="inputpassword" name="password">
+                            <label for="inputamount" class="form-label">จำนวน *</label>
+                            <input type="text" class="form-control" id="inputamount" name="amount" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-6">
-                            <label for="inputemail" class="form-label">ราคาทุน</label>
-                            <input type="text" class="form-control" id="inputemail" name="email">
+                            <label for="inputcost" class="form-label">ราคาทุน *</label>
+                            <input type="text" class="form-control" id="inputcost" name="cost" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-6">
-                            <label for="inputtel" class="form-label">ราคาขาย</label>
-                            <input type="text" class="form-control" id="inputtel" name="telno">
+                            <label for="inputsale" class="form-label">ราคาขาย *</label>
+                            <input type="text" class="form-control" id="inputsale" name="sale" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-6">
-                            <label for="inputtel" class="form-label">อายุการเก็บรักษา</label>
-                            <input type="text" class="form-control" id="inputtel" name="telno">
+                            <label for="inputshelf" class="form-label">อายุการเก็บรักษา *</label>
+                            <input type="text" class="form-control" id="inputshelf" name="shelf" onchange="clr_border(this);" >
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-primary" onclick="save_user()">บันทึก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_lot()">บันทึก</button>
                 </div>
             </div>
         </div>
@@ -131,20 +140,51 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-    </div>
+</div>
     
+<script>
+    function save_lot(){
+        let ch = true;
+        
+        if($("#inputbatch").val().trim().length==0){
+            ch = false;
+            $("#inputbatch").css("border-color","red");
+        }
+        if($("#inputmanu").val().trim().length==0){
+            ch = false;
+            $("#inputmanu").css("border-color","red");
+        }
+        if($("#inputexp").val().trim().length==0){
+            ch = false;
+            $("#inputexp").css("border-color","red");
+        }
+        if($("#inputamount").val().trim().length==0){
+            ch = false;
+            $("#inputamount").css("border-color","red");
+        }
+        if($("#inputcost").val().trim().length==0){
+            ch = false;
+            $("#inputcost").css("border-color","red");
+        }
+        if($("#inputsale").val().trim().length==0){
+            ch = false;
+            $("#inputsale").css("border-color","red");
+        }
+        if($("#inputshelf").val().trim().length==0){
+            ch = false;
+            $("#inputshelf").css("border-color","red");
+        }
+        if(ch){
+            $('#form_lot_new').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+            
+    }
+
+
+    function clr_border(obj){
+        obj.style.removeProperty('border-color');
+    }
+</script>

@@ -1,6 +1,10 @@
 <div class="content-page">
      <div class="container-fluid">
-         
+     <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
+        <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+        <?php endif;?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
@@ -19,6 +23,7 @@
                         <tr class="ligth ligth-data">
                             
                             <th>ลำดับ</th>
+                            <th>รูป</th>
                             <th>รหัสยา</th>
                             <th>เลขทะเบียนยา</th>
                             <th>ชื่อยา</th>
@@ -57,14 +62,17 @@
                             <!-- <td><?php echo  $phamacy_row["counting_unit"];?></td> -->
                             
                             <td>
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ดู"
-                                        href="#"><i class="ri-eye-line mr-0"></i></a>
-                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="แก้ไข"
-                                        href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ลบ"
-                                        href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                                </div>
+                            <div class="d-flex align-items-center list-action">
+                                            <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ดู" href="#" onclick="view_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-eye-line mr-0"></i></a>
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-delete-bin-line mr-0"></i></a>
+                            </div>
                             </td>
                         </tr>
                         <?php endforeach;?>
@@ -75,40 +83,7 @@
         </div> 
         <!-- Page end  -->
     </div>
-    <!-- Modal Edit -->
-    <!-- <div class="modal fade" id="edit-note" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="popup text-left">
-                        <div class="media align-items-top justify-content-between">                            
-                            <h3 class="mb-3">Product</h3>
-                            <div class="btn-cancel p-0" data-dismiss="modal"><i class="las la-times"></i></div>
-                        </div>
-                        <div class="content edit-notes">
-                            <div class="card card-transparent card-block card-stretch event-note mb-0">
-                                <div class="card-body px-0 bukmark">
-                                    <div class="d-flex align-items-center justify-content-between pb-2 mb-3 border-bottom">                                                    
-                                        <div class="quill-tool">
-                                        </div>
-                                    </div>
-                                    <div id="quill-toolbar1">
-                                        <p>Virtual Digital Marketing Course every week on Monday, Wednesday and Saturday.Virtual Digital Marketing Course every week on Monday</p>
-                                    </div>
-                                </div>
-                                <div class="card-footer border-0">
-                                    <div class="d-flex flex-wrap align-items-ceter justify-content-end">
-                                        <div class="btn btn-primary mr-3" data-dismiss="modal">Cancel</div>
-                                        <div class="btn btn-outline-primary" data-dismiss="modal">Save</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
 
      
 
@@ -122,22 +97,37 @@
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('add_pharmacy'); ?>">
+                    <div class="col-md-6">
+                        
+                        <div class="input-group mb-3">
+                            <img class="crm-profile-pic rounded avatar-100" src="../assets/images/pharmacy/medicine2.jpg" alt="profile-pic">
+                            <div class="crm-p-image bg-primary">
+                                    <i class="las la-pen upload-button"></i>
+                                    <input class="file-upload" type="file" accept="image/*">
+                                 </div>
+                        </div>
+                    </div>
                         <div class="col-md-6">
-                        <label for="inputreg" class="form-label">เลขทะเบียนยา</label>
-                            <input type="text" class="form-control" id="inputreg" name="reg">
+                        <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
+                            <input type="text" class="form-control" id="inputreg" name="reg" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ)</label>
-                            <input type="text" class="form-control" id="inputpharmacyname" name="pharmacyname">
+                            <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                            <input type="text" class="form-control" id="inputpharmacyname" name="pharmacyname" onchange="clr_border(this);">
                         </div>
                         
-                        <div class="col-12">
-                            <label for="inputpharmacydetails" class="form-label">ข้อบ่งใช้</label>
-                            <textarea type="text" class="form-control" id="inputpharmacydetails"  name="pharmacydetails"></textarea>
+                        <div class="col-6">
+                            <label for="inputdetails" class="form-label">ข้อบ่งใช้ *</label>
+                            <textarea type="text" class="form-control" id="inputdetails"  name="pharmacydetails" onchange="clr_border(this);"></textarea>
                         </div>
-                        <div class="col-12">
-                            <label for="inputpharmacywarning" class="form-label">ผลข้างเคียง/ข้อควรระวัง</label>
-                            <textarea type="text" class="form-control" id="inputpharmacywarning"  name="pharmacywarning"></textarea>
+                        <div class="col-6">
+                            <label for="inputwarning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
+                            <textarea type="text" class="form-control" id="inputwarning"  name="pharmacywarning" onchange="clr_border(this);"></textarea>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="inputunit" class="form-label">หน่วยนับ</label>
+                            <input type="text" class="form-control" id="inputunit" name="unit" onchange="clr_border(this);">
                         </div>
                         
                        
@@ -146,16 +136,16 @@
                             <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่ *</legend>
                             <div class="col-sm-10">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pmtype1" name="pmtype" class="custom-control-input" value='1'>
-                                <label class="custom-control-label" for="pmtype1">ยาสามัญประจำบ้าน</label>
+                                <input type="radio" id="pharmacygroup1" name="pharmacygroup" class="custom-control-input" value='1'>
+                                <label class="custom-control-label" for="pharmacygroup1">ยาสามัญประจำบ้าน</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pmtype2" name="pmtype" class="custom-control-input" checked value='2'>
-                                <label class="custom-control-label" for="pmtype2"> ยาอันตราย </label>
+                                <input type="radio" id="pharmacygroup2" name="pharmacygroup" class="custom-control-input" checked value='2'>
+                                <label class="custom-control-label" for="pharmacygroup2"> ยาอันตราย </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pmtype3" name="pmtype" class="custom-control-input" checked value='3'>
-                                <label class="custom-control-label" for="pmtype3"> ยาควบคุมพิเศษ </label>
+                                <input type="radio" id="pharmacygroup3" name="pharmacygroup" class="custom-control-input" checked value='3'>
+                                <label class="custom-control-label" for="pharmacygroup3"> ยาควบคุมพิเศษ </label>
                             </div>
                             </div>
                         </fieldset>
@@ -172,38 +162,178 @@
         </div>
     </div>
 
+  <!-- viewmodal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ข้อมูลยา</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+                <div class="modal-body">
+                <div class="card card-block p-card">
+                  <div class="profile-box">
+                     <div class="profile-card rounded">
+                        <img src="../assets/images/user/12.jpg" alt="profile-bg" class="avatar-100 rounded d-block mx-auto img-fluid mb-3">
+                        <h3 class="font-600 text-white text-center mb-0">ชื่อยา</h3>
+                        <p class="text-white text-center mb-5">เลขทะเบียนยา</p>
+                     </div>
+                     <div class="pro-content rounded">
+                        <div class="d-flex align-items-center mb -3">
+                           <div class="p-icon mr-3">
+                              <i class="las la-envelope-open-text"></i>
+                           </div>
+                           <p class="mb-0 eml">ข้อบ่งใช้:</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon bg-success mr-3">
+                              <i class="las la-phone"></i>
+                           </div>
+                           <p class="mb-0">ผลข้างเคียง/ข้อควรระวัง:</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">หน่วยนับ:</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">หมวดหมู่:</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
+                </div>
+            </div>
 
 
+   <!-- editmodal -->
+   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลผู้ใช้</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
 
+                <div class="modal-body">
+                <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('add_pharmacy'); ?>">
+                    <div class="col-md-12">
+                        <label for="inputpharmacyid" class="form-label">รหัสยา</label>
+                        <input type="text" class="form-control was-validated" id="inputpharmacyid" name="pharmacyid" readonly >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputimg" class="form-label">รูป</label>
+                            <input type="text" class="form-control" id="inputimg" name="img" >
+                        </div>
+                        <div class="col-md-6">
+                        <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
+                            <input type="text" class="form-control" id="inputreg" name="reg" >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                            <input type="text" class="form-control" id="inputpharmacyname" name="pharmacyname" >
+                        </div>
+                        
+                        <div class="col-6">
+                            <label for="inputdetails" class="form-label">ข้อบ่งใช้ *</label>
+                            <textarea type="text" class="form-control" id="inputdetails"  name="pharmacydetails" ></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="inputwarning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
+                            <textarea type="text" class="form-control" id="inputwarning"  name="pharmacywarning" ></textarea>
+                        </div>
 
-
-
-
-
-
-
+                        <div class="col-6">
+                            <label for="inputunit" class="form-label">หน่วยนับ</label>
+                            <input type="text" class="form-control" id="inputunit" name="unit" >
+                        </div>
+                        
+                       
+                        <div class="col-md-12">
+                        <fieldset class="row mb-3">
+                            <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่ *</legend>
+                            <div class="col-sm-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="pharmacygroup" name="pharmacygroup" class="custom-control-input" value='1'>
+                                <label class="custom-control-label" for="pharmacygroup1">ยาสามัญประจำบ้าน</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="pharmacygroup2" name="pharmacygroup" class="custom-control-input" checked value='2'>
+                                <label class="custom-control-label" for="pharmacygroup2"> ยาอันตราย </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="pharmacygroup3" name="pharmacygroup" class="custom-control-input" checked value='3'>
+                                <label class="custom-control-label" for="pharmacygroup3"> ยาควบคุมพิเศษ </label>
+                            </div>
+                            </div>
+                        </fieldset>
+                        </div>
+                    </form>
+                    </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_pharmacy()">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 
     
-    <script>
+<script>
     function save_pharmacy(){
         let ch = true;
+        
         if($("#inputreg").val().trim().length==0){
             ch = false;
-            alert("inputreg");
+            $("#inputreg").css("border-color","red");
         }
         if($("#inputpharmacyname").val().trim().length==0){
             ch = false;
-            alert("inputpharmacyname");
+            $("#inputpharmacyname").css("border-color","red");
         }
-
+        if($("#inputdetails").val().trim().length==0){
+            ch = false;
+            $("#inputdetails").css("border-color","red");
+        }
+        if($("#inputwarning").val().trim().length==0){
+            ch = false;
+            $("#inputwarning").css("border-color","red");
+        }
+        if($("#inputunit").val().trim().length==0){
+            ch = false;
+            $("#inputunit").css("border-color","red");
+        }
+       
         if(ch){
             $('#form_pharmacy_new').submit();
         }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+            
     }
 
-    function view_data(id){
-        alert(id);
-        $('#viewModal').modal('show');
 
+
+    function view_data(id){
+        $('#viewModal').modal('show');
+    }
+
+    function edit_data(id){
+        $('#editModal').modal('show');
+    }
+
+    function clr_border(obj){
+        obj.style.removeProperty('border-color');
     }
 </script>

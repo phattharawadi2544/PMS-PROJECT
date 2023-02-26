@@ -22,13 +22,17 @@ class Users extends BaseController
 
         $data = array(
             'user_id'=>null, 
+            'license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT), 
             'email'=>$_POST['email'], 
             'f_name'=>$_POST['fname'], 
             'l_name'=>$_POST['lname'], 
             'tel'=>$_POST['telno'], 
+            'work_experience'=>$_POST['work_experience'], 
             'address'=>$_POST['address'], 
+            'hiredate'=>$_POST['hiredate'], 
+            'licenseexp'=>$_POST['licenseexp'], 
             'status'=>$_POST['status'], 
             'user_role'=>$_POST['role']
         );
