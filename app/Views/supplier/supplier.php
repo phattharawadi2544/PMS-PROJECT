@@ -5,9 +5,9 @@
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
                     <div>
                         <h4 class="mb-3">ผู้ขาย</h4>
-                        <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
                     </div>
-                    <a href="page-add-product.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>เพิ่มผู้ขาย</a> 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
+                        data-bs-whatever="@mdo">บันทึกรายการสั่งซื้อ</button>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -16,10 +16,7 @@
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                             <th>
-                                <div class="checkbox d-inline-block">
-                                    <input type="checkbox" class="checkbox-input" id="checkbox1">
-                                    <label for="checkbox1" class="mb-0"></label>
-                                </div>
+                                ลำดับ
                             </th>
                             <th>รหัสผู้ขาย</th>
                             <th>ชื่อผู้ขาย</th>
@@ -32,14 +29,9 @@
                         
                         // var_dump($supplier);
                         $count = 0;
-                        foreach($supplie as $supplier_row):$count++; ?>
+                        foreach($supplier as $supplier_row):$count++; ?>
                         <tr>
-                            <td>
-                                <div class="checkbox d-inline-block">
-                                    <input type="checkbox" class="checkbox-input" id="checkbox2">
-                                    <label for="checkbox2" class="mb-0"></label>
-                                </div>
-                            </td>
+                            
                             <td>
                                 <div class="d-flex align-items-center">
                                     <!-- <img src="../assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image"> -->
@@ -53,17 +45,6 @@
                             <td><?php echo  $supplier_row["company_name"];?></td>
                             <td><?php echo  $supplier_row["tel"];?></td>
                             <td><?php echo  $supplier_row["address"];?></td>
-                            
-                            <td>
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ดู"
-                                        href="#"><i class="ri-eye-line mr-0"></i></a>
-                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="แก้ไข"
-                                        href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ลบ"
-                                        href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                                </div>
-                            </td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
@@ -73,40 +54,74 @@
         </div> 
         <!-- Page end  -->
     </div>
-    <!-- Modal Edit -->
-    <div class="modal fade" id="edit-note" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+   <!-- Button trigger modal -->
+   <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">บันทึกรายการสั่งซื้อ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+
                 <div class="modal-body">
-                    <div class="popup text-left">
-                        <div class="media align-items-top justify-content-between">                            
-                            <h3 class="mb-3">Product</h3>
-                            <div class="btn-cancel p-0" data-dismiss="modal"><i class="las la-times"></i></div>
+                    <form class="row g-3" id="form_supplier_new" method="post" action="<?php echo site_url('add_supplier'); ?>">
+                        <div class="col-md-12">
+                            <label for="inputname" class="form-label">ชื่อผู้ขาย</label>
+                            <input type="text" class="form-control was-validated" id="inputname" name="name" onchange="clr_border(this);" >
                         </div>
-                        <div class="content edit-notes">
-                            <div class="card card-transparent card-block card-stretch event-note mb-0">
-                                <div class="card-body px-0 bukmark">
-                                    <div class="d-flex align-items-center justify-content-between pb-2 mb-3 border-bottom">                                                    
-                                        <div class="quill-tool">
-                                        </div>
-                                    </div>
-                                    <div id="quill-toolbar1">
-                                        <p>Virtual Digital Marketing Course every week on Monday, Wednesday and Saturday.Virtual Digital Marketing Course every week on Monday</p>
-                                    </div>
-                                </div>
-                                <div class="card-footer border-0">
-                                    <div class="d-flex flex-wrap align-items-ceter justify-content-end">
-                                        <div class="btn btn-primary mr-3" data-dismiss="modal">Cancel</div>
-                                        <div class="btn btn-outline-primary" data-dismiss="modal">Save</div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <div class="col-md-6">
+                            <label for="inputaddress" class="form-label">ที่อยู่</label>
+                            <textarea type="text" class="form-control" id="inputaddress" name="address" onchange="clr_border(this);"></textarea>
                         </div>
-                    </div>
+
+                        <div class="col-md-6">
+                            <label for="inputtel" class="form-label">เบอร์โทร</label>
+                            <input type="text" class="form-control" id="inputtel" name="tel" onchange="clr_border(this);" >
+                        </div>
+
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_supplier()">บันทึก</button>
                 </div>
             </div>
         </div>
     </div>
-      </div>
-    </div>
+
+
+
+</div>
     
+<script>
+    function save_supplier(){
+        let ch = true;
+        
+        if($("#inputname").val().trim().length==0){
+            ch = false;
+            $("#inputname").css("border-color","red");
+        }
+        if($("#inputaddress").val().trim().length==0){
+            ch = false;
+            $("#inputaddress").css("border-color","red");
+        }
+        if($("#inputtel").val().trim().length==0){
+            ch = false;
+            $("#inputtel").css("border-color","red");
+        }
+        if(ch){
+            $('#form_lot_new').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+            
+    }
+
+
+    function clr_border(obj){
+        obj.style.removeProperty('border-color');
+    }
+</script>

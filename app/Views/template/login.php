@@ -63,7 +63,7 @@
                               
                            </div>
                            <div class="col-lg-5 content-right">
-                              <img src="<?php echo base_url();?>/assets/images/login/003.png" class="img-fluid image-right" alt="">
+                              <img src="<?php echo base_url();?>/assets/images/login/logo3.png" class="img-fluid image-right" alt="">
                            </div>
                         </div>
                      </div>

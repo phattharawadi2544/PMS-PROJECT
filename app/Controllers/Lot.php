@@ -33,7 +33,7 @@ class Lot extends BaseController
            
         );
         
-        $model = new UserModel();
+        $model = new LotModel();
         $model->save($data);
 
 

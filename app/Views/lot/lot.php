@@ -33,7 +33,7 @@
                             <th>ราคาขาย</th>
                             <th>จำนวนคงเหลือ</th>
                             <th>อายุการเก็บรักษา</th>
-                        </tr>
+                         </tr>
                     </thead>
                     <tbody class="ligth-body">
                         <?php 
@@ -57,25 +57,6 @@
                             <td><?php echo  $lot_row["sale_price"];?></td>
                             <td><?php echo  $lot_row["remain"];?></td>
                             <td><?php echo  $lot_row["shelf_life"];?></td>
-                            
-
-                            <!-- <td>
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
-                                        title="" data-original-title="ดู" href="#" onclick="view_data('<?php echo $lot_row["lot_id"]; ?>')">
-                                        <i class="ri-eye-line mr-0"></i>
-                                    </a>
-                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
-                                        title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $lot_row["lot_id"]; ?>')">
-                                        <i class="ri-pencil-line mr-0"></i>
-                                    </a>
-                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                        title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $lot_row["lot_id"]; ?>')">
-                                        <i class="ri-delete-bin-line mr-0"></i>
-                                    </a>
-                                </div>
-                            </td> -->
-
                         </tr>
                         <?php endforeach;?>
                     </tbody>
