@@ -6,8 +6,8 @@
             <div class="col-lg-4">
                 <div class="card card-transparent card-block card-stretch card-height border-none">
                     <div class="card-body p-0 mt-lg-2 mt-0">
-                        <h3 class="mb-3">Hi Graham, Good Morning</h3>
-                        <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p>
+                        <h3 class="mb-3">หน้าหลัก</h3>
+                        <!-- <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p> -->
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                                         <img src="<?php echo base_url();?>/assets/images/product/1.png" class="img-fluid" alt="image">
                                     </div>
                                     <div>
-                                        <p class="mb-2">Total Sales</p>
+                                        <p class="mb-2">ยอดขายวันนี้</p>
                                         <h4>31.50</h4>
                                     </div>
                                 </div>                                
@@ -40,7 +40,7 @@
                                         <img src="<?php echo base_url();?>/assets/images/product/2.png" class="img-fluid" alt="image">
                                     </div>
                                     <div>
-                                        <p class="mb-2">Total Cost</p>
+                                        <p class="mb-2">กำไรวันนี้</p>
                                         <h4>$ 4598</h4>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                                         <img src="<?php echo base_url();?>/assets/images/product/3.png" class="img-fluid" alt="image">
                                     </div>
                                     <div>
-                                        <p class="mb-2">Product Sold</p>
+                                        <p class="mb-2">จำนวนยาที่ขายได้วันนี้</p>
                                         <h4>4589 M</h4>
                                     </div>
                                 </div>
@@ -76,19 +76,19 @@
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Overview</h4>
+                            <h4 class="card-title">สรุปยอดขาย</h4>
                         </div>                        
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton001"
                                     data-toggle="dropdown">
-                                    This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                    เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                 </span>
                                 <div class="dropdown-menu dropdown-menu-right shadow-none"
                                     aria-labelledby="dropdownMenuButton001">
-                                    <a class="dropdown-item" href="#">Year</a>
-                                    <a class="dropdown-item" href="#">Month</a>
-                                    <a class="dropdown-item" href="#">Week</a>
+                                    <a class="dropdown-item" href="#">ปี</a>
+                                    <a class="dropdown-item" href="#">เดือน</a>
+                                    <a class="dropdown-item" href="#">สัปดาห์</a>
                                 </div>
                             </div>
                         </div>
@@ -102,19 +102,19 @@
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Revenue Vs Cost</h4>
+                            <h4 class="card-title">สรุปกำไร</h4>
                         </div>
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton002"
                                     data-toggle="dropdown">
-                                    This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                    เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                 </span>
                                 <div class="dropdown-menu dropdown-menu-right shadow-none"
                                     aria-labelledby="dropdownMenuButton002">
-                                    <a class="dropdown-item" href="#">Yearly</a>
-                                    <a class="dropdown-item" href="#">Monthly</a>
-                                    <a class="dropdown-item" href="#">Weekly</a>
+                                    <a class="dropdown-item" href="#">ปี</a>
+                                    <a class="dropdown-item" href="#">เดือน</a>
+                                    <a class="dropdown-item" href="#">สัปดาห์</a>
                                 </div>
                             </div>
                         </div>
@@ -128,19 +128,19 @@
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Top Products</h4>
+                            <h4 class="card-title">ยาขายดี</h4>
                         </div>
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton006"
                                     data-toggle="dropdown">
-                                    This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                    เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                 </span>
                                 <div class="dropdown-menu dropdown-menu-right shadow-none"
                                     aria-labelledby="dropdownMenuButton006">
-                                    <a class="dropdown-item" href="#">Year</a>
-                                    <a class="dropdown-item" href="#">Month</a>
-                                    <a class="dropdown-item" href="#">Week</a>
+                                    <a class="dropdown-item" href="#">ปี</a>
+                                    <a class="dropdown-item" href="#">เดือน</a>
+                                    <a class="dropdown-item" href="#">สัปดาห์</a>
                                 </div>
                             </div>
                         </div>
@@ -156,6 +156,19 @@
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Organic Cream</h5>
                                             <p class="mb-0">789 Item</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-3">
+                                <div class="card card-block card-stretch card-height mb-0">
+                                    <div class="card-body">
+                                        <div class="bg-danger-light rounded">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                        </div>
+                                        <div class="style-text text-left mt-3">
+                                            <h5 class="mb-1">Rain Umbrella</h5>
+                                            <p class="mb-0">657 Item</p>
                                         </div>
                                     </div>
                                 </div>
@@ -199,6 +212,19 @@
                                     </div>
                                 </div>
                             </li>
+                            <li class="col-lg-3">
+                                <div class="card card-block card-stretch card-height mb-0">
+                                    <div class="card-body">
+                                        <div class="bg-success-light rounded">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                        </div>
+                                        <div class="style-text text-left mt-3">
+                                            <h5 class="mb-1">Organic Cream</h5>
+                                            <p class="mb-0">468 Item</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -207,10 +233,10 @@
                 <div class="card card-transparent card-block card-stretch mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between p-0">
                         <div class="header-title">
-                            <h4 class="card-title mb-0">Best Item All Time</h4>
+                            <h4 class="card-title mb-0">ยอดการสั่งซื้อบ่อยที่สุด</h4>
                         </div>
                         <div class="card-header-toolbar d-flex align-items-center">
-                            <div><a href="#" class="btn btn-primary view-btn font-size-14">View All</a></div>
+                            <div><a href="#" class="btn btn-primary view-btn font-size-14">ดูทั้งหมด</a></div>
                         </div>
                     </div>
                 </div>
@@ -248,20 +274,20 @@
                     <div class="card-body">
                         <div class="d-flex align-items-top justify-content-between">
                             <div class="">
-                                <p class="mb-0">Income</p>
+                                <p class="mb-0">ค่าใช้จ่าย</p>
                                 <h5>$ 98,7800 K</h5>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
                                     <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton003"
                                         data-toggle="dropdown">
-                                        This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                        เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                     </span>
                                     <div class="dropdown-menu dropdown-menu-right shadow-none"
                                         aria-labelledby="dropdownMenuButton003">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Week</a>
+                                        <a class="dropdown-item" href="#">ปี</a>
+                                        <a class="dropdown-item" href="#">เดือน</a>
+                                        <a class="dropdown-item" href="#">สัปดาห์</a>
                                     </div>
                                 </div>
                             </div>
@@ -273,20 +299,20 @@
                     <div class="card-body">
                         <div class="d-flex align-items-top justify-content-between">
                             <div class="">
-                                <p class="mb-0">Expenses</p>
+                                <p class="mb-0">ยอดการขาย</p>
                                 <h5>$ 45,8956 K</h5>
                             </div>
                             <div class="card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
                                     <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton004"
                                         data-toggle="dropdown">
-                                        This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                        เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                     </span>
                                     <div class="dropdown-menu dropdown-menu-right shadow-none"
                                         aria-labelledby="dropdownMenuButton004">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Week</a>
+                                        <a class="dropdown-item" href="#">ปี</a>
+                                        <a class="dropdown-item" href="#">เดือน</a>
+                                        <a class="dropdown-item" href="#">สัปดาห์</a>
                                     </div>
                                 </div>
                             </div>
@@ -299,19 +325,19 @@
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Order Summary</h4>
+                            <h4 class="card-title">สรุปรายการขาย</h4>
                         </div>                        
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton005"
                                     data-toggle="dropdown">
-                                    This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                    เลือก<i class="ri-arrow-down-s-line ml-1"></i>
                                 </span>
                                 <div class="dropdown-menu dropdown-menu-right shadow-none"
                                     aria-labelledby="dropdownMenuButton005">
-                                    <a class="dropdown-item" href="#">Year</a>
-                                    <a class="dropdown-item" href="#">Month</a>
-                                    <a class="dropdown-item" href="#">Week</a>
+                                    <a class="dropdown-item" href="#">ปี</a>
+                                    <a class="dropdown-item" href="#">เดือน</a>
+                                    <a class="dropdown-item" href="#">สัปดาห์</a>
                                 </div>
                             </div>
                         </div>
