@@ -51,7 +51,8 @@
                                         <!-- <p class="mb-0"><small>This is test Product</small></p> -->
                                     </div>
                                 </div>
-                            </td>
+                            </td></td>
+                            <td>
                             <td><?php echo  $phamacy_row["pharmacy_id"];?></td>
                             <td><?php echo  $phamacy_row["reg_no"];?></td>
                             <td><?php echo  $phamacy_row["pharmacy_name"];?></td>
@@ -212,6 +213,9 @@
                 </div>
                 </div>
             </div>
+     </div>
+     </div>
+     </div>
 
 
    <!-- editmodal -->

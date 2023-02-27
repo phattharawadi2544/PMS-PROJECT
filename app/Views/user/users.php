@@ -109,6 +109,65 @@
     </div>
   
 
+    <!-- viewmodal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ประวัติ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+               <div class="card card-block p-card">
+                  <div class="profile-box">
+                     <div class="profile-card rounded">
+                        <h3 class="font-600 text-white text-center mb-0">ชื่อผู้ใช้</h3>
+                        <p class="text-white text-center mb-5">หน้าที่</p>
+                     </div>
+                     <div class="pro-content rounded">
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon mr-3">
+                              <i class="las la-envelope-open-text"></i>
+                           </div>
+                           <p class="mb-0 eml">johndoe9891@gmail.com</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon bg-success mr-3">
+                              <i class="las la-phone"></i>
+                           </div>
+                           <p class="mb-0">(123) 123 1234</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">USA</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">USA</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">USA</p>
+                        </div>
+                        
+                        
+                    </div>
+                  </div>
+                  
+               </div>
+               <div class="modal-footer">
+                        <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
+                            </div>
+                            </div>
+                            </div>
+
+
     <!-- Button trigger modal -->
     <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -203,131 +262,65 @@
         </div>
     </div>
 
-
-
-<!-- viewmodal -->
-    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <!-- Button trigger modal -->
+     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ประวัติ</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
-                </div>
-        <div class="card card-block p-card">
-                  <div class="profile-box">
-                     <div class="profile-card rounded">
-                        <h3 class="font-600 text-white text-center mb-0">ชื่อผู้ใช้</h3>
-                        <p class="text-white text-center mb-5">หน้าที่</p>
-                     </div>
-                     <div class="pro-content rounded">
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon mr-3">
-                              <i class="las la-envelope-open-text"></i>
-                           </div>
-                           <p class="mb-0 eml">johndoe9891@gmail.com</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon bg-success mr-3">
-                              <i class="las la-phone"></i>
-                           </div>
-                           <p class="mb-0">(123) 123 1234</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">USA</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">USA</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">USA</p>
-                        </div>
-                        
-                        
-                    </div>
-                  </div>
-                  
-               </div>
-               <div class="modal-footer">
-                        <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-                </div>
-
-
-   
-
-
-    <!-- editmodal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลผู้ใช้</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มผู้ใช้</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
-                        <div class="col-md-12">
-                            <label for="inputuserID" class="form-label">รหัสผู้ใช้</label>
-                            <input type="text" class="form-control was-validated" id="inputuserID" name="userID" readonly >
+                    <div class="col-md-12">
+                            <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต *</label>
+                            <input type="text" class="form-control was-validated" id="inputlicense" name="license" onchange="clr_border(this);" >
                         </div>
-                        <div class="col-md-12">
-                            <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต </label>
-                            <input type="text" class="form-control was-validated" id="inputlicense" name="license"  >
+                        <div class="col-md-6">
+                            <label for="inputfname" class="form-label">ชื่อ *</label>
+                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" onchange="clr_border(this);" >
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputfname" class="form-label">ชื่อ </label>
-                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" > 
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="inputlname" class="form-label">นามสกุล </label>
-                            <input type="text" class="form-control" id="inputlname" name="lname" >
+                            <label for="inputlname" class="form-label">นามสกุล *</label>
+                            <input type="text" class="form-control" id="inputlname" name="lname" onchange="clr_border(this);">
                         </div>
                         
                         <div class="col-md-6">
-                            <label for="inputusername" class="form-label">username </label>
-                            <input type="text" class="form-control" id="inputusername" name="username" >
+                            <label for="inputusername" class="form-label">username *</label>
+                            <input type="text" class="form-control" id="inputusername" name="username" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputpassword" class="form-label">password </label>
-                            <input type="password" class="form-control" id="inputpassword" name="password" >
+                            <label for="inputpassword" class="form-label">password *</label>
+                            <input type="password" class="form-control" id="inputpassword" name="password" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputemail" class="form-label">Email </label>
-                            <input type="text" class="form-control" id="inputemail" name="email" >
+                            <label for="inputemail" class="form-label">Email *</label>
+                            <input type="text" class="form-control" id="inputemail" name="email" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputtel" class="form-label">เบอร์โทร </label>
-                            <input type="text" class="form-control" id="inputtel" name="telno" >
+                            <label for="inputtel" class="form-label">เบอร์โทร *</label>
+                            <input type="text" class="form-control" id="inputtel" name="telno" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputaddress" class="form-label">ที่อยู่ </label>
-                            <textarea type="text" class="form-control" id="inputaddress" name="address" ></textarea>
+                            <label for="inputaddress" class="form-label">ที่อยู่ *</label>
+                            <textarea type="text" class="form-control" id="inputaddress" name="address" onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputwork" class="form-label">ประสบการณ์ทำงาน </label>
-                            <textarea type="text" class="form-control" id="inputwork" name="work" ></textarea>
+                            <label for="inputwork" class="form-label">ประสบการณ์ทำงาน *</label>
+                            <textarea type="text" class="form-control" id="inputwork" name="work" onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-md-6">
                             <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
-                            <input type="date" class="form-control" id="inputhiredate" name="hiredate">
+                            <input type="date" class="form-control" id="inputhiredate" name="hiredate" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
                             <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
-                            <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp">
+                            <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp" onchange="clr_border(this);">
                         </div>
 
                         <div class="col-md-6">
-                            <label for="" class="form-label">หน้าที่ </label>
+                            <label for="" class="form-label">หน้าที่ *</label>
                             <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="role1" name="role" class="custom-control-input" value='1'>
@@ -341,7 +334,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="" class="form-label">สถานะ </label>
+                            <label for="" class="form-label">สถานะ *</label>
                             <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="status1" name="status" class="custom-control-input" checked value="1">
@@ -363,10 +356,10 @@
         </div>
     </div>
 
-
     
 </div>
 </div>
+
 
 <script>
     function save_user(){

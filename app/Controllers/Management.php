@@ -12,7 +12,7 @@ class Management extends BaseController
     public function pharmacies_type()
     {
         $model = new Pharmacy_typeModel();
-        $data["pharmacies_type_list"] = $model->orderBy('id_pharmacy_type','ASC')->findAll();
+        $data["pharmacy_group"] = $model->orderBy('id_pharmacy_type','ASC')->findAll();
 
         return view('template/header.php').
         view('basic_management/pharmacy_type.php',$data).
@@ -29,15 +29,15 @@ class Management extends BaseController
         view('template/footer.php');
     }
 
-    public function user_role()
-    {
-        $model = new User_roleModel();
-        $data["user_role_list"] = $model->orderBy('role_id','ASC')->findAll();
+    // public function user_role()
+    // {
+    //     $model = new User_roleModel();
+    //     $data["user_role_list"] = $model->orderBy('role_id','ASC')->findAll();
 
-        return view('template/header.php').
-        view('basic_management/user_role.php',$data).
-        view('template/footer.php');
-    }
+    //     return view('template/header.php').
+    //     view('basic_management/user_role.php',$data).
+    //     view('template/footer.php');
+    // }
     
     
 }
