@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\UserModel;
+use App\Models\PharmacyModel;
 
 class APIs extends BaseController
 {
@@ -9,6 +10,7 @@ class APIs extends BaseController
     {
 
     }
+   
     public function get_api($api_name,$id = null)
     {
         if($api_name=='getUser'){
@@ -36,5 +38,34 @@ class APIs extends BaseController
             return $this->response->setJSON($data);
         }
     }
+
+    public function get_api($api_name,$id = null)
+    {
+        if($api_name=='getPharmacy'){
+            $model = new PharmacyModel();
+            if($id!=NULL){
+                $get_data = $model->where('pharmacy_id',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('pharmacy_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+        }elseif($api_name=='getPharmacyGroup'){
+
+        }else{
+            $data = [
+                'success' => false,
+                'message' => "Not have APIs fuction ".$api_name,
+                'data' => null,
+            ];
+            return $this->response->setJSON($data);
+        }
+    }
+
 
 }
