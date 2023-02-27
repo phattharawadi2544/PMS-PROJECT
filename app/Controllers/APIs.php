@@ -9,11 +9,32 @@ class APIs extends BaseController
     {
 
     }
-    public function api_get($api_name,$id = null)
+    public function get_api($api_name,$id = null)
     {
-        $model = new UserModel();
-        $data = $model->orderBy('user_id','ASC')->findAll();
-        return $this->response->setJSON($data);
+        if($api_name=='getUser'){
+            $model = new UserModel();
+            if($id!=NULL){
+                $get_data = $model->where('user_id',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('user_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+        }elseif($api_name=='getUserRole'){
+
+        }else{
+            $data = [
+                'success' => false,
+                'message' => "Not have APIs fuction ".$api_name,
+                'data' => null,
+            ];
+            return $this->response->setJSON($data);
+        }
     }
 
 }

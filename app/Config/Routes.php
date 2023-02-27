@@ -61,7 +61,7 @@ $routes->get('/lot', 'Lot::index');
 
 
 /*===================APIs======================*/
-$routes->get('/api/getUser', 'APIs::get_user');
+$routes->get('/api/(:any)', 'APIs::get_api/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
