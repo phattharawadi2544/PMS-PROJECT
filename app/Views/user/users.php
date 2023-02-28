@@ -432,6 +432,12 @@
                 $("#edit_userID").val(item.user_id);
                 $("#edit_license").val(item.id_license);
                 $('#edit_fname').val(item.f_name);
+                $('#edit_lname').val(item.l_name);
+                $('#edit_tel').val(item.tel);
+                $('#edit_address').val(item.address);
+                $('#edit_work').val(item.work);
+                $('#edit_hiredate').val(item.hiredate);
+                $('#edit_licenseexp').val(item.licenseexp);
             });
         });
         $('#editModal').modal('show');

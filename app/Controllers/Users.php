@@ -17,8 +17,7 @@ class Users extends BaseController
     }
     public function add_user()
     {
-        // var_dump($_POST);
-
+        //  var_dump($_POST);
 
         $data = array(
             'user_id'=>null, 
@@ -29,14 +28,15 @@ class Users extends BaseController
             'f_name'=>$_POST['fname'], 
             'l_name'=>$_POST['lname'], 
             'tel'=>$_POST['telno'], 
-            'work_experience'=>$_POST['work_experience'], 
+            'work_experience'=>$_POST['work'], 
             'address'=>$_POST['address'], 
             'hiredate'=>$_POST['hiredate'], 
             'licenseexp'=>$_POST['licenseexp'], 
             'status'=>$_POST['status'], 
             'user_role'=>$_POST['role']
         );
-        
+        // var_dump($data);
+        // die();
         $model = new UserModel();
         $model->save($data);
 
