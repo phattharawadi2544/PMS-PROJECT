@@ -95,6 +95,87 @@ class APIs extends BaseController
             return $this->response->setJSON($data);
         }
     }
+    public function get_1($api_name,$id = null)
+    {
+        if($api_name=='getsupplier'){
+            $model = new SupplierModel();
+            if($id!=NULL){
+                $get_data = $model->where('id_supplier',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('id_supplier','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+        }elseif($api_name=='getsupplier'){
+
+        }else{
+            $data = [
+                'success' => false,
+                'message' => "Not have APIs fuction ".$api_name,
+                'data' => null,
+            ];
+            return $this->response->setJSON($data);
+        }
+    }
+    public function get_1($api_name,$id = null)
+    {
+        if($api_name=='getsupplier'){
+            $model = new SupplierModel();
+            if($id!=NULL){
+                $get_data = $model->where('id_supplier',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('id_supplier','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+        }elseif($api_name=='getsupplier'){
+
+        }else{
+            $data = [
+                'success' => false,
+                'message' => "Not have APIs fuction ".$api_name,
+                'data' => null,
+            ];
+            return $this->response->setJSON($data);
+        }
+        public function get_1($api_name,$id = null)
+        {
+            if($api_name=='getsupplier'){
+                $model = new SupplierModel();
+                if($id!=NULL){
+                    $get_data = $model->where('id_supplier',$id)->findAll();
+                }else{
+                    $get_data = $model->orderBy('id_supplier','ASC')->findAll();
+                }
+                $data = [
+                    'success' => true,
+                    'message' => "OK",
+                    'data' => $get_data,
+                ];
+                return $this->response->setJSON($data);
+    
+            }elseif($api_name=='getsupplier'){
+    
+            }else{
+                $data = [
+                    'success' => false,
+                    'message' => "Not have APIs fuction ".$api_name,
+                    'data' => null,
+                ];
+                return $this->response->setJSON($data);
+            }
+        }
+    }
 
 }
 
