@@ -27,7 +27,7 @@
                     <tbody class="ligth-body">
                         <?php 
                         
-                        // var_dump($recive__type_list);
+                        // var_dump($recive_type_list);
                         $count = 0;
                         foreach($recive_type_list as $recive_row):$count++; ?>
                         <tr>
@@ -41,21 +41,24 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><?php echo  $recive_row["recive_type_id"];?></td>
-                            <td><?php echo  $recive_row["recive_name"];?></td>
-                            <td><?php echo  $recive_row["recive_detail"];?></td>
+                            <td>
+                                <?php echo  $recive_row["recive_type_id"];?></td>
+                            <td>
+                                <?php echo  $recive_row["recive_name"];?></td>
+                            <td>
+                                <?php echo  $recive_row["recive_detail"];?></td>
                             
                             
-                            <!-- <td>
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ดู"
-                                        href="#"><i class="ri-eye-line mr-0"></i></a>
-                                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="แก้ไข"
-                                        href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="ลบ"
-                                        href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                                </div>
-                            </td> -->
+                            <td>
+                               <div class="d-flex align-items-center list-action">
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $recive_row["recive_type_id"]; ?>')"><i
+                                                    class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $recive_row["recive_name"]; ?>')"><i
+                                                    class="ri-delete-bin-line mr-0"></i></a>
+                                        </div>
+                            </td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
@@ -65,40 +68,87 @@
         </div> 
         <!-- Page end  -->
     </div>
-    <!-- Modal Edit -->
-    <div class="modal fade" id="edit-note" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <!-- Button trigger modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขประเภทยา</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
                 <div class="modal-body">
-                    <div class="popup text-left">
-                        <div class="media align-items-top justify-content-between">                            
-                            <h3 class="mb-3">Product</h3>
-                            <div class="btn-cancel p-0" data-dismiss="modal"><i class="las la-times"></i></div>
+                    <form class="row g-3" id="form_recive_type" method="post" action="<?php echo site_url('id_pharmacy_type'); ?>">
+                        <div class="col-md-3">
+                            <label for="edit_recive_type_id" class="form-label">รหัสประเภทการรับ</label>
+                            <input type="text" class="form-control was-validated" id="edit_id_pharmacy_type" name="id_pharmacy_type" onchange="clr_border(this);" >
                         </div>
-                        <div class="content edit-notes">
-                            <div class="card card-transparent card-block card-stretch event-note mb-0">
-                                <div class="card-body px-0 bukmark">
-                                    <div class="d-flex align-items-center justify-content-between pb-2 mb-3 border-bottom">                                                    
-                                        <div class="quill-tool">
-                                        </div>
-                                    </div>
-                                    <div id="quill-toolbar1">
-                                        <p>Virtual Digital Marketing Course every week on Monday, Wednesday and Saturday.Virtual Digital Marketing Course every week on Monday</p>
-                                    </div>
-                                </div>
-                                <div class="card-footer border-0">
-                                    <div class="d-flex flex-wrap align-items-ceter justify-content-end">
-                                        <div class="btn btn-primary mr-3" data-dismiss="modal">Cancel</div>
-                                        <div class="btn btn-outline-primary" data-dismiss="modal">Save</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-9">
+                            <label for="edit_pharmacy_type_name" class="form-label">ชื่อประเภทการรับ</label>
+                            <input type="text" class="form-control was-validated" id="edit_pharmacy_type_name" name="pharmacy_type_name" onchange="clr_border(this);" >
                         </div>
-                    </div>
+                        <div class="col-md-6">
+                            <label for="edit_recive_detail" class="form-label">รายละเอียด</label>
+                            <textarea type="text" class="form-control was-validated" id="edit_recive_detail" name="pharmacy_recive_detail" onchange="clr_border(this);" ></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy_type()">บันทึก</button>
                 </div>
             </div>
         </div>
     </div>
-      </div>
-    </div>
+
     
+</div>
+</div>
+
+
+<script>
+    function save_edit_recive_type(){
+        let ch = true;
+        if($("#edit_recive_type_id").val().trim().length==0){
+            ch = false;
+            $("#edit_recive_type_id").css("border-color","red");
+        }
+        if($("#edit_recive_name").val().trim().length==0){
+            ch = false;
+            $("#edit_recive_name").css("border-color","red");
+        }
+        if($("#edit_recive_detail").val().trim().length==0){
+            ch = false;
+            $("#edit_recive_detail").css("border-color","red");
+        }
+        if(ch){
+            $('#form_recive_type').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+    }
+    function view_data(id){
+        $('#viewModal').modal('show');
+    }
+
+    function edit_data(id){
+        $.ajax({
+            method: "GET",
+            url: "<?php echo site_url('api/getrecive_type')?>"+"/"+id,
+            data: {}
+        })
+        .done(function( data ) {
+            $.each(data.data,function(i,item){
+                $("#edit_recive_type_id").val(item._recive_type_id);
+                $("#edit_recive_name").val(item._recive_name);
+                $("#edit_recive_detail").val(item._recive_detail);
+            });
+        });
+        $('#editModal').modal('show');
+    }
+
+    function clr_border(obj){
+        obj.style.removeProperty('border-color');
+    }
+</script>
