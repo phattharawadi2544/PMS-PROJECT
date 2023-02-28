@@ -46,7 +46,33 @@ class Pharmacies extends BaseController
 
         // var_dump($data);
     }
-    
+    public function edit_user()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['userID'];
+        $data = array(
+            'pharmacy_id'=>null, 
+            'img'=>$_POST['img'], 
+            'reg'=>$_POST['reg'], 
+            'pharmacyname' => $_POST['pharmacyname'],
+            'pharmacydetails'=>$_POST['pharmacydetails'], 
+            'pharmacywarning'=>$_POST['pharmacywarning'], 
+            'pharmacygroup'=>$_POST['pharmacygroup'], 
+            'unit'=>$_POST['unit'], 
+        );
+        if($_POST['password']!=''){
+            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        }
+        var_dump($data);
+        die();
+        // $model = new UserModel();
+        // $model->save($data);
+
+        // $session = session();
+        // $session->setFlashdata('message_code', '202');
+        // return redirect()->to('/users');
+
+    }
     
     
 }

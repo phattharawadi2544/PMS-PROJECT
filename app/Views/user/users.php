@@ -168,7 +168,7 @@
                             </div>
 
 
-    <!-- Button trigger modal -->
+    <!-- newmodal -->
     <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -262,7 +262,7 @@
         </div>
     </div>
 
-     <!-- Button trigger modal -->
+   <!-- editmodal -->
      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -428,17 +428,17 @@
             ch = false;
             $("#edit_username").css("border-color","red");
         }
-        if($("#edit_password").val().trim().length==0){
-            ch = false;
-            $("#edit_password").css("border-color","red");
-        }
+        // if($("#edit_password").val().trim().length==0){
+        //     ch = false;
+        //     $("#edit_password").css("border-color","red");
+        // }
         if($("#edit_email").val().trim().length==0){
             ch = false;
             $("#edit_email").css("border-color","red");
         }
-        if($("#edit_address'").val().trim().length==0){
+        if($("#edit_address").val().trim().length==0){
             ch = false;
-            $("#edit_address'").css("border-color","red");
+            $("#edit_address").css("border-color","red");
         }
         if($("#edit_work").val().trim().length==0){
             ch = false;

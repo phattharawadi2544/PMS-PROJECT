@@ -88,7 +88,7 @@
 
      
 
- <!-- Button trigger modal -->
+ <!-- newmodal -->
  <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -223,41 +223,41 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลผู้ใช้</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลยา</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
 
                 <div class="modal-body">
-                <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('add_pharmacy'); ?>">
+                <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('edit_pharmacy'); ?>">
                     <div class="col-md-12">
-                        <label for="inputpharmacyid" class="form-label">รหัสยา</label>
-                        <input type="text" class="form-control was-validated" id="inputpharmacyid" name="pharmacyid" readonly >
+                        <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
+                        <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacyid" readonly >
                     </div>
                     <div class="col-md-6">
-                        <label for="inputimg" class="form-label">รูป</label>
-                            <input type="text" class="form-control" id="inputimg" name="img" >
+                        <label for="edit_img" class="form-label">รูป</label>
+                            <input type="text" class="form-control" id="edit_img" name="img" >
                         </div>
                         <div class="col-md-6">
-                        <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
-                            <input type="text" class="form-control" id="inputreg" name="reg" >
+                        <label for="edit_reg" class="form-label">เลขทะเบียนยา *</label>
+                            <input type="text" class="form-control" id="edit_reg" name="reg" >
                         </div>
                         <div class="col-md-6">
-                            <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
-                            <input type="text" class="form-control" id="inputpharmacyname" name="pharmacyname" >
+                            <label for="edit_pharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                            <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname" >
                         </div>
                         
                         <div class="col-6">
-                            <label for="inputdetails" class="form-label">ข้อบ่งใช้ *</label>
-                            <textarea type="text" class="form-control" id="inputdetails"  name="pharmacydetails" ></textarea>
+                            <label for="edit_details" class="form-label">ข้อบ่งใช้ *</label>
+                            <textarea type="text" class="form-control" id="edit_details"  name="pharmacydetails" ></textarea>
                         </div>
                         <div class="col-6">
-                            <label for="inputwarning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
-                            <textarea type="text" class="form-control" id="inputwarning"  name="pharmacywarning" ></textarea>
+                            <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
+                            <textarea type="text" class="form-control" id="edit_warning"  name="pharmacywarning" ></textarea>
                         </div>
 
                         <div class="col-6">
-                            <label for="inputunit" class="form-label">หน่วยนับ</label>
-                            <input type="text" class="form-control" id="inputunit" name="unit" >
+                            <label for="edit_unit" class="form-label">หน่วยนับ</label>
+                            <input type="text" class="form-control" id="edit_unit" name="unit" >
                         </div>
                         
                        
@@ -266,15 +266,15 @@
                             <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่ *</legend>
                             <div class="col-sm-10">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pharmacygroup" name="pharmacygroup" class="custom-control-input" value='1'>
-                                <label class="custom-control-label" for="pharmacygroup1">ยาสามัญประจำบ้าน</label>
+                                <input type="radio" id="edit_pharmacygroup" name="pharmacygroup" class="custom-control-input" value='1'>
+                                <label class="custom-control-label" for="edit_pharmacygroup1">ยาสามัญประจำบ้าน</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pharmacygroup2" name="pharmacygroup" class="custom-control-input" checked value='2'>
+                                <input type="radio" id="edit_pharmacygroup2" name="edit_pharmacygroup" class="custom-control-input" checked value='2'>
                                 <label class="custom-control-label" for="pharmacygroup2"> ยาอันตราย </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="pharmacygroup3" name="pharmacygroup" class="custom-control-input" checked value='3'>
+                                <input type="radio" id="edit_pharmacygroup3" name="edit_pharmacygroup" class="custom-control-input" checked value='3'>
                                 <label class="custom-control-label" for="pharmacygroup3"> ยาควบคุมพิเศษ </label>
                             </div>
                             </div>
@@ -334,8 +334,29 @@
     }
 
     function edit_data(id){
+        $.ajax({
+            method: "GET",
+            url: "<?php echo site_url('api/getPharmacy')?>"+"/"+id,
+            data: {}
+        })
+        .done(function( data ) {
+            $.each(data.data,function(i,item){
+                $("#edit_userID").val(item.user_id);
+                $("#edit_license").val(item.id_license);
+                $('#edit_username').val(item.username);
+                $('#edit_email').val(item.email);
+                $('#edit_fname').val(item.f_name);
+                $('#edit_lname').val(item.l_name);
+                $('#edit_tel').val(item.tel);
+                $('#edit_address').val(item.address);
+                $('#edit_work').val(item.work_experience);
+                $('#edit_hiredate').val(item.hiredate);
+                $('#edit_licenseexp').val(item.licenseexp);
+            });
+        });
         $('#editModal').modal('show');
     }
+
 
     function clr_border(obj){
         obj.style.removeProperty('border-color');
