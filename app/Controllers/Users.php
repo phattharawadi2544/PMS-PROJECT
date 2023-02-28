@@ -40,19 +40,43 @@ class Users extends BaseController
         $model = new UserModel();
         $model->save($data);
 
-
-        
         $session = session();
         $session->setFlashdata('message_code', '202');
         return redirect()->to('/users');
 
+    }
 
+    public function edit_user()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['userID'];
+        $data = array(
+            'user_id'=>null, 
+            'license'=>$_POST['license'], 
+            'username'=>$_POST['username'], 
+            'email'=>$_POST['email'], 
+            'f_name'=>$_POST['fname'], 
+            'l_name'=>$_POST['lname'], 
+            'tel'=>$_POST['telno'], 
+            'work_experience'=>$_POST['work'], 
+            'address'=>$_POST['address'], 
+            'hiredate'=>$_POST['hiredate'], 
+            'licenseexp'=>$_POST['licenseexp'], 
+            'status'=>$_POST['status'], 
+            'user_role'=>$_POST['role']
+        );
+        if($_POST['password']!=''){
+            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        }
+        var_dump($data);
+        die();
+        // $model = new UserModel();
+        // $model->save($data);
 
-        //$2y$10$Re8OwFDGLAw6O21232if2uybZVsAMRr8BqW2xPfrlqsW.16qOHoZO
-        //$2y$10$R5CeBiM4e3GUyCA1etq.wuI6o7herKXLgvlhAqb6JY2hoy1st48hi
-        //$2y$10$hVXutCx8J8ip4g6FPAh85Ol6./IlzdfkrqZkS9FDi1ZqOmyjMkjRK
+        // $session = session();
+        // $session->setFlashdata('message_code', '202');
+        // return redirect()->to('/users');
 
-        // var_dump($data);
     }
     
     

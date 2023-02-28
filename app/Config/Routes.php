@@ -40,6 +40,7 @@ $routes->post('/checkLogin', 'Login::check_user_login');
 
 $routes->get('/users', 'Users::index');
 $routes->post('/add_user', 'Users::add_user');
+$routes->post('/edit_user', 'Users::edit_user');
 
 
 $routes->get('/pharmacies', 'Pharmacies::index');

@@ -271,7 +271,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
+                    <form class="row g-3" id="form_user_edit" method="post" action="<?php echo site_url('edit_user'); ?>">
                         <div class="col-md-3">
                             <label for="edit_userID" class="form-label">รหัสผู้ใช้งาน *</label>
                             <input type="text" class="form-control was-validated" id="edit_userID" name="userID" onchange="clr_border(this);" readonly>
@@ -354,7 +354,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-primary" onclick="save_user()">บันทึก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_edit_user()">บันทึก</button>
                 </div>
             </div>
         </div>
@@ -372,12 +372,10 @@
             ch = false;
             $("#inputlicense").css("border-color","red");
         }
-        
         if($("#inputfname").val().trim().length==0){
             ch = false;
             $("#inputfname").css("border-color","red");
         }
-        
         if($("#inputlname").val().trim().length==0){
             ch = false;
             $("#inputlname").css("border-color","red");
@@ -386,10 +384,7 @@
             ch = false;
             $("#inputusername").css("border-color","red");
         }
-        if($("#inputpassword").val().trim().length==0){
-            ch = false;
-            $("#inputpassword").css("border-color","red");
-        }
+        
         if($("#inputemail").val().trim().length==0){
             ch = false;
             $("#inputemail").css("border-color","red");
@@ -415,8 +410,59 @@
             
     }
 
-
-
+    function save_edit_user(){
+        let ch = true;
+        if($("#edit_license").val().trim().length==0){
+            ch = false;
+            $("#edit_license").css("border-color","red");
+        }
+        if($("#edit_fname").val().trim().length==0){
+            ch = false;
+            $("#edit_fname").css("border-color","red");
+        }
+        if($("#edit_lname").val().trim().length==0){
+            ch = false;
+            $("#edit_lname").css("border-color","red");
+        }
+        if($("#edit_username").val().trim().length==0){
+            ch = false;
+            $("#edit_username").css("border-color","red");
+        }
+        if($("#edit_password").val().trim().length==0){
+            ch = false;
+            $("#edit_password").css("border-color","red");
+        }
+        if($("#edit_email").val().trim().length==0){
+            ch = false;
+            $("#edit_email").css("border-color","red");
+        }
+        if($("#edit_address'").val().trim().length==0){
+            ch = false;
+            $("#edit_address'").css("border-color","red");
+        }
+        if($("#edit_work").val().trim().length==0){
+            ch = false;
+            $("#edit_work").css("border-color","red");
+        }
+        if($("#edit_tel").val().trim().length==0){
+            ch = false;
+            $("#edit_tel").css("border-color","red");
+        }
+        if($("#edit_hiredate").val().trim().length==0){
+            ch = false;
+            $("#edit_hiredate").css("border-color","red");
+        }
+        if($("#edit_licenseexp").val().trim().length==0){
+            ch = false;
+            $("#edit_licenseexp").css("border-color","red");
+        }
+        if(ch){
+            $('#form_user_edit').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+    }
     function view_data(id){
         $('#viewModal').modal('show');
     }
@@ -431,11 +477,13 @@
             $.each(data.data,function(i,item){
                 $("#edit_userID").val(item.user_id);
                 $("#edit_license").val(item.id_license);
+                $('#edit_username').val(item.username);
+                $('#edit_email').val(item.email);
                 $('#edit_fname').val(item.f_name);
                 $('#edit_lname').val(item.l_name);
                 $('#edit_tel').val(item.tel);
                 $('#edit_address').val(item.address);
-                $('#edit_work').val(item.work);
+                $('#edit_work').val(item.work_experience);
                 $('#edit_hiredate').val(item.hiredate);
                 $('#edit_licenseexp').val(item.licenseexp);
             });
