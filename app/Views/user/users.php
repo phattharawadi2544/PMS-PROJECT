@@ -267,68 +267,72 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มผู้ใช้</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขผู้ใช้</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
-                    <div class="col-md-12">
-                            <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต *</label>
-                            <input type="text" class="form-control was-validated" id="inputlicense" name="license" onchange="clr_border(this);" >
+                        <div class="col-md-3">
+                            <label for="edit_userID" class="form-label">รหัสผู้ใช้งาน *</label>
+                            <input type="text" class="form-control was-validated" id="edit_userID" name="userID" onchange="clr_border(this);" readonly>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="edit_license" class="form-label">เลขที่ใบอนุญาต *</label>
+                            <input type="text" class="form-control was-validated" id="edit_license" name="license" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-6">
-                            <label for="inputfname" class="form-label">ชื่อ *</label>
-                            <input type="text" class="form-control was-validated" id="inputfname" name="fname" onchange="clr_border(this);" >
+                            <label for="edit_fname" class="form-label">ชื่อ *</label>
+                            <input type="text" class="form-control was-validated" id="edit_fname" name="fname" onchange="clr_border(this);" >
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputlname" class="form-label">นามสกุล *</label>
-                            <input type="text" class="form-control" id="inputlname" name="lname" onchange="clr_border(this);">
+                            <label for="edit_lname" class="form-label">นามสกุล *</label>
+                            <input type="text" class="form-control" id="edit_lname" name="lname" onchange="clr_border(this);">
                         </div>
                         
                         <div class="col-md-6">
-                            <label for="inputusername" class="form-label">username *</label>
-                            <input type="text" class="form-control" id="inputusername" name="username" onchange="clr_border(this);">
+                            <label for="edit_username" class="form-label">username *</label>
+                            <input type="text" class="form-control" id="edit_username" name="username" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputpassword" class="form-label">password *</label>
-                            <input type="password" class="form-control" id="inputpassword" name="password" onchange="clr_border(this);">
+                            <label for="edit_password" class="form-label">password *</label>
+                            <input type="password" class="form-control" id="edit_password" name="password" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputemail" class="form-label">Email *</label>
-                            <input type="text" class="form-control" id="inputemail" name="email" onchange="clr_border(this);">
+                            <label for="edit_email" class="form-label">Email *</label>
+                            <input type="text" class="form-control" id="edit_email" name="email" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputtel" class="form-label">เบอร์โทร *</label>
-                            <input type="text" class="form-control" id="inputtel" name="telno" onchange="clr_border(this);">
+                            <label for="edit_tel" class="form-label">เบอร์โทร *</label>
+                            <input type="text" class="form-control" id="edit_tel" name="telno" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputaddress" class="form-label">ที่อยู่ *</label>
-                            <textarea type="text" class="form-control" id="inputaddress" name="address" onchange="clr_border(this);"></textarea>
+                            <label for="edit_address" class="form-label">ที่อยู่ *</label>
+                            <textarea type="text" class="form-control" id="edit_address" name="address" onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputwork" class="form-label">ประสบการณ์ทำงาน *</label>
-                            <textarea type="text" class="form-control" id="inputwork" name="work" onchange="clr_border(this);"></textarea>
+                            <label for="edit_work" class="form-label">ประสบการณ์ทำงาน *</label>
+                            <textarea type="text" class="form-control" id="edit_work" name="work" onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
-                            <input type="date" class="form-control" id="inputhiredate" name="hiredate" onchange="clr_border(this);">
+                            <label for="edit_hiredate" class="form-label">วันที่เริ่มทำงาน</label>
+                            <input type="date" class="form-control" id="edit_hiredate" name="hiredate" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
-                            <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp" onchange="clr_border(this);">
+                            <label for="edit_licenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
+                            <input type="date" class="form-control" id="edit_licenseexp" name="licenseexp" onchange="clr_border(this);">
                         </div>
 
                         <div class="col-md-6">
                             <label for="" class="form-label">หน้าที่ *</label>
                             <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="role1" name="role" class="custom-control-input" value='1'>
-                                <label class="custom-control-label" for="role1"> ผู้ประกอบการ</label>
+                                <input type="radio" id="edit_role1" name="role" class="custom-control-input" value='1'>
+                                <label class="custom-control-label" for="edit_role1"> ผู้ประกอบการ</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="role2" name="role" class="custom-control-input" checked value='2'>
-                                <label class="custom-control-label" for="role2"> เภสัชกร </label>
+                                <input type="radio" id="edit_role2" name="role" class="custom-control-input" checked value='2'>
+                                <label class="custom-control-label" for="edit_role2"> เภสัชกร </label>
                             </div>
                             </div>
                         </div>
@@ -337,12 +341,12 @@
                             <label for="" class="form-label">สถานะ *</label>
                             <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status1" name="status" class="custom-control-input" checked value="1">
-                                <label class="custom-control-label" for="status1"> ใช้งานอยู่ </label>
+                                <input type="radio" id="edit_status1" name="status" class="custom-control-input" checked value="1">
+                                <label class="custom-control-label" for="edit_status1"> ใช้งานอยู่ </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="status2" name="status" class="custom-control-input" value="0" >
-                                <label class="custom-control-label" for="status2"> ปิดการใช้งาน </label>
+                                <input type="radio" id="edit_status2" name="status" class="custom-control-input" value="0" >
+                                <label class="custom-control-label" for="edit_status2"> ปิดการใช้งาน </label>
                             </div>
                             </div>
                         </div>
@@ -418,10 +422,19 @@
     }
 
     function edit_data(id){
+        $.ajax({
+            method: "GET",
+            url: "<?php echo site_url('api/getUser')?>"+"/"+id,
+            data: {}
+        })
+        .done(function( data ) {
+            $.each(data.data,function(i,item){
+                $("#edit_userID").val(item.user_id);
+                $("#edit_license").val(item.id_license);
+                $('#edit_fname').val(item.f_name);
+            });
+        });
         $('#editModal').modal('show');
-        
-        
-        
     }
 
     function clr_border(obj){

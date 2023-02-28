@@ -32,19 +32,19 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
-        // }elseif($api_name=='getUserRole'){
-        //     $model = new UserModel();
-        //     if($id!=NULL){
-        //         $get_data = $model->where('user_id',$id)->findAll();
-        //     }else{
-        //         $get_data = $model->orderBy('user_id','ASC')->findAll();
-        //     }
-        //     $data = [
-        //         'success' => true,
-        //         'message' => "OK",
-        //         'data' => $get_data,
-        //     ];
-        //     return $this->response->setJSON($data);
+        }elseif($api_name=='getUserRole'){
+            $model = new UserModel();
+            if($id!=NULL){
+                $get_data = $model->where('user_id',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('user_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
 
         }elseif($api_name=='getPharmacy'){
             $model = new PharmacyModel();
@@ -129,12 +129,6 @@ class APIs extends BaseController
                 'data' => $get_data,
             ];
             return $this->response->setJSON($data);
-
-        // }elseif($api_name=='getUserRole'){
-        // }elseif($api_name=='getUserRole'){
-        // }elseif($api_name=='getUserRole'){
-        // }elseif($api_name=='getUserRole'){
-
         }else{
             $data = [
                 'success' => false,
