@@ -876,7 +876,10 @@
                               </li>
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
-                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php 
+                                      $session = session();
+                                      $name = $session->get('f_name')." ".$session->get('l_name'); 
+                                      echo $name ?>
                                       <img src="<?php echo base_url();?>/assets/images/user/1.png" class="img-fluid rounded" alt="user">
                                   </a>
                                   <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -894,7 +897,7 @@
                                                   <p class="mb-0">ใช้งานอยู่</p>
                                                   <div class="d-flex align-items-center justify-content-center mt-3">
                                                       <a href="<?php echo base_url();?>/app/user-profile.html" class="btn border mr-2">โปรไฟล์</a>
-                                                      <a href="auth-sign-in.html" class="btn border">ออกจากระบบ</a>
+                                                      <a href="<?php echo site_url('logout');?>" class="btn border">ออกจากระบบ</a>
                                                   </div>
                                               </div>
                                           </div>

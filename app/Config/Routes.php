@@ -36,6 +36,7 @@ $routes->get('/kmild', 'Home::f_kmild');
 //=============================POST=================
 $routes->get('/login', 'Login::index');
 $routes->post('/checkLogin', 'Login::check_user_login');
+$routes->get('/logout', 'Login::user_logout');
 
 
 $routes->get('/users', 'Users::index');

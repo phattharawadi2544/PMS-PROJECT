@@ -23,7 +23,7 @@ class Users extends BaseController
             'user_id'=>null, 
             'license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT), 
+            'password' => md5($_POST['password'], PASSWORD_DEFAULT), 
             'email'=>$_POST['email'], 
             'f_name'=>$_POST['fname'], 
             'l_name'=>$_POST['lname'], 
