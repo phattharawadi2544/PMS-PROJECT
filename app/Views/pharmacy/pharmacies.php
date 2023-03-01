@@ -312,17 +312,17 @@
         </div>
         <div class="modal-body">
         <p>ข้อมูลผู้ใช้งานที่มี</p>
-        <form class="row g-3" id="form_user_del" method="post" action="<?php echo site_url('del_user'); ?>">
+        <form class="row g-3" id="form_pharmacy_del" method="post" action="<?php echo site_url('del_pharmacy'); ?>">
         <div class="col-md-12">
-                            <label for="del_userID" class="form-label">รหัสผู้ใช้งาน </label>
-                            <input type="text" class="form-control was-validated" id="del_userID" name="userID" onchange="clr_border(this);" readonly>
+                            <label for="del_pharmacy_id" class="form-label">รหัสผู้ใช้งาน </label>
+                            <input type="text" class="form-control was-validated" id="del_pharmacy_id" name="pharmacy_id" onchange="clr_border(this);" readonly>
                         </div>
         </form>
             
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="save_del_user()">Save changes</button>
+            <button type="button" class="btn btn-primary" onclick="save_del_pharmacy()">Save changes</button>
         </div>
         </div>
     </div>
@@ -428,7 +428,7 @@
         $('#dedeteModal').modal('show');
     }
 
-    function save_del_user(){
+    function save_del_pharmacy(){
         $('#form_pharmacy_del').submit();
     }
 

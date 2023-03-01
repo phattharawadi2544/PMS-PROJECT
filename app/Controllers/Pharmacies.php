@@ -9,6 +9,7 @@ class Pharmacies extends BaseController
     {
         $session = session();
         if(is_null($session->get('login'))){
+            $session->setFlashdata('message_session', '302');
             return redirect()->to('/login');
         }
         
@@ -23,7 +24,7 @@ class Pharmacies extends BaseController
     {
         $data = array(
             'pharmacy_id'=>null, 
-            'img'=>$_POST['img'], 
+            // 'img'=>$_POST['img'], 
             'reg'=>$_POST['reg'], 
             'pharmacyname' => $_POST['pharmacyname'],
             'pharmacydetails'=>$_POST['pharmacydetails'], 
@@ -31,12 +32,14 @@ class Pharmacies extends BaseController
             'pharmacygroup'=>$_POST['pharmacygroup'], 
             'unit'=>$_POST['unit'], 
         );
+        // var_dump($data);
+        // die();
         
         $model = new PharmacyModel();
         $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_code', '202');
+        $session->setFlashdata('message_code', '201');
         return redirect()->to('/pharmacies');
 
 
@@ -53,7 +56,7 @@ class Pharmacies extends BaseController
         $id = $_POST['pharmacy_id'];
         $data = array(
             'pharmacy_id'=>null, 
-            'img'=>$_POST['img'], 
+            // 'img'=>$_POST['img'], 
             'reg'=>$_POST['reg'], 
             'pharmacyname' => $_POST['pharmacyname'],
             'pharmacydetails'=>$_POST['pharmacydetails'], 
@@ -62,31 +65,31 @@ class Pharmacies extends BaseController
             'unit'=>$_POST['unit'], 
         );
         if($_POST['password']!=''){
-            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $data['password'] = md5($_POST['password'], PASSWORD_DEFAULT);
         }
         
         $model = new PharmacyModel();
-        $model->save($data);
+        $model->where('pharmacy_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '201');
-        return redirect()->to('/pharmacy');
+        $session->setFlashdata('message_session', '202');
+        return redirect()->to('/pharmacies');
 
     }
     //delete_user
     public function delete_user()
     {
         //  var_dump($_POST);
-        $id = $_POST['userID'];
+        $id = $_POST['pharmacy_id'];
         $data = array(
             'status'=>0, 
         );
         $model = new PharmacyModel();
-        $model->where('user_id',$id)->set($data)->update();
+        $model->where('pharmacy_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '201');
-        return redirect()->to('/Pharmacy');
+        $session->setFlashdata('message_session', '203');
+        return redirect()->to('/Pharmacies');
 
     }
     
