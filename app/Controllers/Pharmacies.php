@@ -76,8 +76,8 @@ class Pharmacies extends BaseController
         return redirect()->to('/pharmacies');
 
     }
-    //delete_user
-    public function delete_user()
+    //delete_pharmacy
+    public function delete_pharmacy()
     {
         //  var_dump($_POST);
         $id = $_POST['pharmacy_id'];
