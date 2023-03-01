@@ -12,8 +12,9 @@ class Login extends BaseController
     }
     public function check_user_login()
     {
-        var_dump($_POST);
+        // var_dump($_POST);
         //Check Usrename Password  
+        $session = session();
         $model = new UserModel();
         $data = $model->where('username',$_POST['username']) ->first();
         if($data){
@@ -24,7 +25,7 @@ class Login extends BaseController
             // echo ("<br>[".$password_form."][".$password_db."][".$pass ."]");
             // var_dump($password_form);
             if( $pass  == $password_db){
-                echo "Login";
+                // echo "Login";
                 //SET SESSION 
                 $data_user = array (
                     'user_id'=>$data["user_id"],
@@ -34,15 +35,20 @@ class Login extends BaseController
                     'f_name'=>$data["f_name"],
                     'l_name'=>$data["l_name"],
                     'user_role'=>$data["user_role"],
+                    'login'=>true,
                 );
-                $session = session();
+                
                 $session->set($data_user);
-                $_SESSION["login"] = true;
-
+                // $_SESSION["login"] = true;
+                return redirect()->to('/');
             }else{
-                echo "Cannot login";
+                $session->setFlashdata('message_session', 'cannot login');
+                return redirect()->to('/login');
             }
-            return redirect()->to('/');
+            // return redirect()->to('/');
+        }else{
+            $session->setFlashdata('message_session', 'cannot login');
+            return redirect()->to('/login');
         }
        
     }
@@ -51,7 +57,8 @@ class Login extends BaseController
     {
         $session = session();
         $session->destroy();
-        return view('template/login.php');
+        // return view('template/login.php');
+        return redirect()->to('/login');
     }
     
 }

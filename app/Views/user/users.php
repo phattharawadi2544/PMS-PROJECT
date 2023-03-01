@@ -1,10 +1,15 @@
+<?php  $session = session(); ?>
 <div class="content-page">
     <div class="container-fluid">
-        <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
-        <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
-        <?php endif;?>
+    <?php  if($session->getFlashdata('message_session')=='201'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           บันทึกข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
@@ -360,6 +365,34 @@
         </div>
     </div>
 
+
+
+    <!-- delete modal -->
+    <div class="modal" id="dedeteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">เติลอี้ลบหมันไม้</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p>ข้อมูลผู้ใช้งานที่มี</p>
+        <form class="row g-3" id="form_user_del" method="post" action="<?php echo site_url('del_user'); ?>">
+        <div class="col-md-12">
+                            <label for="del_userID" class="form-label">รหัสผู้ใช้งาน </label>
+                            <input type="text" class="form-control was-validated" id="del_userID" name="userID" onchange="clr_border(this);" readonly>
+                        </div>
+        </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="save_del_user()">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     
 </div>
 </div>
@@ -494,6 +527,15 @@
         $('#editModal').modal('show');
     }
 
+    function delete_data(id){
+        $("#del_userID").val(id);
+        $('#dedeteModal').modal('show');
+    }
+
+    function save_del_user(){
+        $('#form_user_del').submit();
+    }
+    
     function clr_border(obj){
         obj.style.removeProperty('border-color');
     }

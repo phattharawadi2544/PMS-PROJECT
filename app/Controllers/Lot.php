@@ -9,6 +9,11 @@ class Lot extends BaseController
     
     public function index()
     {
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+        
         $model = new LotModel();
         $data["lot_list"] = $model->orderBy('lot_id','ASC')->findAll();
         

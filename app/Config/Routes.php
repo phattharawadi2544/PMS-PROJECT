@@ -42,10 +42,16 @@ $routes->get('/logout', 'Login::user_logout');
 $routes->get('/users', 'Users::index');
 $routes->post('/add_user', 'Users::add_user');
 $routes->post('/edit_user', 'Users::edit_user');
+$routes->post('/del_user', 'Users::delete_user');
+
+
 
 
 $routes->get('/pharmacies', 'Pharmacies::index');
 $routes->post('/add_pharmacy', 'Pharmacies::add_pharmacy');
+$routes->post('/del_pharmacy', 'Users::delete_pharmacy');
+
+
 
 $routes->get('/sale_all', 'Sale::sale_all');
 $routes->get('/sale_today', 'Sale::sale_today');

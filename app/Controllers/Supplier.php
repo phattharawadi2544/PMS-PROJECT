@@ -7,6 +7,12 @@ class Supplier extends BaseController
 {
     public function index()
     {
+
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+        
         $model = new SupplierModel();
         $data["supplier"] = $model->orderBy('id_supplier','ASC')->findAll();
         

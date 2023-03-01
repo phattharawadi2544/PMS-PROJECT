@@ -7,8 +7,13 @@ class Users extends BaseController
 {
     public function index()
     {
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+        
         $model = new UserModel();
-        $data["users_list"] = $model->orderBy('user_id','ASC')->findAll();
+        $data["users_list"] = $model->where('status',1)->orderBy('user_id','ASC')->findAll();
         
 
         return view('template/header.php').
@@ -37,11 +42,13 @@ class Users extends BaseController
         );
         // var_dump($data);
         // die();
+
+
         $model = new UserModel();
         $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_code', '202');
+        $session->setFlashdata('message_session', '201');
         return redirect()->to('/users');
 
     }
@@ -70,11 +77,27 @@ class Users extends BaseController
         $model = new UserModel();
         $model->where('user_id',$id)->set($data)->update();
 
-        // $session = session();
-        // $session->setFlashdata('message_code', '202');
+        $session = session();
+        $session->setFlashdata('message_session', '201');
         return redirect()->to('/users');
 
     }
-    
+
+    //delete_user
+    public function delete_user()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['userID'];
+        $data = array(
+            'status'=>0, 
+        );
+        $model = new UserModel();
+        $model->where('user_id',$id)->set($data)->update();
+
+        $session = session();
+        $session->setFlashdata('message_session', '201');
+        return redirect()->to('/users');
+
+    }
     
 }

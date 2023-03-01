@@ -7,8 +7,13 @@ class Pharmacies extends BaseController
 {
     public function index()
     {
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+        
         $model = new PharmacyModel();
-        $data["pharmacy_list"] = $model->orderBy('pharmacy_id','ASC')->findAll();
+        $data["pharmacy_list"] = $model->where('status',1)->orderBy('pharmacy_id','ASC')->findAll();
 
         return view('template/header.php').
         view('pharmacy/pharmacies.php',$data).
@@ -49,7 +54,7 @@ class Pharmacies extends BaseController
     public function edit_pharmacy()
     {
         //  var_dump($_POST);
-        $id = $_POST['userID'];
+        $id = $_POST['pharmacy_id'];
         $data = array(
             'pharmacy_id'=>null, 
             'img'=>$_POST['img'], 
@@ -63,14 +68,29 @@ class Pharmacies extends BaseController
         if($_POST['password']!=''){
             $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }
-        var_dump($data);
-        die();
-        // $model = new UserModel();
-        // $model->save($data);
+        
+        $model = new PharmacyModel();
+        $model->save($data);
 
-        // $session = session();
-        // $session->setFlashdata('message_code', '202');
-        // return redirect()->to('/users');
+        $session = session();
+        $session->setFlashdata('message_session', '201');
+        return redirect()->to('/pharmacy');
+
+    }
+    //delete_user
+    public function delete_user()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['userID'];
+        $data = array(
+            'status'=>0, 
+        );
+        $model = new PharmacyModel();
+        $model->where('user_id',$id)->set($data)->update();
+
+        $session = session();
+        $session->setFlashdata('message_session', '201');
+        return redirect()->to('/Pharmacy');
 
     }
     

@@ -11,6 +11,11 @@ class Management extends BaseController
 
     public function pharmacies_type()
     {
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+        
         $model = new Pharmacy_typeModel();
         $data["pharmacy_group"] = $model->orderBy('id_pharmacy_type','ASC')->findAll();
 

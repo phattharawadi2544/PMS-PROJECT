@@ -6,12 +6,15 @@ class Home extends BaseController
 {
     public function index()
     {
-        // return view('template/template.php');
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
         return view('template/header.php').
         view('template/dashboard.php').
-        // view('template/customers.php').
-        view('template/footer.php');
+        view('template/footer.php'); 
     }
+    
     public function f_kmild()
     {
         return view('template/header.php').

@@ -1,10 +1,20 @@
+<?php  $session = session(); ?>
 <div class="content-page">
      <div class="container-fluid">
-     <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
+     <!-- <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
         <div class="alert alert-success" role="alert">
             A simple success alert—check it out!
         </div>
-        <?php endif;?>
+        <?php endif;?> -->
+        <?php  if($session->getFlashdata('message_session')=='201'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           บันทึกข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
@@ -381,6 +391,14 @@
         $('#editModal').modal('show');
     }
 
+    function delete_data(id){
+        $("#del_pharmacyid").val(id);
+        $('#dedeteModal').modal('show');
+    }
+
+    function save_del_user(){
+        $('#form_pharmacy_del').submit();
+    }
 
     function clr_border(obj){
         obj.style.removeProperty('border-color');
