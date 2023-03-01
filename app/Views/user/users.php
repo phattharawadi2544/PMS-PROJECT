@@ -412,10 +412,17 @@
 
     function save_edit_user(){
         let ch = true;
-        if($("#edit_license").val().trim().length==0){
-            ch = false;
-            $("#edit_license").css("border-color","red");
+        if ($('#edit_role2').is(":checked")){
+            if($("#edit_license").val().trim().length==0){
+                ch = false;
+                $("#edit_license").css("border-color","red");
+            }
+            if($("#edit_licenseexp").val().trim().length==0){
+                ch = false;
+                $("#edit_licenseexp").css("border-color","red");
+            }
         }
+        
         if($("#edit_fname").val().trim().length==0){
             ch = false;
             $("#edit_fname").css("border-color","red");
@@ -451,10 +458,6 @@
         if($("#edit_hiredate").val().trim().length==0){
             ch = false;
             $("#edit_hiredate").css("border-color","red");
-        }
-        if($("#edit_licenseexp").val().trim().length==0){
-            ch = false;
-            $("#edit_licenseexp").css("border-color","red");
         }
         if(ch){
             $('#form_user_edit').submit();

@@ -51,7 +51,6 @@ class Users extends BaseController
         //  var_dump($_POST);
         $id = $_POST['userID'];
         $data = array(
-            'user_id'=>null, 
             'license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
             'email'=>$_POST['email'], 
@@ -68,14 +67,12 @@ class Users extends BaseController
         if($_POST['password']!=''){
             $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }
-        var_dump($data);
-        die();
-        // $model = new UserModel();
-        // $model->save($data);
+        $model = new UserModel();
+        $model->where('user_id',$id)->set($data)->update();
 
         // $session = session();
         // $session->setFlashdata('message_code', '202');
-        // return redirect()->to('/users');
+        return redirect()->to('/users');
 
     }
     

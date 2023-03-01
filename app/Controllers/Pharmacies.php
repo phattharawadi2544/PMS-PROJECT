@@ -46,7 +46,7 @@ class Pharmacies extends BaseController
 
         // var_dump($data);
     }
-    public function edit_user()
+    public function edit_pharmacy()
     {
         //  var_dump($_POST);
         $id = $_POST['userID'];

@@ -228,36 +228,36 @@
                 </div>
 
                 <div class="modal-body">
-                <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('edit_pharmacy'); ?>">
+                <form class="row g-3" id="form_pharmacy_edit" method="post" action="<?php echo site_url('edit_pharmacy'); ?>">
                     <div class="col-md-12">
                         <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
                         <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacyid" readonly >
                     </div>
                     <div class="col-md-6">
                         <label for="edit_img" class="form-label">รูป</label>
-                            <input type="text" class="form-control" id="edit_img" name="img" >
+                            <input type="text" class="form-control" id="edit_img" name="img" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
                         <label for="edit_reg" class="form-label">เลขทะเบียนยา *</label>
-                            <input type="text" class="form-control" id="edit_reg" name="reg" >
+                            <input type="text" class="form-control" id="edit_reg" name="reg" onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
                             <label for="edit_pharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
-                            <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname" >
+                            <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname" onchange="clr_border(this);">
                         </div>
                         
                         <div class="col-6">
                             <label for="edit_details" class="form-label">ข้อบ่งใช้ *</label>
-                            <textarea type="text" class="form-control" id="edit_details"  name="pharmacydetails" ></textarea>
+                            <textarea type="text" class="form-control" id="edit_details"  name="pharmacydetails" onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-6">
                             <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
-                            <textarea type="text" class="form-control" id="edit_warning"  name="pharmacywarning" ></textarea>
+                            <textarea type="text" class="form-control" id="edit_warning"  name="pharmacywarning" onchange="clr_border(this);"></textarea>
                         </div>
 
                         <div class="col-6">
                             <label for="edit_unit" class="form-label">หน่วยนับ</label>
-                            <input type="text" class="form-control" id="edit_unit" name="unit" >
+                            <input type="text" class="form-control" id="edit_unit" name="unit" onchange="clr_border(this);">
                         </div>
                         
                        
@@ -317,7 +317,6 @@
             ch = false;
             $("#inputunit").css("border-color","red");
         }
-       
         if(ch){
             $('#form_pharmacy_new').submit();
         }
@@ -325,6 +324,36 @@
             alert("กรุณากรอกข้อมูลให้ครบ");
         }
             
+    }
+    function save_edit_pharmacy(){
+        let ch = true;
+        if($("#edit_reg").val().trim().length==0){
+            ch = false;
+            $("#edit_reg").css("border-color","red");
+        }
+        if($("#edit_pharmacyname").val().trim().length==0){
+            ch = false;
+            $("#edit_pharmacyname").css("border-color","red");
+        }
+        if($("#edit_details").val().trim().length==0){
+            ch = false;
+            $("#edit_details").css("border-color","red");
+        }
+        if($("#edit_warning").val().trim().length==0){
+            ch = false;
+            $("#edit_warning").css("border-color","red");
+        }
+        if($("#edit_unit").val().trim().length==0){
+            ch = false;
+            $("#edit_unit").css("border-color","red");
+        }
+       
+        if(ch){
+            $('#form_pharmacy_edit').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
     }
 
 
@@ -341,17 +370,12 @@
         })
         .done(function( data ) {
             $.each(data.data,function(i,item){
-                $("#edit_userID").val(item.user_id);
-                $("#edit_license").val(item.id_license);
-                $('#edit_username').val(item.username);
-                $('#edit_email').val(item.email);
-                $('#edit_fname').val(item.f_name);
-                $('#edit_lname').val(item.l_name);
-                $('#edit_tel').val(item.tel);
-                $('#edit_address').val(item.address);
-                $('#edit_work').val(item.work_experience);
-                $('#edit_hiredate').val(item.hiredate);
-                $('#edit_licenseexp').val(item.licenseexp);
+                $("#edit_pharmacyid").val(item.pharmacy_id);
+                $("#edit_reg").val(item.id_reg);
+                $('#edit_pharmacyname').val(item.pharmacyname);
+                $('#edit_details').val(item.details);
+                $('#edit_warning').val(item.warning);
+                $('#edit_unit').val(item.unit);
             });
         });
         $('#editModal').modal('show');
