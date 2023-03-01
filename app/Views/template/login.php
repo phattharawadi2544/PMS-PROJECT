@@ -37,7 +37,7 @@
                      <div class="card-body p-0">
 <?php  if($session->getFlashdata('message_session')=='301'){ ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                           โปรดเช็ครหัสผ่านให้ถูกต้องอีกครั้ง
+                           ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
@@ -45,7 +45,7 @@
 <?php }?>
 <?php  if($session->getFlashdata('message_session')=='302'){ ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                           Login ก่อนตะเติ้ล
+                           กรุณาเข้าสู่ระบบ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
