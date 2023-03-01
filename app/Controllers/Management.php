@@ -23,6 +23,22 @@ class Management extends BaseController
         view('basic_management/pharmacy_type.php',$data).
         view('template/footer.php');
     }
+    //delete_user
+    public function delete_user()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['userID'];
+        $data = array(
+            'status'=>0, 
+        );
+        $model = new Pharmacy_typeModel();
+        $model->where('id_pharmacy_type',$id)->set($data)->update();
+
+        $session = session();
+        $session->setFlashdata('message_session', '201');
+        return redirect()->to('/pharmacy_type');
+
+    }
 
     public function recive_type()
     {
