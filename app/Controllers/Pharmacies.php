@@ -21,9 +21,6 @@ class Pharmacies extends BaseController
     }
     public function add_pharmacy()
     {
-        // var_dump($_POST);
-
-
         $data = array(
             'pharmacy_id'=>null, 
             'img'=>$_POST['img'], 
@@ -33,7 +30,6 @@ class Pharmacies extends BaseController
             'pharmacywarning'=>$_POST['pharmacywarning'], 
             'pharmacygroup'=>$_POST['pharmacygroup'], 
             'unit'=>$_POST['unit'], 
-            
         );
         
         $model = new PharmacyModel();

@@ -9,6 +9,7 @@ class Users extends BaseController
     {
         $session = session();
         if(is_null($session->get('login'))){
+            $session->setFlashdata('message_session', '302');
             return redirect()->to('/login');
         }
         
@@ -72,13 +73,13 @@ class Users extends BaseController
             'user_role'=>$_POST['role']
         );
         if($_POST['password']!=''){
-            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $data['password'] = md5($_POST['password'], PASSWORD_DEFAULT);
         }
         $model = new UserModel();
         $model->where('user_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '201');
+        $session->setFlashdata('message_session', '202');
         return redirect()->to('/users');
 
     }
@@ -95,7 +96,7 @@ class Users extends BaseController
         $model->where('user_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '201');
+        $session->setFlashdata('message_session', '203');
         return redirect()->to('/users');
 
     }

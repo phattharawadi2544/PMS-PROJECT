@@ -1,3 +1,4 @@
+<?php $session = session();?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,7 +44,7 @@
                             </a>
                         </li>
 
-
+                        <?php if($session->get('user_role')==1){?>
                         <li class="">
                             <a href="<?php echo site_url('/users');?>" class="svg-icon">                        
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -52,7 +53,7 @@
                               <span class="ml-4">การจัดการข้อมูลผู้ใช้</span>
                           </a>
                         </li>
-
+                        <?php } ?>
 
                       <li class="">
                           <a href="<?php echo site_url('/pharmacies');?>" class="svg-icon">                        
@@ -877,7 +878,7 @@
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php 
-                                      $session = session();
+                                      
                                       $name = $session->get('f_name')." ".$session->get('l_name'); 
                                       echo $name ?>
                                       <img src="<?php echo base_url();?>/assets/images/user/1.png" class="img-fluid rounded" alt="user">
@@ -892,11 +893,11 @@
                                                       class="rounded profile-img img-fluid avatar-70">
                                               </div>
                                               <div class="p-3">
-                                                  <h5 class="mb-1">ชื่อผู้ใช้</h5>
-                                                  <p class="mb-0">หน้าที่</p>
+                                                  <h5 class="mb-1">ชื่อผู้ใช้ <?php echo $name;?></h5>
+                                                  <p class="mb-0">หน้าที่ <?php echo (($session->get('user_role')==1)?"ผู้บริหาร":"เภสัตร"); ?></p>
                                                   <p class="mb-0">ใช้งานอยู่</p>
                                                   <div class="d-flex align-items-center justify-content-center mt-3">
-                                                      <a href="<?php echo base_url();?>/app/user-profile.html" class="btn border mr-2">โปรไฟล์</a>
+                                                      <!-- <a href="<?php echo base_url();?>/app/user-profile.html" class="btn border mr-2">โปรไฟล์</a> -->
                                                       <a href="<?php echo site_url('logout');?>" class="btn border">ออกจากระบบ</a>
                                                   </div>
                                               </div>

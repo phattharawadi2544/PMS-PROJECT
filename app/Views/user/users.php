@@ -9,6 +9,22 @@
                            </button>
                         </div>
 <?php }?>
+<?php  if($session->getFlashdata('message_session')=='202'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           บันทึกข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+<?php  if($session->getFlashdata('message_session')=='203'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           บันทึกข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
 
         <div class="row">
             <div class="col-lg-12">
@@ -364,7 +380,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- delete modal -->

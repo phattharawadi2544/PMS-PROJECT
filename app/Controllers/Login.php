@@ -12,21 +12,13 @@ class Login extends BaseController
     }
     public function check_user_login()
     {
-        // var_dump($_POST);
-        //Check Usrename Password  
         $session = session();
         $model = new UserModel();
-        $data = $model->where('username',$_POST['username']) ->first();
+        $data = $model->where('username',$_POST['username'])->first();
         if($data){
-            var_dump($data);
-            $password_form = $_POST['password'];
             $password_db = $data['password'];
-            $pass = md5($password_form);
-            // echo ("<br>[".$password_form."][".$password_db."][".$pass ."]");
-            // var_dump($password_form);
+            $pass = md5($_POST['password']);
             if( $pass  == $password_db){
-                // echo "Login";
-                //SET SESSION 
                 $data_user = array (
                     'user_id'=>$data["user_id"],
                     'username'=>$data["username"],
@@ -39,25 +31,21 @@ class Login extends BaseController
                 );
                 
                 $session->set($data_user);
-                // $_SESSION["login"] = true;
                 return redirect()->to('/');
             }else{
-                $session->setFlashdata('message_session', 'cannot login');
+                $session->setFlashdata('message_session', '301');
                 return redirect()->to('/login');
             }
-            // return redirect()->to('/');
         }else{
-            $session->setFlashdata('message_session', 'cannot login');
+            $session->setFlashdata('message_session', '301');
             return redirect()->to('/login');
         }
-       
     }
 
     public function user_logout()
     {
         $session = session();
         $session->destroy();
-        // return view('template/login.php');
         return redirect()->to('/login');
     }
     
