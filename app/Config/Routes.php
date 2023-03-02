@@ -49,6 +49,7 @@ $routes->post('/del_user', 'Users::delete_user');
 
 $routes->get('/pharmacies', 'Pharmacies::index');
 $routes->post('/add_pharmacy', 'Pharmacies::add_pharmacy');
+$routes->post('/edit_pharmacy', 'Pharmacies::edit_pharmacy');
 $routes->post('/del_pharmacy', 'Users::delete_pharmacy');
 
 
