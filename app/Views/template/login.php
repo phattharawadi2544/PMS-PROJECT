@@ -25,8 +25,6 @@
    </div>
    <!-- loader END -->
 
-
-
    <div class="wrapper">
       <section class="login-content">
          <div class="container">
@@ -35,22 +33,22 @@
                <div class="col-lg-8">
                   <div class="card auth-card">
                      <div class="card-body p-0">
-<?php  if($session->getFlashdata('message_session')=='301'){ ?>
+               <?php  if($session->getFlashdata('message_session')=='301'){ ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                           ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
+                           ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้องไม่
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
                         </div>
-<?php }?>
-<?php  if($session->getFlashdata('message_session')=='302'){ ?>
+               <?php }?>
+               <?php  if($session->getFlashdata('message_session')=='302'){ ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                            กรุณาเข้าสู่ระบบ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
                         </div>
-<?php }?>
+               <?php }?>
                         <div class="d-flex align-items-center auth-content">
 
                            <div class="col-lg-7 align-self-center">
