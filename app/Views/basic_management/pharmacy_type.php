@@ -7,9 +7,17 @@
             A simple success alert—check it out!
         </div>
         <?php endif;?> -->
-        <?php  if($session->getFlashdata('message_session')=='201'){ ?>
+        <?php  if($session->getFlashdata('message_session')=='101'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                           บันทึกข้อมูลสำเร็จ
+                           แก้ไขข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+<?php  if($session->getFlashdata('message_session')=='102'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           ลบข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
@@ -127,7 +135,7 @@
         <p>ข้อมูลประเภทยา</p>
         <form class="row g-3" id="form_pharmacy_type_del" method="post" action="<?php echo site_url('del_pharmacy_type'); ?>">
         <div class="col-md-12">
-                            <label for="del_id_pharmacy_type" class="form-label">รหัสผู้ใช้งาน</label>
+                            <label for="del_id_pharmacy_type" class="form-label">รหัสประเภทยา</label>
                             <input type="text" class="form-control was-validated" id="del_id_pharmacy_type" name="id_pharmacy_type" onchange="clr_border(this);" readonly>
                         </div>
         </form>

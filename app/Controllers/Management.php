@@ -24,6 +24,22 @@ class Management extends BaseController
         view('template/footer.php');
     }
     //delete_user
+    public function edit_pharmacy_type()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['id_pharmacy_type'];
+        $data = array(
+            'status'=>0, 
+        );
+        $model = new Pharmacy_typeModel();
+        $model->where('id_pharmacy_type',$id)->set($data)->update();
+
+        $session = session();
+        $session->setFlashdata('message_session', '102');
+        return redirect()->to('/pharmacy_type.php');
+
+    }
+    //delete_user
     public function delete_pharmacies_type()
     {
         //  var_dump($_POST);
@@ -35,7 +51,7 @@ class Management extends BaseController
         $model->where('id_pharmacy_type',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '201');
+        $session->setFlashdata('message_session', '102');
         return redirect()->to('/pharmacy_type.php');
 
     }
@@ -60,7 +76,7 @@ class Management extends BaseController
         $model->where('recive_type_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '202');
+        $session->setFlashdata('message_session', '102');
         return redirect()->to('/recive_type.php');
 
     }
