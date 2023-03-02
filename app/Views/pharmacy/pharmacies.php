@@ -302,6 +302,7 @@
     </div>
 </div>
 </div>
+
  <!-- delete modal -->
  <div class="modal" id="dedeteModal" tabindex="-1">
     <div class="modal-dialog">
@@ -424,7 +425,7 @@
     }
 
     function delete_data(id){
-        $("#del_pharmacyid").val(id);
+        $("#del_pharmacy_id").val(id);
         $('#dedeteModal').modal('show');
     }
 

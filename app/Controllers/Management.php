@@ -23,6 +23,26 @@ class Management extends BaseController
         view('basic_management/pharmacy_type.php',$data).
         view('template/footer.php');
     }
+    public function add_pharmacy_type()
+    {
+        //  var_dump($_POST);
+
+        $data = array(
+            'id_pharmacy_type'=>null, 
+            'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
+            
+        );
+        // var_dump($data);
+        // die();
+
+        $model = new Pharmacy_typeModel();
+        $model->save($data);
+
+        $session = session();
+        $session->setFlashdata('message_session', '101');
+        return redirect()->to('/pharmacy_type');
+
+    }
     //delete_user
     public function edit_pharmacy_type()
     {
@@ -36,23 +56,25 @@ class Management extends BaseController
 
         $session = session();
         $session->setFlashdata('message_session', '102');
-        return redirect()->to('/pharmacy_type.php');
+        return redirect()->to('/pharmacy_type');
+        
 
     }
-    //delete_user
+    //delete_pharmacies_type
     public function delete_pharmacies_type()
     {
         //  var_dump($_POST);
         $id = $_POST['id_pharmacy_type'];
         $data = array(
-            'status'=>0, 
+            'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
+            
         );
         $model = new Pharmacy_typeModel();
         $model->where('id_pharmacy_type',$id)->set($data)->update();
 
         $session = session();
         $session->setFlashdata('message_session', '102');
-        return redirect()->to('/pharmacy_type.php');
+        return redirect()->to('/pharmacy_type');
 
     }
 
@@ -65,6 +87,24 @@ class Management extends BaseController
         view('basic_management/recive_type.php',$data).
         view('template/footer.php');
     }
+    public function edit_recive_type()
+    {
+        //  var_dump($_POST);
+        $id = $_POST['recive_type_id'];
+        $data = array(
+            'recive_name'=>$_POST['recive_name'], 
+            'recive_detail'=>$_POST['recive_detail'], 
+        );
+       
+        $model = new Recive_typeModel();
+        $model->where('recive_type_id',$id)->set($data)->update();
+
+        $session = session();
+        $session->setFlashdata('message_session', '401');
+        return redirect()->to('/recive_type');
+
+    }
+
     public function delete_recive_type()
     {
         //  var_dump($_POST);
@@ -72,12 +112,12 @@ class Management extends BaseController
         $data = array(
             'status'=>0, 
         );
-        $model = new Pharmacy_typeModel();
+        $model = new Recive_typeModel();
         $model->where('recive_type_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '102');
-        return redirect()->to('/recive_type.php');
+        $session->setFlashdata('message_session', '402');
+        return redirect()->to('/recive_type');
 
     }
 

@@ -11,7 +11,7 @@
 <?php }?>
 <?php  if($session->getFlashdata('message_session')=='202'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                           บันทึกข้อมูลสำเร็จ
+                           แก้ไขข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
@@ -19,7 +19,7 @@
 <?php }?>
 <?php  if($session->getFlashdata('message_session')=='203'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                           บันทึกข้อมูลสำเร็จ
+                           ลบข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
@@ -149,31 +149,37 @@
                            <div class="p-icon mr-3">
                               <i class="las la-envelope-open-text"></i>
                            </div>
-                           <p class="mb-0 eml">johndoe9891@gmail.com</p>
+                           <p class="mb-0 eml">เลขที่ใบอนุญาต</p>
                         </div>
                         <div class="d-flex align-items-center mb-3">
                            <div class="p-icon bg-success mr-3">
                               <i class="las la-phone"></i>
                            </div>
-                           <p class="mb-0">(123) 123 1234</p>
+                           <p class="mb-0">วันที่ใบอนุญาตหมดอายุ</p>
                         </div>
                         <div class="d-flex align-items-center mb-3">
                            <div class="p-icon  bg-danger mr-3">
                               <i class="las la-map-marked"></i>
                            </div>
-                           <p class="mb-0">USA</p>
+                           <p class="mb-0">ประสบการณ์ทำงาน</p>
                         </div>
                         <div class="d-flex align-items-center mb-3">
                            <div class="p-icon  bg-danger mr-3">
                               <i class="las la-map-marked"></i>
                            </div>
-                           <p class="mb-0">USA</p>
+                           <p class="mb-0">ที่อยู่</p>
                         </div>
                         <div class="d-flex align-items-center mb-3">
                            <div class="p-icon  bg-danger mr-3">
                               <i class="las la-map-marked"></i>
                            </div>
-                           <p class="mb-0">USA</p>
+                           <p class="mb-0">เบอร์โทร</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="p-icon  bg-danger mr-3">
+                              <i class="las la-map-marked"></i>
+                           </div>
+                           <p class="mb-0">วันที่เริ่มทำงาน</p>
                         </div>
                         
                         
@@ -387,8 +393,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">เติลอี้ลบหมันไม้</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title">ยืนยันการลบข้อมูล</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
         </div>
         <div class="modal-body">
         <p>ข้อมูลผู้ใช้งานที่มี</p>
@@ -401,8 +407,8 @@
             
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="save_del_user()">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" onclick="save_del_user()">ยืนยันการลบ</button>
         </div>
         </div>
     </div>
@@ -416,9 +422,15 @@
 <script>
     function save_user(){
         let ch = true;
-        if($("#inputlicense").val().trim().length==0){
-            ch = false;
-            $("#inputlicense").css("border-color","red");
+        if ($('#role2').is(":checked")){
+            if($("#inputlicense").val().trim().length==0){
+                ch = false;
+                $("#inputlicense").css("border-color","red");
+            }
+            if($("#inputlicenseexp").val().trim().length==0){
+                ch = false;
+                $("#inputlicenseexp").css("border-color","red");
+            }
         }
         if($("#inputfname").val().trim().length==0){
             ch = false;

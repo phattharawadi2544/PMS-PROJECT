@@ -2,11 +2,6 @@
 <div class="content-page">
      <div class="container-fluid">
      <div class="container-fluid">
-     <!-- <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
-        <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
-        <?php endif;?> -->
         <?php  if($session->getFlashdata('message_session')=='101'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                            แก้ไขข้อมูลสำเร็จ
@@ -31,7 +26,8 @@
                         <h4 class="mb-3">ประเภทของยา</h4>
                         
                     </div>
-                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
+                        data-bs-whatever="@mdo">เพิ่มประเภทยา</button>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -73,7 +69,7 @@
                                                 title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $pharmacy_row["id_pharmacy_type"]; ?>')"><i
                                                     class="ri-pencil-line mr-0"></i></a>
                                             <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $pharmacy_row["pharmacy_type_name"]; ?>')"><i
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $pharmacy_row["id_pharmacy_type"]; ?>')"><i
                                                     class="ri-delete-bin-line mr-0"></i></a>
                                         </div>
                                     </td>
@@ -91,6 +87,30 @@
 </div>
 </div>
    
+<!-- newmodal -->
+<div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มประเภทยา</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" id="form_pharmacy_type_name_new" method="post" action="<?php echo site_url('add_user'); ?>">
+                        <div class="col-md-12">
+                            <label for="input_pharmacy_type_name" class="form-label">ชื่อประเภทยา</label>
+                            <input type="text" class="form-control was-validated" id="input_pharmacy_type_name" name="pharmacy_type_name" onchange="clr_border(this);" >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_pharmacy_typee()">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -101,10 +121,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" id="form_pharmacy_type" method="post" action="<?php echo site_url('id_pharmacy_type'); ?>">
-                        <div class="col-md-3">
-                            <label for="edit_id_pharmacy_type" class="form-label">รหัสประเภทยา</label>
-                            <input type="text" class="form-control was-validated" id="edit_id_pharmacy_type" name="id_pharmacy_type" onchange="clr_border(this);" >
-                        </div>
+                        
                         <div class="col-md-9">
                             <label for="edit_pharmacy_type_name" class="form-label">ชื่อประเภทยา</label>
                             <input type="text" class="form-control was-validated" id="edit_pharmacy_type_name" name="pharmacy_type_name" onchange="clr_border(this);" >
@@ -129,7 +146,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">ยืนยันการลบข้อมูล</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
         </div>
         <div class="modal-body">
         <p>ข้อมูลประเภทยา</p>
@@ -143,13 +160,29 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-            <button type="button" class="btn btn-primary" onclick="save_del_user()">ยืนยันการลบ</button>
+            <button type="button" class="btn btn-primary" onclick="save_del_pharmacy_type()">ยืนยันการลบ</button>
         </div>
         </div>
     </div>
     </div>
 
 <script>
+    function save_pharmacy_type(){
+        let ch = true;
+        if($("#input_pharmacy_type_name").val().trim().length==0){
+            ch = false;
+            $("#input_pharmacy_type_name").css("border-color","red");
+        }
+        
+        if(ch){
+            $('#form_pharmacy_type_new').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+            
+    }
+
     function save_edit_pharmacy_type(){
         let ch = true;
         if($("#edit_id_pharmacy_type").val().trim().length==0){
@@ -192,7 +225,7 @@
         $('#dedeteModal').modal('show');
     }
 
-    function save_del_user(){
+    function save_del_pharmacy_type(){
         $('#form_pharmacy_type_del').submit();
     }
     function clr_border(obj){

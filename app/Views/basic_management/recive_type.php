@@ -1,5 +1,21 @@
 <div class="content-page">
      <div class="container-fluid">
+     <?php  if($session->getFlashdata('message_session')=='401'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           แก้ไขข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+<?php  if($session->getFlashdata('message_session')=='402'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           ลบข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
@@ -7,7 +23,8 @@
                         <h4 class="mb-3">ประเภทการรับเงิน</h4>
                         <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
                     </div>
-                    <!-- <a href="page-add-product.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>เพิ่มประเภทการรับ</a> -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
+                        data-bs-whatever="@mdo">เพิ่มผู้ใช้</button>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -55,7 +72,7 @@
                                                 title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $recive_row["recive_type_id"]; ?>')"><i
                                                     class="ri-pencil-line mr-0"></i></a>
                                             <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $recive_row["recive_name"]; ?>')"><i
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $recive_row["recive_type_id"]; ?>')"><i
                                                     class="ri-delete-bin-line mr-0"></i></a>
                                         </div>
                             </td>
@@ -69,7 +86,7 @@
         <!-- Page end  -->
     </div>
 
-    <!-- Button trigger modal -->
+    <!-- edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -78,14 +95,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" id="form_recive_type" method="post" action="<?php echo site_url('id_pharmacy_type'); ?>">
+                    <form class="row g-3" id="form_recive_type" method="post" action="<?php echo site_url('recive_type_id'); ?>">
                         <div class="col-md-3">
                             <label for="edit_recive_type_id" class="form-label">รหัสประเภทการรับ</label>
-                            <input type="text" class="form-control was-validated" id="edit_id_pharmacy_type" name="id_pharmacy_type" onchange="clr_border(this);" >
+                            <input type="text" class="form-control was-validated" id="edit_recive_type_id" name="recive_type_id" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-9">
-                            <label for="edit_pharmacy_type_name" class="form-label">ชื่อประเภทการรับ</label>
-                            <input type="text" class="form-control was-validated" id="edit_pharmacy_type_name" name="pharmacy_type_name" onchange="clr_border(this);" >
+                            <label for="edit_recive_type_name" class="form-label">ชื่อประเภทการรับ</label>
+                            <input type="text" class="form-control was-validated" id="edit_recive_type_name" name="recive_type_name" onchange="clr_border(this);" >
                         </div>
                         <div class="col-md-6">
                             <label for="edit_recive_detail" class="form-label">รายละเอียด</label>
@@ -95,10 +112,36 @@
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy_type()">บันทึก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_edit_recive_type()">บันทึก</button>
                 </div>
             </div>
         </div>
+    </div>
+
+     <!-- delete modal -->
+     <div class="modal" id="dedeteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">ยืนยันการลบข้อมูล</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
+        </div>
+        <div class="modal-body">
+        <p>ข้อมูลประเภทการรับเงิน</p>
+        <form class="row g-3" id="form__recive_type_del" method="post" action="<?php echo site_url('del__recive_type'); ?>">
+        <div class="col-md-12">
+                            <label for="del__recive_type_id" class="form-label">รหัสประเภทการรับ</label>
+                            <input type="text" class="form-control was-validated" id="del__recive_type_id" name="_recive_type_id" onchange="clr_border(this);" readonly>
+                        </div>
+        </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" onclick="save_del_recive_type()">ยืนยันการลบ</button>
+        </div>
+        </div>
+    </div>
     </div>
 
     
@@ -146,6 +189,14 @@
             });
         });
         $('#editModal').modal('show');
+    }
+    function delete_data(id){
+        $("#del_recive_type_id").val(id);
+        $('#dedeteModal').modal('show');
+    }
+
+    function save_del_recive_type(){
+        $('#form_recive_type_del').submit();
     }
 
     function clr_border(obj){
