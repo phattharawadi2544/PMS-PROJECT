@@ -39,7 +39,7 @@ class Management extends BaseController
         $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_session', '101');
+        $session->setFlashdata('message_session', '111');
         return redirect()->to('/pharmacy_type');
 
     }
@@ -49,13 +49,15 @@ class Management extends BaseController
         //  var_dump($_POST);
         $id = $_POST['id_pharmacy_type'];
         $data = array(
-            'status'=>0, 
+            'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
+            // 'status'=>0, 
         );
+        
         $model = new Pharmacy_typeModel();
         $model->where('id_pharmacy_type',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '102');
+        $session->setFlashdata('message_session', '112');
         return redirect()->to('/pharmacy_type');
         
 
@@ -73,10 +75,13 @@ class Management extends BaseController
         $model->where('id_pharmacy_type',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '102');
+        $session->setFlashdata('message_session', '113');
         return redirect()->to('/pharmacy_type');
 
     }
+
+
+
 
     public function recive_type()
     {
@@ -100,7 +105,7 @@ class Management extends BaseController
         $model->where('recive_type_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '401');
+        $session->setFlashdata('message_session', '114');
         return redirect()->to('/recive_type');
 
     }
@@ -116,7 +121,7 @@ class Management extends BaseController
         $model->where('recive_type_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '402');
+        $session->setFlashdata('message_session', '115');
         return redirect()->to('/recive_type');
 
     }

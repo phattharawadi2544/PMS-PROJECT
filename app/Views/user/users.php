@@ -44,7 +44,7 @@
                         <thead class="bg-white text-uppercase">
                             <tr class="ligth ligth-data">
                                 <th>ลำดับ</th>
-                                <th>ID</th>
+                                <th>รหัสผู้ใช้</th>
                                 <th>ชื่อ</th>
                                 <th>สกุล</th>
                                 <!-- <th>username</th> -->
@@ -397,10 +397,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
         </div>
         <div class="modal-body">
-        <p>ข้อมูลผู้ใช้งานที่มี</p>
+        <p>ข้อมูลผู้ใช้ที่ต้องการลบ</p>
         <form class="row g-3" id="form_user_del" method="post" action="<?php echo site_url('del_user'); ?>">
         <div class="col-md-12">
-                            <label for="del_userID" class="form-label">รหัสผู้ใช้งาน </label>
+                            <label for="del_userID" class="form-label">รหัสผู้ใช้</label>
                             <input type="text" class="form-control was-validated" id="del_userID" name="userID" onchange="clr_border(this);" readonly>
                         </div>
         </form>
@@ -420,7 +420,57 @@
 
 
 <script>
-    function save_user(){
+    function save_user()
+    { let ch = true;
+        if ($('#role2').is(":checked")){
+            if($("#inputlicense").val().trim().length==0){
+                ch = false;
+                $("#inputlicense").css("border-color","red");
+            }
+            if($("#inputlicenseexp").val().trim().length==0){
+                ch = false;
+                $("#inputlicenseexp").css("border-color","red");
+            }
+        }
+        if($("#inputfname").val().trim().length==0){
+            ch = false;
+            $("#inputfname").css("border-color","red");
+        }
+        if($("#inputlname").val().trim().length==0){
+            ch = false;
+            $("#inputlname").css("border-color","red");
+        }
+        if($("#inputusername").val().trim().length==0){
+            ch = false;
+            $("#inputusername").css("border-color","red");
+        }
+        
+        if($("#inputemail").val().trim().length==0){
+            ch = false;
+            $("#inputemail").css("border-color","red");
+        }
+        if($("#inputaddress").val().trim().length==0){
+            ch = false;
+            $("#inputaddress").css("border-color","red");
+        }
+        if($("#inputwork").val().trim().length==0){
+            ch = false;
+            $("#inputwork").css("border-color","red");
+        }
+        if($("#inputtel").val().trim().length==0){
+            ch = false;
+            $("#inputtel").css("border-color","red");
+        }
+        if(ch){
+            $('#form_user_new').submit();
+        }
+        else{
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+         function view_data(id){
+        $('#viewModal').modal('show');    
+        }
+    }
         let ch = true;
         if ($('#role2').is(":checked")){
             if($("#inputlicense").val().trim().length==0){
@@ -467,7 +517,8 @@
         else{
             alert("กรุณากรอกข้อมูลให้ครบ");
         }
-            
+         function view_data(id){
+        $('#viewModal').modal('show');    
     }
 
     function save_edit_user(){

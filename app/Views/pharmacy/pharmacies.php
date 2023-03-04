@@ -1,14 +1,25 @@
 <?php  $session = session(); ?>
 <div class="content-page">
      <div class="container-fluid">
-     <!-- <?php $session = session(); if($session->getFlashdata('item')=='202'): ?>
-        <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
-        <?php endif;?> -->
         <?php  if($session->getFlashdata('message_session')=='201'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                            บันทึกข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+<?php  if($session->getFlashdata('message_session')=='202'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           แก้ไขข้อมูลสำเร็จ
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+<?php }?>
+<?php  if($session->getFlashdata('message_session')=='203'){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           ลบข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                            </button>
@@ -33,15 +44,15 @@
                         <tr class="ligth ligth-data">
                             
                             <th>ลำดับ</th>
-                            <th>รูป</th>
                             <th>รหัสยา</th>
                             <th>เลขทะเบียนยา</th>
                             <th>ชื่อยา</th>
                             <th>ข้อบ่งใช้</th>
                             <th>ผลข้างเคียง/ข้อควรระวัง</th>
                             <th>หมวดหมู่</th>
-                            <!-- <th>ประเภท</th> -->
-                            <!-- <th>หน่วยนับ</th> -->
+                            <th>หน่วยนับ</th>
+                            <th>หน่วยนับ</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -58,7 +69,7 @@
                                     <!-- <img src="../assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image"> -->
                                     <div>
                                     <?php echo $count;?>
-                                        <!-- <p class="mb-0"><small>This is test Product</small></p> -->
+                                        
                                     </div>
                                 </div>
                             </td></td>
@@ -69,8 +80,7 @@
                             <td><?php echo  $phamacy_row["pharmacy_details"];?></td>
                             <td><?php echo  $phamacy_row["pharmacy_warning"];?></td>
                             <td><?php echo  $phamacy_row["pharmacy_group"];?></td>
-                            <!-- <td><?php echo  $phamacy_row["pharmacy_type"];?></td> -->
-                            <!-- <td><?php echo  $phamacy_row["counting_unit"];?></td> -->
+                            <td><?php echo  $phamacy_row["counting_unit"];?></td>
                             
                             <td>
                             <div class="d-flex align-items-center list-action">
@@ -108,8 +118,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" id="form_pharmacy_new" method="post" action="<?php echo site_url('add_pharmacy'); ?>">
-                    <div class="col-md-6">
-                        
+                    <!-- <div class="col-md-6">
                         <div class="input-group mb-3">
                             <img class="crm-profile-pic rounded avatar-100" src="../assets/images/pharmacy/medicine2.jpg" alt="profile-pic">
                             <div class="crm-p-image bg-primary">
@@ -117,7 +126,7 @@
                                     <input class="file-upload" type="file" accept="image/*">
                                  </div>
                         </div>
-                    </div>
+                    </div> -->
                         <div class="col-md-6">
                         <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
                             <input type="text" class="form-control" id="inputreg" name="reg" onchange="clr_border(this);">
@@ -140,6 +149,7 @@
                             <label for="inputunit" class="form-label">หน่วยนับ</label>
                             <input type="text" class="form-control" id="inputunit" name="unit" onchange="clr_border(this);">
                         </div>
+                        
                         
                        
                         <div class="col-md-12">
@@ -243,10 +253,10 @@
                         <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
                         <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacyid" readonly >
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <label for="edit_img" class="form-label">รูป</label>
                             <input type="text" class="form-control" id="edit_img" name="img" onchange="clr_border(this);">
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                         <label for="edit_reg" class="form-label">เลขทะเบียนยา *</label>
                             <input type="text" class="form-control" id="edit_reg" name="reg" onchange="clr_border(this);">
@@ -309,13 +319,13 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">ยืนยันการลบข้อมูล</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
         </div>
         <div class="modal-body">
-        <p>ข้อมูลผู้ใช้งาน</p>
+        <p>ข้อมูลยา</p>
         <form class="row g-3" id="form_pharmacy_del" method="post" action="<?php echo site_url('del_pharmacy'); ?>">
         <div class="col-md-12">
-                            <label for="del_pharmacy_id" class="form-label">รหัสผู้ใช้งาน</label>
+                            <label for="del_pharmacy_id" class="form-label">รหัสยา</label>
                             <input type="text" class="form-control was-validated" id="del_pharmacy_id" name="pharmacy_id" onchange="clr_border(this);" readonly>
                         </div>
         </form>

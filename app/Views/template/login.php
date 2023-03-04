@@ -81,9 +81,6 @@
                                     <!-- <a href="auth-recoverpw.html" class="text-primary float-right">Forgot Password?</a> -->
 
                                  </form>
-
-
-
                               </div>
 
                            </div>

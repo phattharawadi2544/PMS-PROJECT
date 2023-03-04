@@ -25,14 +25,15 @@ class Pharmacies extends BaseController
         $data = array(
             'pharmacy_id'=>null, 
             // 'img'=>$_POST['img'], 
-            'reg'=>$_POST['reg'], 
-            'pharmacyname' => $_POST['pharmacyname'],
-            'pharmacydetails'=>$_POST['pharmacydetails'], 
-            'pharmacywarning'=>$_POST['pharmacywarning'], 
-            'pharmacygroup'=>$_POST['pharmacygroup'], 
-            'unit'=>$_POST['unit'], 
+            'reg_no'=>$_POST['reg'], 
+            'pharmacy_name' => $_POST['pharmacyname'],
+            'pharmacy_details'=>$_POST['pharmacydetails'], 
+            'pharmacy_warning'=>$_POST['pharmacywarning'], 
+            'pharmacy_group'=>$_POST['pharmacygroup'], 
+            'counting_unit'=>$_POST['unit'], 
+            'Status'=>1,
         );
-        // var_dump($data);
+        var_dump($data);
         // die();
         
         $model = new PharmacyModel();
@@ -40,6 +41,7 @@ class Pharmacies extends BaseController
 
         $session = session();
         $session->setFlashdata('message_code', '201');
+        // die();
         return redirect()->to('/pharmacies');
 
 
@@ -57,16 +59,15 @@ class Pharmacies extends BaseController
         $data = array(
             'pharmacy_id'=>null, 
             // 'img'=>$_POST['img'], 
-            'reg'=>$_POST['reg'], 
-            'pharmacyname' => $_POST['pharmacyname'],
-            'pharmacydetails'=>$_POST['pharmacydetails'], 
-            'pharmacywarning'=>$_POST['pharmacywarning'], 
-            'pharmacygroup'=>$_POST['pharmacygroup'], 
-            'unit'=>$_POST['unit'], 
+            'reg_no'=>$_POST['reg'], 
+            'pharmacy_name' => $_POST['pharmacyname'],
+            'pharmacy_details'=>$_POST['pharmacydetails'], 
+            'pharmacy_warning'=>$_POST['pharmacywarning'], 
+            'pharmacy_group'=>$_POST['pharmacygroup'], 
+            'counting_unit'=>$_POST['unit'], 
+            'Status'=>1,
         );
-        if($_POST['password']!=''){
-            $data['password'] = md5($_POST['password'], PASSWORD_DEFAULT);
-        }
+        
         
         $model = new PharmacyModel();
         $model->where('pharmacy_id',$id)->set($data)->update();

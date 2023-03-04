@@ -1,6 +1,6 @@
 <div class="content-page">
      <div class="container-fluid">
-     <?php  if($session->getFlashdata('message_session')=='401'){ ?>
+     <?php  if($session->getFlashdata('message_session')=='201'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                            แก้ไขข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -8,7 +8,7 @@
                            </button>
                         </div>
 <?php }?>
-<?php  if($session->getFlashdata('message_session')=='402'){ ?>
+<?php  if($session->getFlashdata('message_session')=='202'){ ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                            ลบข้อมูลสำเร็จ
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
