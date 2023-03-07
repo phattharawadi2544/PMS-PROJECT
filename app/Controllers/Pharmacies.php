@@ -28,13 +28,14 @@ class Pharmacies extends BaseController
             'reg_no'=>$_POST['reg'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
+            'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
-            'counting_unit'=>$_POST['unit'], 
+            // 'pharmacy_type'=>$_POST['pharmacytype'], 
             'Status'=>1,
         );
-        var_dump($data);
-        // die();
+        // var_dump($data);
+        // // die();
         
         $model = new PharmacyModel();
         $model->save($data);
@@ -62,9 +63,10 @@ class Pharmacies extends BaseController
             'reg_no'=>$_POST['reg'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
+            'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
-            'counting_unit'=>$_POST['unit'], 
+            
             'Status'=>1,
         );
         

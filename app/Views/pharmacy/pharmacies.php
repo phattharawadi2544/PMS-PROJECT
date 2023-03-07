@@ -61,7 +61,8 @@
                         
                         // var_dump($pharmacy_list);
                         $count = 0;
-                        foreach($pharmacy_list as $phamacy_row):$count++; ?>
+                        foreach($pharmacy_list as $phamacy_row):
+                        $count++; ?>
                         <tr>
                             
                             <td>
@@ -72,15 +73,29 @@
                                         
                                     </div>
                                 </div>
-                            </td></td>
+                            </td>
                             <td>
-                            <td><?php echo  $phamacy_row["pharmacy_id"];?></td>
-                            <td><?php echo  $phamacy_row["reg_no"];?></td>
-                            <td><?php echo  $phamacy_row["pharmacy_name"];?></td>
-                            <td><?php echo  $phamacy_row["pharmacy_details"];?></td>
-                            <td><?php echo  $phamacy_row["pharmacy_warning"];?></td>
-                            <td><?php echo  $phamacy_row["pharmacy_group"];?></td>
-                            <td><?php echo  $phamacy_row["counting_unit"];?></td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_id"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["reg_no"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_name"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_details"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_warning"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_group"];?>
+                        </td>
+                            <td>
+                                <?php echo  $phamacy_row["counting_unit"];?>
+                        </td>
                             
                             <td>
                             <div class="d-flex align-items-center list-action">
