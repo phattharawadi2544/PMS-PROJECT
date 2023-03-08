@@ -365,26 +365,36 @@
     function save_pharmacy(){
         let ch = true;
         
-        if($("#inputreg").val().trim().length==0){
+        if($("#input_reg").val().trim().length==0){
             ch = false;
-            $("#inputreg").css("border-color","red");
+            $("#input_reg").css("border-color","red");
         }
-        if($("#inputpharmacyname").val().trim().length==0){
+        if($("#input_pharmacyname").val().trim().length==0){
             ch = false;
-            $("#inputpharmacyname").css("border-color","red");
+            $("#inpup_tharmacyname").css("border-color","red");
         }
-        if($("#inputdetails").val().trim().length==0){
+        if($("#input_details").val().trim().length==0){
             ch = false;
-            $("#inputdetails").css("border-color","red");
-        }
-        if($("#inputwarning").val().trim().length==0){
+            $("#input_details").css("border-color","red");
+        }  
+        if($("#input_unit").val().trim().length==0){
             ch = false;
-            $("#inputwarning").css("border-color","red");
+            $("#input_unit").css("border-color","red");
         }
-        if($("#inputunit").val().trim().length==0){
+        if($("#input_warning").val().trim().length==0){
             ch = false;
-            $("#inputunit").css("border-color","red");
+            $("#input_warning").css("border-color","red");
         }
+        if($("#edit_group").val().trim().length==0){
+            ch = false;
+            $("#edit_group").css("border-color","red");
+        }
+        
+        if($("#edit_type").val().trim().length==0){
+            ch = false;
+            $("#edit_type").css("border-color","red");
+        }
+        
         if(ch){
             $('#form_pharmacy_new').submit();
         }
@@ -407,15 +417,26 @@
             ch = false;
             $("#edit_details").css("border-color","red");
         }
-        if($("#edit_warning").val().trim().length==0){
-            ch = false;
-            $("#edit_warning").css("border-color","red");
-        }
         if($("#edit_unit").val().trim().length==0){
             ch = false;
             $("#edit_unit").css("border-color","red");
         }
        
+        if($("#edit_warning").val().trim().length==0){
+            ch = false;
+            $("#edit_warning").css("border-color","red");
+        }
+        
+        if($("#edit_group").val().trim().length==0){
+            ch = false;
+            $("#edit_group").css("border-color","red");
+        }
+        
+        if($("#edit_type").val().trim().length==0){
+            ch = false;
+            $("#edit_type").css("border-color","red");
+        }
+        
         if(ch){
             $('#form_pharmacy_edit').submit();
         }
@@ -439,11 +460,14 @@
         .done(function( data ) {
             $.each(data.data,function(i,item){
                 $("#edit_pharmacyid").val(item.pharmacy_id);
-                $("#edit_reg").val(item.id_reg);
-                $('#edit_pharmacyname').val(item.pharmacyname);
-                $('#edit_details').val(item.details);
-                $('#edit_warning').val(item.warning);
-                $('#edit_unit').val(item.unit);
+                $("#edit_reg").val(item.reg_no);
+                $('#edit_pharmacyname').val(itempharmacy_name);
+                $('#edit_details').val(item.pharmacy_details); 
+                $('#edit_unit').val(item.counting_unit);
+                $('#edit_warning').val(item.pharmacy_warning);
+                $('#edit_group').val(item.pharmacy_group);
+                $('#edit_type').val(item.pharmacy_type);
+
             });
         });
         $('#editModal').modal('show');

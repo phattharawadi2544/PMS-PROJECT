@@ -166,9 +166,9 @@
                               </svg>
                           </a>
                           <ul id="report" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                                  <li class="">
+                                  <!-- <li class="">
                                           <a href="<?php echo base_url('report_purchase');?>">
-                                              <i class="las la-minus"></i><span>รายงานบัญชีการซื้อยา (ข.ย.9) </span>
+                                              <i class="las la-minus"></i><span>รายงานบัญชีการซื้อยา </span>
                                           </a>
                                   </li>
                                   <li class="">
@@ -185,7 +185,7 @@
                                           <a href="<?php echo base_url('report_profession');?>">
                                               <i class="las la-minus"></i><span>รายงานบัญชีการขายยาตามใบสั่งของผู้ประกอบวิชาชีพเวชกรรม หรือผู้ประกอบโรคศิลปะ ฯ (ข.ย.12)</span>
                                           </a>
-                                  </li>
+                                  </li> -->
                           </ul>
                       </li>
                       <!-- <li class=" ">
@@ -271,8 +271,7 @@
                                           </a>
                                   </li>
                                   <li class="">
-                                          <a href="<?php echo base_url();?>/backend/page-add-supplier.html">
-                                              <i class="las la-minus"></i><span>Add Suppliers</span>
+                                          <a href="<?php echo base_url();?>/backend/page-add-supplier.html">\
                                           </a>
                                   </li>
                           </ul>
