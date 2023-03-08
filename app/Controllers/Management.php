@@ -13,6 +13,7 @@ class Management extends BaseController
     {
         $session = session();
         if(is_null($session->get('login'))){
+            $session->setFlashdata('message_session', '302');
             return redirect()->to('/login');
         }
         
@@ -50,7 +51,7 @@ class Management extends BaseController
         $id = $_POST['id_pharmacy_type'];
         $data = array(
             'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
-            // 'status'=>0, 
+            
         );
         
         $model = new Pharmacy_typeModel();
@@ -68,7 +69,7 @@ class Management extends BaseController
         //  var_dump($_POST);
         $id = $_POST['id_pharmacy_type'];
         $data = array(
-            'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
+           'status'=>0, 
             
         );
         $model = new Pharmacy_typeModel();
