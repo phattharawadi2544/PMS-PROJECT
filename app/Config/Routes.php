@@ -50,7 +50,7 @@ $routes->post('/del_user', 'Users::delete_user');
 $routes->get('/pharmacies', 'Pharmacies::index');
 $routes->post('/add_pharmacy', 'Pharmacies::add_pharmacy');
 $routes->post('/edit_pharmacy', 'Pharmacies::edit_pharmacy');
-$routes->post('/del_pharmacy', 'Users::delete_pharmacy');
+$routes->post('/del_pharmacy', 'Pharmacies::delete_pharmacy');
 
 
 
@@ -62,10 +62,12 @@ $routes->get('/pharmacy_type', 'Management::pharmacies_type');
 $routes->post('/add_pharmacy_type', 'Management::add_pharmacy_type');
 $routes->post('/edit_pharmacy_type', 'Management::edit_pharmacy_type');
 $routes->post('/del_pharmacy_type', 'Management::delete_pharmacy_type');
+
 $routes->get('/recive_type', 'Management::recive_type');
 $routes->post('/add_recive_type', 'Management::add_recive_type');
 $routes->post('/edit_recive_type', 'Management::edit_recive_type');
 $routes->post('/del_recive_type', 'Management::delete_recive_type');
+
 $routes->get('/user_role', 'Management::user_role');
 
 
@@ -74,7 +76,7 @@ $routes->get('/supplier', 'Supplier::index');
 
 $routes->get('/lot', 'Lot::index');
 
-
+$routes->get('/sell', 'Sell::home');
 
 
 /*===================APIs======================*/

@@ -99,10 +99,10 @@
                                         <?php echo $users_row["address"]; ?>
                                     </td> -->
                                     <td>
-                                        <?php echo $users_row["status"]; ?>
+                                        <?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?>
                                     </td>
                                     <td>
-                                        <?php echo $users_row["user_role"]; ?>
+                                        <?php echo ($users_row["user_role"] == '1' ? "เจ้าของร้าน" : "เภสัชกร"); ?>
                                     </td>
 
 
@@ -138,61 +138,42 @@
                     <h5 class="modal-title" id="exampleModalLabel">ประวัติ</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg></button>
                 </div>
-               <div class="card card-block p-card">
-                  <div class="profile-box">
-                     <div class="profile-card rounded">
-                        <h3 class="font-600 text-white text-center mb-0">ชื่อผู้ใช้</h3>
-                        <p class="text-white text-center mb-5">หน้าที่</p>
-                     </div>
-                     <div class="pro-content rounded">
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon mr-3">
-                              <i class="las la-envelope-open-text"></i>
-                           </div>
-                           <p class="mb-0 eml">เลขที่ใบอนุญาต</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon bg-success mr-3">
-                              <i class="las la-phone"></i>
-                           </div>
-                           <p class="mb-0">วันที่ใบอนุญาตหมดอายุ</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">ประสบการณ์ทำงาน</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">ที่อยู่</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">เบอร์โทร</p>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                           <div class="p-icon  bg-danger mr-3">
-                              <i class="las la-map-marked"></i>
-                           </div>
-                           <p class="mb-0">วันที่เริ่มทำงาน</p>
-                        </div>
-                        
-                        
-                    </div>
-                  </div>
-                  
-               </div>
-               <div class="modal-footer">
-                        <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-                </div>
+                    
+                        <div class="profile-box">
+                            <div class="profile-card rounded">
+                                <h3 class="font-600 text-white text-center mb-0">ชื่อผู้ใช้</h3>
+                                <p class="text-white text-center mb-5">หน้าที่</p>
                             </div>
+                            
+                            <div class="pro-content rounded">
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0 eml">เลขที่ใบอนุญาต</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0">วันที่ใบอนุญาตหมดอายุ</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0">ประสบการณ์ทำงาน</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0">ที่อยู่</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0">เบอร์โทร</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <p class="mb-0">วันที่เริ่มทำงาน</p>
+                                </div>
                             </div>
+                        </div>
+                   
+                            <div class="modal-footer">
+                                <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                             </div>
+                
+            </div>
+        </div>
+    </div>
 
 
     <!-- newmodal -->

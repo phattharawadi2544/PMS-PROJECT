@@ -141,7 +141,7 @@
                 </div>
                 <div class="modal-footer">
                     
-                    <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy_type()">ปิด</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy_type()">บันทึก</button>
                 </div>
             </div>
         </div>
