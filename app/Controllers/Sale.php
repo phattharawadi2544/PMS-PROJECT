@@ -28,6 +28,12 @@ class Sale extends BaseController
         view('sale/sale_week.php').
         view('template/footer.php');
     }
+    public function sale_new()
+    {
+        return view('template/header.php').
+        view('sale/sale_new.php').
+        view('template/footer.php');
+    }
     
     
 }

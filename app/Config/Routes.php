@@ -57,6 +57,8 @@ $routes->post('/del_pharmacy', 'Pharmacies::delete_pharmacy');
 $routes->get('/sale_all', 'Sale::sale_all');
 $routes->get('/sale_today', 'Sale::sale_today');
 $routes->get('/sale_week', 'Sale::sale_week');
+$routes->get('/sale_new', 'Sale::sale_new');
+
 
 $routes->get('/pharmacy_type', 'Management::pharmacies_type');
 $routes->post('/add_pharmacy_type', 'Management::add_pharmacy_type');
@@ -76,7 +78,7 @@ $routes->get('/supplier', 'Supplier::index');
 
 $routes->get('/lot', 'Lot::index');
 
-$routes->get('/sell', 'Sell::home');
+
 
 
 /*===================APIs======================*/

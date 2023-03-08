@@ -46,6 +46,6 @@
             jQuery("body").toggleClass("sidebar-main");
             <?php } ?>
         });
-      </script>
+    </script>
   </body>
 </html>
