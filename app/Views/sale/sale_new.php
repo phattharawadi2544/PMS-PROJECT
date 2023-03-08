@@ -9,7 +9,7 @@
                     
                 </div> -->
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                     <div class="iq-search-bar device-search">
                       <form action="#" class="searchbox">
                           <a class="search-link" href="#"><i class="ri-search-line"></i></a>
@@ -20,7 +20,7 @@
 
 
             <div class="col-lg-12">
-                <table class="data-tables table mb-0 tbl-server-info">
+                <table class="tables table mb-0 ">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                             <th>

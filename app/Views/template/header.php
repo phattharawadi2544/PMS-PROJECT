@@ -158,6 +158,11 @@
                                               <i class="las la-minus"></i><span>รายการขายสัปดาห์นี้</span>
                                           </a>
                                   </li>
+                                  <li class="">
+                                          <a href="<?php echo base_url('sale_test');?>">
+                                              <i class="las la-minus"></i><span>การขายทดลอง</span>
+                                          </a>
+                                  </li>
                           </ul>
                         </li>
                       

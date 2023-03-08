@@ -34,6 +34,13 @@ class Sale extends BaseController
         view('sale/sale_new.php').
         view('template/footer.php');
     }
+    public function sale_test()
+    {
+        return view('template/header.php').
+        view('sale/sale_test.php').
+        view('template/footer.php');
+    }
+    
     
     
 }

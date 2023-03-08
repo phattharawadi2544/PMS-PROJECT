@@ -58,6 +58,7 @@ $routes->get('/sale_all', 'Sale::sale_all');
 $routes->get('/sale_today', 'Sale::sale_today');
 $routes->get('/sale_week', 'Sale::sale_week');
 $routes->get('/sale_new', 'Sale::sale_new');
+$routes->get('/sale_test', 'Sale::sale_test');
 
 
 $routes->get('/pharmacy_type', 'Management::pharmacies_type');
