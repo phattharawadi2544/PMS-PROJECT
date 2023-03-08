@@ -133,6 +133,9 @@
                                   <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                               </svg>
                             </a>
+
+
+
                           <ul id="sale" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             
                                 <li class="">
@@ -140,7 +143,7 @@
                                               <i class="las la-minus"></i><span>บันทึกการขายยา</span>
                                           </a>
                                   </li>
-                          
+                             <?php if($session->get('user_role')==1){?>
                                 <li class="">
                                           <a href="<?php echo base_url('sale_all');?>">
                                               <i class="las la-minus"></i><span>รายการขายทั้งหมด</span>
@@ -158,6 +161,7 @@
                                               <i class="las la-minus"></i><span>รายการขายสัปดาห์นี้</span>
                                           </a>
                                   </li>
+                                  <?php } ?>
                                   <li class="">
                                           <a href="<?php echo base_url('sale_test');?>">
                                               <i class="las la-minus"></i><span>การขายทดลอง</span>
