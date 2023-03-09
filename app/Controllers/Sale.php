@@ -32,7 +32,7 @@ class Sale extends BaseController
     {
         return view('template/header.php').
         view('sale/sale_new.php').
-        view('template/footer.php');
+        view('sale/sale_footer.php');
     }
     public function sale_test()
     {
