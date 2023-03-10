@@ -60,6 +60,20 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
+        }elseif($api_name=='getPharmacybybarcode'){
+            $model = new PharmacyModel();
+            if($id!=NULL){
+                $get_data = $model->where('barcode',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('barcode','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
         }elseif($api_name=='getPharmacyGroup'){
             $model = new Pharmacy_typeModel();
             if($id!=NULL){

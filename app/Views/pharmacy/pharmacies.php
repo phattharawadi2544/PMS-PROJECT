@@ -37,12 +37,12 @@
                         data-bs-whatever="@mdo">เพิ่มข้อมูลยา</button>
                 </div>
             </div>
+
             <div class="col-lg-12">
                 <div class="table-responsive rounded mb-3">
                 <table class="data-tables table mb-0 tbl-server-info">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
-                            
                             <th>ลำดับ</th>
                             <th>รหัสยา</th>
                             <th>เลขทะเบียนยา</th>
@@ -52,7 +52,6 @@
                             <th>หมวดหมู่</th>
                             <th>หน่วยนับ</th>
                             <th>หน่วยนับ</th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
