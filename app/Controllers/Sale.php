@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\OrderModel;
+use App\Models\PharmacyModel;
 
 class Sale extends BaseController
 {
@@ -36,8 +37,10 @@ class Sale extends BaseController
     }
     public function sale_test()
     {
+        $model = new PharmacyModel();
+        $data["pharmacy_list"] = $model->where('status',1)->orderBy('pharmacy_id','ASC')->findAll();
         return view('template/header.php').
-        view('sale/sale_test.php').
+        view('sale/sale_test.php',$data).
         view('template/footer.php');
     }
     

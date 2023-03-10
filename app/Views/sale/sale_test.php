@@ -171,94 +171,83 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div class="iq-search-bar device-search">
-                      <form action="#" class="searchbox">
-                          <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                          <input type="text" class="text search-input" placeholder="Search here...">
-                      </form>
-                  </div>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>How To Add and Delete Rows Dynamically Using jQuery - Techsolutionstuff</title>
-<style>
-    form{
-        margin: 20px;
-    }
-    form input, button{
-        padding: 5px;
-    }
-    table{
-        width: 90%;
-        margin: 20px;
-		border-collapse: collapse;
-    }
-    table, th, td{
-        border: 1px solid #cdcdcd;
-    }
-    table th, table td{
-        padding: 10px;
-        text-align: left;      	
-    }
-  	.delete-row, h2{
-      margin:20px;
-  	}
-</style>
-
-</head>
-<body style="border:1px solid grey">
-  	
-    <!-- <form>
-        <input type="text" id="name" placeholder="Name">
-        <input type="text" id="email" placeholder="Email Address">
-    	<input type="button" class="add-row" value="Add Row">
-    </form> -->
-    <table>
-        <thead>
-            <tr>
-                <th>Select</th>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="checkbox" name="record"></td>
-                <td>techsolutionstuff</td>
- <td>techsolutionstuff@test.com</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="record"></td>
-                <td>web developemnt</td>
-                <td>web@test.com</td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" class="delete-row">Delete Row</button>
-</body> 
-</html>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $(".add-row").click(function(){
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email + "</td></tr>";
-            $("table tbody").append(markup);
-        });
-        
-        // Find and remove selected table rows
-        $(".delete-row").click(function(){
-            $("table tbody").find('input[name="record"]').each(function(){
-            	if($(this).is(":checked")){
-                    $(this).parents("tr").remove();
-                }
-            });
-        });
-    });    
-</script>
- 
+        <div class="table-responsive rounded mb-3">
+            <table class="data-tables table mb-0 tbl-server-info">
+                    <thead class="bg-white text-uppercase">
+                        <tr class="ligth ligth-data">
+                            
+                            <th>ลำดับ</th>
+                            <th>รหัสยา</th>
+                            <th>เลขทะเบียนยา</th>
+                            <th>ชื่อยา</th>
+                            <th>ข้อบ่งใช้</th>
+                            <th>ผลข้างเคียง/ข้อควรระวัง</th>
+                            <th>หมวดหมู่</th>
+                            <th>หน่วยนับ</th>
+                            <th>หน่วยนับ</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="ligth-body">
+                        <?php 
+                        
+                        // var_dump($pharmacy_list);
+                        $count = 0;
+                        foreach($pharmacy_list as $phamacy_row):
+                        $count++; ?>
+                        <tr>
+                            
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <!-- <img src="../assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image"> -->
+                                    <div>
+                                    <?php echo $count;?>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_id"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["reg_no"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_name"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_details"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_warning"];?>
+                            </td>
+                            <td>
+                                <?php echo  $phamacy_row["pharmacy_group"];?>
+                        </td>
+                            <td>
+                                <?php echo  $phamacy_row["counting_unit"];?>
+                        </td>
+                            
+                            <td>
+                            <div class="d-flex align-items-center list-action">
+                                            <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ดู" href="#" onclick="view_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-eye-line mr-0"></i></a>
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="แก้ไข" href="#" onclick="edit_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ลบ" href="#" onclick="delete_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-delete-bin-line mr-0"></i></a>
+                            </div>
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
