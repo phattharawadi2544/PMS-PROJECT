@@ -71,6 +71,7 @@
                                                             onclick="search_item()"><i
                                                                 class="ri-search-line"></i></button>
                                                     </div>
+                                                    
                                                 </div>
                                             </form>
                                             <table class="table table-sm" id="table_order_detail">
@@ -220,12 +221,10 @@
                     alert("กรุณาเลือกรายการยา");
                 } else if (amount == "" || amount < 1) {
                     alert("กรุณาระบุจำนวน");
-                } else if (barcode == "") {
-                    alert("กรุณาใส่บาร์โค้ด");
                 } else {
                     alert(pha_id);
                     alert(amount);
-                    alert(barcode);
+
 
 
 
@@ -250,13 +249,6 @@
                                 // $('#edit_email').val(item.email);
                             });
                         });
-
-
-
-
-
-
-
                     $('#pha_id').val("");
                     $('#barcode').val("");
                     $('#name').val("");
@@ -266,24 +258,32 @@
 
             function search_barcode() {
                 let barcode = $('#barcode').val()
-                $.ajax({
-                        method: "GET",
-                        url: "<?php echo site_url('api/getPharmacybybarcode')?>" + "/" + barcode,
-                        data: {}
-                    })
-                    .done(function(data) {
-                        console.log(data);
-                        $.each(data.data, function(i, item) {
-                            $('#pha_id').val(item.pharmacy_id);
-                            $('#barcode').val(item.barcode);
-                            $('#name').val(item.pharmacy_name);
-                            $('#amount').val(1);
+                if (barcode == "") {
+                    alert("ไม่มีบาร์โค้ด");
+                } else {
+                    alert(barcode);
 
+                    $.ajax({
+                            method: "GET",
+                            url: "<?php echo site_url('api/getPharmacybybarcode')?>" + "/" + barcode,
+                            data: {}
+                        })
+                        .done(function(data) {
+                            console.log(data);
+                            $.each(data.data, function(i, item) {
+                                $('#pha_id').val(item.pharmacy_id);
+                                $('#barcode').val(item.barcode);
+                                $('#name').val(item.pharmacy_name);
+                                $('#amount').val(1);
+
+                            });
                         });
-                    });
-                alert(barcode);
+                    $('#pha_id').val("");
+                    $('#barcode').val("");
+                    $('#name').val("");
+                    $('#amount').val("");
 
-
+                }
             }
             </script>
 

@@ -10,6 +10,7 @@ class Supplier extends BaseController
 
         $session = session();
         if(is_null($session->get('login'))){
+            $session->setFlashdata('message_session', '302');
             return redirect()->to('/login');
         }
         
