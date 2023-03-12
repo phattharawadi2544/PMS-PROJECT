@@ -1,7 +1,5 @@
-        
-        
-     <div class="content-page">
-        <div class="container-fluid">   
+<div class="content-page">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
                 <div class="card card-transparent card-block card-stretch card-height border-none">
@@ -18,13 +16,14 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4 card-total-sale">
                                     <div class="icon iq-icon-box-2 bg-info-light">
-                                        <img src="<?php echo base_url();?>/assets/images/product/1.png" class="img-fluid" alt="image">
+                                        <img src="<?php echo base_url();?>/assets/images/product/1.png"
+                                            class="img-fluid" alt="image">
                                     </div>
                                     <div>
                                         <p class="mb-2">ยอดขายวันนี้</p>
                                         <h4>31.50</h4>
                                     </div>
-                                </div>                                
+                                </div>
                                 <div class="iq-progress-bar mt-2">
                                     <span class="bg-info iq-progress progress-1" data-percent="85">
                                     </span>
@@ -37,7 +36,8 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4 card-total-sale">
                                     <div class="icon iq-icon-box-2 bg-danger-light">
-                                        <img src="<?php echo base_url();?>/assets/images/product/2.png" class="img-fluid" alt="image">
+                                        <img src="<?php echo base_url();?>/assets/images/product/2.png"
+                                            class="img-fluid" alt="image">
                                     </div>
                                     <div>
                                         <p class="mb-2">กำไรวันนี้</p>
@@ -56,7 +56,8 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4 card-total-sale">
                                     <div class="icon iq-icon-box-2 bg-success-light">
-                                        <img src="<?php echo base_url();?>/assets/images/product/3.png" class="img-fluid" alt="image">
+                                        <img src="<?php echo base_url();?>/assets/images/product/3.png"
+                                            class="img-fluid" alt="image">
                                     </div>
                                     <div>
                                         <p class="mb-2">จำนวนยาที่ขายได้วันนี้</p>
@@ -77,7 +78,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                             <h4 class="card-title">สรุปยอดขาย</h4>
-                        </div>                        
+                        </div>
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton001"
@@ -92,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="card-body">
                         <div id="layout1-chart1"></div>
                     </div>
@@ -151,7 +152,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-warning-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/01.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/01.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Organic Cream</h5>
@@ -164,7 +166,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-danger-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Rain Umbrella</h5>
@@ -177,7 +180,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-danger-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Rain Umbrella</h5>
@@ -190,7 +194,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-info-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/03.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/03.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Serum Bottle</h5>
@@ -203,7 +208,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-success-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Organic Cream</h5>
@@ -216,7 +222,8 @@
                                 <div class="card card-block card-stretch card-height mb-0">
                                     <div class="card-body">
                                         <div class="bg-success-light rounded">
-                                            <img src="<?php echo base_url();?>/assets/images/product/02.png" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="<?php echo base_url();?>/assets/images/product/02.png"
+                                                class="style-img img-fluid m-auto p-3" alt="image">
                                         </div>
                                         <div class="style-text text-left mt-3">
                                             <h5 class="mb-1">Organic Cream</h5>
@@ -229,7 +236,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">  
+            <div class="col-lg-4">
                 <div class="card card-transparent card-block card-stretch mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between p-0">
                         <div class="header-title">
@@ -244,7 +251,8 @@
                     <div class="card-body card-item-right">
                         <div class="d-flex align-items-top">
                             <div class="bg-warning-light rounded">
-                                <img src="<?php echo base_url();?>/assets/images/product/04.png" class="style-img img-fluid m-auto" alt="image">
+                                <img src="<?php echo base_url();?>/assets/images/product/04.png"
+                                    class="style-img img-fluid m-auto" alt="image">
                             </div>
                             <div class="style-text text-left">
                                 <h5 class="mb-2">Coffee Beans Packet</h5>
@@ -258,7 +266,8 @@
                     <div class="card-body card-item-right">
                         <div class="d-flex align-items-top">
                             <div class="bg-danger-light rounded">
-                                <img src="<?php echo base_url();?>/assets/images/product/05.png" class="style-img img-fluid m-auto" alt="image">
+                                <img src="<?php echo base_url();?>/assets/images/product/05.png"
+                                    class="style-img img-fluid m-auto" alt="image">
                             </div>
                             <div class="style-text text-left">
                                 <h5 class="mb-2">Bottle Cup Set</h5>
@@ -268,8 +277,8 @@
                         </div>
                     </div>
                 </div>
-            </div>            
-            <div class="col-lg-4">  
+            </div>
+            <div class="col-lg-4">
                 <div class="card card-block card-stretch card-height-helf">
                     <div class="card-body">
                         <div class="d-flex align-items-top justify-content-between">
@@ -321,12 +330,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">  
+            <div class="col-lg-8">
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
                             <h4 class="card-title">สรุปรายการขาย</h4>
-                        </div>                        
+                        </div>
                         <div class="card-header-toolbar d-flex align-items-center">
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton005"
@@ -341,7 +350,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="card-body">
                         <div class="d-flex flex-wrap align-items-center mt-2">
                             <div class="d-flex align-items-center progress-order-left">
@@ -381,7 +390,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
-    <!-- Page end  -->
+        </div>
+        <!-- Page end  -->
     </div>
-      </div>
+</div>
