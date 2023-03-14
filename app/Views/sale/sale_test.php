@@ -259,9 +259,9 @@
             function search_barcode() {
                 let barcode = $('#barcode').val()
                 if (barcode == "") {
-                    alert("ไม่มีบาร์โค้ด");
+                    alert("กรุณาระบุบาร์โค้ด");
                 } else {
-                    alert(barcode);
+                   // alert(barcode);
 
                     $.ajax({
                             method: "GET",
@@ -270,13 +270,18 @@
                         })
                         .done(function(data) {
                             console.log(data);
-                            $.each(data.data, function(i, item) {
+                            if(data.data.length > 0){
+                                $.each(data.data, function(i, item) {
                                 $('#pha_id').val(item.pharmacy_id);
                                 $('#barcode').val(item.barcode);
                                 $('#name').val(item.pharmacy_name);
                                 $('#amount').val(1);
 
                             });
+                            }else {
+                                alert("ไม่พบรายการยา บาร์โค้ด "+barcode);
+                            }
+                            
                         });
                     $('#pha_id').val("");
                     $('#barcode').val("");
