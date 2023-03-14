@@ -44,10 +44,8 @@
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center auth-content">
                                     <div class="col-lg-12 align-self-center">
-
                                         <div class="p-3">
                                             <h6 class="card-title">เพิ่มรายการขาย</h6>
-
                                             <form>
                                                 <div class="form-row">
                                                     <div class="col-3">
@@ -71,7 +69,6 @@
                                                             onclick="search_item()"><i
                                                                 class="ri-search-line"></i></button>
                                                     </div>
-                                                    
                                                 </div>
                                             </form>
                                             <table class="table table-sm" id="table_order_detail">
@@ -85,11 +82,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                 </tbody>
                                             </table>
-
-
                                         </div>
                                     </div>
 
@@ -97,20 +91,55 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-4">
                         <div class="card auth-card">
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center auth-content">
                                     <div class="col-lg-12 align-self-center">
-                                        <h6 class="card-title">จำนวนทั้งหมด</h6>
-                                        <h6 class="card-title">ยอดรวมสุทธิ</h6>
-                                        <h6 class="card-title">ภาษี</h6>
-                                        <h1 class="card-title">รวมทั้งหมด</h1>
-                                        <div class="col-6">
+                                        <div class="form-row">
+                                            <div class="col-7 h5">
+                                                จำนวนทั้งหมด
+                                            </div>
+                                            <div class="col-3 h5">
+                                                <span id="2">2</span>
+                                            </div>
+                                            <div class="col-2 h5">
+                                                รายการ
+                                            </div>
+                                            <div class="col-7 h5">
+                                                ยอดรวมสุทธิ
+                                            </div>
+                                            <div class="col-3 h5">
+                                                <span id="2">100.00</span>
+                                            </div>
+                                            <div class="col-2 h5">
+                                                บาท
+                                            </div>
+                                            <div class="col-7 h5">
+                                                ภาษี 7.00%
+                                            </div>
+                                            <div class="col-3 h5">
+                                                <span id="2">3.00</span>
+                                            </div>
+                                            <div class="col-2 h5">
+                                                บาท
+                                            </div>
+                                            <div class="col-7 h3">
+                                                รวมทั้งหมด
+                                            </div>
+                                            <div class="col-3 h3">
+                                                <span id="2">100.00</span>
+                                            </div>
+                                            <div class="col-2 h3">
+                                                บาท
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-8">
                                             <select class="form-control form-control-sm mb-3">
-                                                <option selected="">ประเภทการรับเงิน</option>
-                                                <option value="1">เงินสด</option>
+                                                <option value="1" selected >เงินสด</option>
                                                 <option value="2">โอนเงิน</option>
                                             </select>
                                         </div>
@@ -222,8 +251,7 @@
                 } else if (amount == "" || amount < 1) {
                     alert("กรุณาระบุจำนวน");
                 } else {
-                    alert(pha_id);
-                    alert(amount);
+                   
 
 
 
@@ -240,7 +268,7 @@
                                     '<td>' + amount + '</td>' +
                                     '<td>' + item.price + '</td>' +
                                     '<td>' + (item.price * amount) + '</td>' +
-                                    '<td><button type="button" class="btn btn-sm btn-warning delete-row">ลบ</button>' +
+                                    '<td><button type="button" class="btn btn-sm btn-warning delete-row phamacy_list" onclick="delete_phamact_list(this);">ลบ</button>' +
                                     '</td></tr>';
                                 $("#table_order_detail tbody").append(tag_html);
                                 // $("#pha_id").val(item.pha_id);
@@ -261,7 +289,7 @@
                 if (barcode == "") {
                     alert("กรุณาระบุบาร์โค้ด");
                 } else {
-                   // alert(barcode);
+                    // alert(barcode);
 
                     $.ajax({
                             method: "GET",
@@ -270,18 +298,18 @@
                         })
                         .done(function(data) {
                             console.log(data);
-                            if(data.data.length > 0){
+                            if (data.data.length > 0) {
                                 $.each(data.data, function(i, item) {
-                                $('#pha_id').val(item.pharmacy_id);
-                                $('#barcode').val(item.barcode);
-                                $('#name').val(item.pharmacy_name);
-                                $('#amount').val(1);
+                                    $('#pha_id').val(item.pharmacy_id);
+                                    $('#barcode').val(item.barcode);
+                                    $('#name').val(item.pharmacy_name);
+                                    $('#amount').val(1);
 
-                            });
-                            }else {
-                                alert("ไม่พบรายการยา บาร์โค้ด "+barcode);
+                                });
+                            } else {
+                                alert("ไม่พบรายการยา บาร์โค้ด " + barcode);
                             }
-                            
+
                         });
                     $('#pha_id').val("");
                     $('#barcode').val("");
@@ -290,6 +318,15 @@
 
                 }
             }
+
+            function delete_phamact_list(x){
+                var listItem = $(".phamacy_list");
+                // $("#table_order_detail").deleteRow(listItem.index(x));
+                console.log(listItem.index(x));
+                console.log(x);
+            }
+
+            
             </script>
 
 
