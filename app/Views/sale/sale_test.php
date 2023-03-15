@@ -97,40 +97,40 @@
                                 <div class="d-flex align-items-center auth-content">
                                     <div class="col-lg-12 align-self-center">
                                         <div class="form-row">
-                                            <div class="col-7 h5">
+                                            <div class="col-7 h6">
                                                 จำนวนทั้งหมด
                                             </div>
-                                            <div class="col-3 h5">
+                                            <div class="col-3 h6">
                                                 <span id="2">2</span>
                                             </div>
-                                            <div class="col-2 h5">
+                                            <div class="col-2 h6">
                                                 รายการ
                                             </div>
-                                            <div class="col-7 h5">
+                                            <div class="col-7 h6">
                                                 ยอดรวมสุทธิ
                                             </div>
-                                            <div class="col-3 h5">
+                                            <div class="col-3 h6">
                                                 <span id="2">100.00</span>
                                             </div>
-                                            <div class="col-2 h5">
+                                            <div class="col-2 h6">
                                                 บาท
                                             </div>
-                                            <div class="col-7 h5">
+                                            <div class="col-7 h6">
                                                 ภาษี 7.00%
                                             </div>
-                                            <div class="col-3 h5">
+                                            <div class="col-3 h6">
                                                 <span id="2">3.00</span>
                                             </div>
-                                            <div class="col-2 h5">
+                                            <div class="col-2 h6">
                                                 บาท
                                             </div>
-                                            <div class="col-7 h3">
+                                            <div class="col-7 h4">
                                                 รวมทั้งหมด
                                             </div>
-                                            <div class="col-3 h3">
+                                            <div class="col-3 h4">
                                                 <span id="2">100.00</span>
                                             </div>
-                                            <div class="col-2 h3">
+                                            <div class="col-2 h4">
                                                 บาท
                                             </div>
 
@@ -139,12 +139,13 @@
 
                                         <div class="col-8">
                                             <select class="form-control form-control-sm mb-3">
-                                                <option value="1" selected >เงินสด</option>
+                                                <option value="1" selected>เงินสด</option>
                                                 <option value="2">โอนเงิน</option>
                                             </select>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">ยืนยันการขาย</button>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#newModal" data-bs-whatever="@mdo">ยืนยันการขาย</button>
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +228,59 @@
                 </div>
             </div>
 
+            <!-- newmodal -->
+            <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">รายการขาย</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="none" d="M0 0h24v24H0z" />
+                                    <path
+                                        d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                                </svg></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3" id="form_pharmacy_new" method="post"
+                                action="<?php echo site_url('add_pharmacy'); ?>">
+                                
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-sm" placeholder="ชื่อลูกค้า"
+                                            id="name" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-sm" placeholder="เงินสด"
+                                            id="name" readonly>
+                                    </div>
+                                
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">จำนวน</th>
+                                            <th scope="col">ชื่อยา</th>
+                                            <th scope="col">ราคา</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="col-7 h3">
+                                    รวมทั้งหมด
+                                </div>
+                                <div class="col-3 h3">
+                                    <span id="2">100.00</span>
+                                </div>
+                                <div class="col-2 h3">
+                                    บาท
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary" onclick="save_pharmacy()">ยืนยัน</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <script>
             function search_item() {
@@ -251,7 +305,7 @@
                 } else if (amount == "" || amount < 1) {
                     alert("กรุณาระบุจำนวน");
                 } else {
-                   
+
 
 
 
@@ -319,14 +373,12 @@
                 }
             }
 
-            function delete_phamact_list(x){
+            function delete_phamact_list(x) {
                 var listItem = $(".phamacy_list");
                 // $("#table_order_detail").deleteRow(listItem.index(x));
                 console.log(listItem.index(x));
                 console.log(x);
             }
-
-            
             </script>
 
 

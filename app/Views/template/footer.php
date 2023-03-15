@@ -1,6 +1,6 @@
 <?php $session = session();?>
 </div>
-    <footer class="iq-footer">
+    <!-- <footer class="iq-footer">
             <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     
     <!-- Backend Bundle JavaScript -->
