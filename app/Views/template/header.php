@@ -42,7 +42,7 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu">
 
-                        <?php if($session->get('user_role')==1){?>
+                        <!-- <?php if($session->get('user_role')==1){?>
                         <li class="">
                             <a href="<?php echo site_url('/');?>" class="svg-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -53,7 +53,7 @@
                                 <span class="ml-4">หน้าหลัก</span>
                             </a>
                         </li>
-                        <?php } ?>
+                        <?php } ?> -->
 
                         <?php if($session->get('user_role')==1){?>
                         <li class="">
@@ -63,7 +63,7 @@
                                     <path
                                         d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                                 </svg>
-                                <span class="ml-4">การจัดการข้อมูลผู้ใช้</span>
+                                <span class="ml-4">จัดการข้อมูลผู้ใช้</span>
                             </a>
                         </li>
 
@@ -76,7 +76,7 @@
                                     <path
                                         d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429l4.243 4.242Z" />
                                 </svg>
-                                <span class="ml-4">การจัดการข้อมูลยา</span>
+                                <span class="ml-4">จัดการข้อมูลยา</span>
                             </a>
                         </li>
 
@@ -89,7 +89,7 @@
                                         d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
                                 </svg>
 
-                                <span class="ml-4">การจัดการข้อมูลพื้นฐาน</span>
+                                <span class="ml-4">จัดการข้อมูลพื้นฐาน</span>
                                 <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -148,7 +148,20 @@
                         <?php } ?>
 
 
-                        <li class=" ">
+                        <li class="">
+                            <a href="<?php echo site_url('/sell');?>" class="svg-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg>
+                                <span class="ml-4">รายการขาย</span>
+                            </a>
+                        </li>
+
+
+
+                        <!-- <li class=" ">
                             <a href="#sale" class="collapsed" data-toggle="collapse" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-cart-fill" viewBox="0 0 16 16">
@@ -167,37 +180,14 @@
 
                             <ul id="sale" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
 
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_new');?>">
-                                        <i class="las la-minus"></i><span>บันทึกการขายยา</span>
-                                    </a>
-                                </li>
-                                <?php if($session->get('user_role')==1){?>
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_all');?>">
-                                        <i class="las la-minus"></i><span>รายการขายทั้งหมด</span>
-                                    </a>
-                                </li>
-
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_today');?>">
-                                        <i class="las la-minus"></i><span>รายการขายวันนี้</span>
-                                    </a>
-                                </li>
-
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_week');?>">
-                                        <i class="las la-minus"></i><span>รายการขายสัปดาห์นี้</span>
-                                    </a>
-                                </li>
-                                <?php } ?>
+                               
                                 <li class="">
                                     <a href="<?php echo base_url('sale_test');?>">
-                                        <i class="las la-minus"></i><span>การขายทดลอง</span>
+                                        <i class="las la-minus"></i><span>ทดลองการขาย</span>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
 
 
@@ -212,7 +202,7 @@
                                     <path
                                         d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
                                 </svg>
-                                <span class="ml-4">ออกรายงาน</span>
+                                <span class="ml-4">รายงาน</span>
                                 <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -222,6 +212,30 @@
                                 </svg>
                             </a>
                             <ul id="report" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                <li class="">
+                                    <a href="<?php echo base_url('sale_new');?>">
+                                        <i class="las la-minus"></i><span>ประวัติการขาย</span>
+                                    </a>
+                                </li>
+                                <?php if($session->get('user_role')==1){?>
+                                <li class="">
+                                    <a href="<?php echo base_url('sale_all');?>">
+                                        <i class="las la-minus"></i><span>รายการขายทั้งหมด</span>
+                                    </a>
+                                </li>
+
+                                <!-- <li class="">
+                                    <a href="<?php echo base_url('sale_today');?>">
+                                        <i class="las la-minus"></i><span>รายการขายวันนี้</span>
+                                    </a>
+                                </li>
+
+                                <li class="">
+                                    <a href="<?php echo base_url('sale_week');?>">
+                                        <i class="las la-minus"></i><span>รายการขายสัปดาห์นี้</span>
+                                    </a>
+                                </li> -->
+                                <?php } ?>
 
                             </ul>
                 </nav>
@@ -255,83 +269,13 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto navbar-list align-items-center">
-
-                                <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <div class="card shadow-none m-0">
-                                        <div class="card-body p-0 ">
-                                            <div class="cust-title p-3">
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <h5 class="mb-0">Notifications</h5>
-                                                    <a class="badge badge-primary badge-card" href="#">3</a>
-                                                </div>
-                                            </div>
-                                            <div class="px-3 pt-0 pb-0 sub-card">
-                                                <a href="#" class="iq-sub-card">
-                                                    <div class="media align-items-center cust-card py-3 border-bottom">
-                                                        <div class="">
-                                                            <img class="avatar-50 rounded-small"
-                                                                src="<?php echo base_url();?>/assets/images/user/01.jpg"
-                                                                alt="01">
-                                                        </div>
-                                                        <div class="media-body ml-3">
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between">
-                                                                <h6 class="mb-0">Emma Watson</h6>
-                                                                <small class="text-dark"><b>12 : 47 pm</b></small>
-                                                            </div>
-                                                            <small class="mb-0">Lorem ipsum dolor sit amet</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="iq-sub-card">
-                                                    <div class="media align-items-center cust-card py-3 border-bottom">
-                                                        <div class="">
-                                                            <img class="avatar-50 rounded-small"
-                                                                src="<?php echo base_url();?>/assets/images/user/02.jpg"
-                                                                alt="02">
-                                                        </div>
-                                                        <div class="media-body ml-3">
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between">
-                                                                <h6 class="mb-0">Ashlynn Franci</h6>
-                                                                <small class="text-dark"><b>11 : 30 pm</b></small>
-                                                            </div>
-                                                            <small class="mb-0">Lorem ipsum dolor sit amet</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="iq-sub-card">
-                                                    <div class="media align-items-center cust-card py-3">
-                                                        <div class="">
-                                                            <img class="avatar-50 rounded-small"
-                                                                src="<?php echo base_url();?>/assets/images/user/03.jpg"
-                                                                alt="03">
-                                                        </div>
-                                                        <div class="media-body ml-3">
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between">
-                                                                <h6 class="mb-0">Kianna Carder</h6>
-                                                                <small class="text-dark"><b>11 : 21 pm</b></small>
-                                                            </div>
-                                                            <small class="mb-0">Lorem ipsum dolor sit amet</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <a class="right-ic btn btn-primary btn-block position-relative p-2" href="#"
-                                                role="button">
-                                                View All
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </li>
                                 <li class="nav-item nav-icon dropdown caption-content">
                                     <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php 
-                                      
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php 
                                       $name = $session->get('f_name')." ".$session->get('l_name'); 
                                       echo $name ?>
+                                      <?php echo (($session->get('user_role')==1)?"ผู้จัดการร้าน":"เภสัชกร"); ?>
                                         <img src="<?php echo base_url();?>/assets/images/user/1.png"
                                             class="img-fluid rounded" alt="user">
                                     </a>
@@ -346,13 +290,11 @@
                                                         class="rounded profile-img img-fluid avatar-70">
                                                 </div>
                                                 <div class="p-3">
-                                                    <h5 class="mb-1">ชื่อผู้ใช้ <?php echo $name;?></h5>
                                                     <p class="mb-0">หน้าที่
-                                                        <?php echo (($session->get('user_role')==1)?"ผู้บริหาร":"เภสัตร"); ?>
+                                                        <?php echo (($session->get('user_role')==1)?"ผู้บริหาร":"เภสัชกร"); ?>
                                                     </p>
-                                                    <p class="mb-0">ใช้งานอยู่</p>
+                                                    
                                                     <div class="d-flex align-items-center justify-content-center mt-3">
-                                                        <!-- <a href="<?php echo base_url();?>/app/user-profile.html" class="btn border mr-2">โปรไฟล์</a> -->
                                                         <a href="<?php echo site_url('logout');?>"
                                                             class="btn border">ออกจากระบบ</a>
                                                     </div>

@@ -133,17 +133,22 @@
                                             <div class="col-2 h4">
                                                 บาท
                                             </div>
-
                                         </div>
 
-
-                                        <div class="col-8">
+                                        <div class="col-6">
                                             <select class="form-control form-control-sm mb-3">
                                                 <option value="1" selected>เงินสด</option>
                                                 <option value="2">โอนเงิน</option>
                                             </select>
+
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="จำนวนเงิน">
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="เงินทอน" readonly>
                                         </div>
+
                                         <div class="modal-footer">
+
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#newModal" data-bs-whatever="@mdo">ยืนยันการขาย</button>
                                         </div>
@@ -244,16 +249,16 @@
                         <div class="modal-body">
                             <form class="row g-3" id="form_pharmacy_new" method="post"
                                 action="<?php echo site_url('add_pharmacy'); ?>">
-                                
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control form-control-sm" placeholder="ชื่อลูกค้า"
-                                            id="name" readonly>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control form-control-sm" placeholder="เงินสด"
-                                            id="name" readonly>
-                                    </div>
-                                
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control form-control-sm" placeholder="ชื่อลูกค้า"
+                                        id="name" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control form-control-sm" placeholder="เงินสด"
+                                        id="name" readonly>
+                                </div>
+
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -263,15 +268,7 @@
                                         </tr>
                                     </thead>
                                 </table>
-                                <div class="col-7 h3">
-                                    รวมทั้งหมด
-                                </div>
-                                <div class="col-3 h3">
-                                    <span id="2">100.00</span>
-                                </div>
-                                <div class="col-2 h3">
-                                    บาท
-                                </div>
+
                             </form>
                         </div>
                         <div class="modal-footer">

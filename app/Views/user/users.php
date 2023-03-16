@@ -52,7 +52,7 @@
                         <!-- <th>ที่อยู่</th> -->
                         <th>สถานะ</th>
                         <th>หน้าที่</th>
-                        <th></th>
+                        <th>จัดการ</th>
                     </tr>
                 </thead>
                 <tbody class="ligth-body">
@@ -100,7 +100,7 @@
                             <?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?>
                         </td>
                         <td>
-                            <?php echo ($users_row["user_role"] == '1' ? "เจ้าของร้าน" : "เภสัชกร"); ?>
+                            <?php echo ($users_row["user_role"] == '1' ? "ผู้จัดการร้าน" : "เภสัชกร"); ?>
                         </td>
 
 

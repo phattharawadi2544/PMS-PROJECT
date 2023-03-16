@@ -50,7 +50,7 @@
                                 <th>ข้อบ่งใช้</th>
                                 <th>หมวดหมู่</th>
                                 <th>หน่วยนับ</th>
-                                <th></th>
+                                <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody class="ligth-body">

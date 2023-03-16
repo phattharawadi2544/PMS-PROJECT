@@ -44,7 +44,7 @@ $routes->post('/add_user', 'Users::add_user');
 $routes->post('/edit_user', 'Users::edit_user');
 $routes->post('/del_user', 'Users::delete_user');
 
-
+$routes->get('/sell', 'Sell::index');
 
 
 $routes->get('/pharmacies', 'Pharmacies::index');
