@@ -1,4 +1,15 @@
+<?php  $session = session(); ?>
 <div class="content-page">
+    <div class="container-fluid">
+        <?php  if($session->getFlashdata('message_session')=='201'){ ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            เพิ่มรายการแล้ว
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php }?>
+       
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2">
@@ -24,7 +35,7 @@
                                             </div>
                                             <div class="col-5">
                                                 <input type="text" class="form-control form-control-sm"
-                                                    placeholder="ที่อยู่" >
+                                                    placeholder="ที่อยู่">
                                             </div>
                                             <div class="col-3">
                                                 <input type="text" class="form-control form-control-sm"
@@ -139,8 +150,8 @@
                                         <option value="2">โอนเงิน</option>
                                     </select>
 
-                                    <input type="number" class="form-control form-control-sm" placeholder="ระบุจำนวนเงิน"
-                                        id="money_pay" onchange="pay_change()" ;>
+                                    <input type="number" class="form-control form-control-sm"
+                                        placeholder="ระบุจำนวนเงิน" id="money_pay" onchange="pay_change()" ;>
                                     <input type="text" class="form-control form-control-sm" placeholder="เงินทอน"
                                         id="change" readonly>
                                 </div>
@@ -225,7 +236,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-                    <button type="button" class="btn btn-primary">เลือก</button>
+                    <button type="button" class="btn btn-primary" onclick="choose_pharmacy()">เลือก</button>
                 </div>
             </div>
         </div>
@@ -251,14 +262,42 @@
                         action="<?php echo site_url('add_order_detail'); ?>">
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control form-control-sm" placeholder="ชื่อลูกค้า" id="customer"
-                                readonly>
+                            <input type="text" class="form-control form-control-sm" placeholder="ลูกค้าทั่วไป"
+                                id="customer" readonly>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control form-control-sm" placeholder="เงินสด" id="payment_type_detail" 
-                                readonly>
+                            <input type="text" class="form-control form-control-sm" placeholder="เงินสด"
+                                id="payment_type_detail" readonly>
+                        </div>
+                        <br></br>
+                        <div class="col-7 h5">
+                            ยอดรวมทั้งหมด
+                        </div>
+                        <div class="col-3 h5">
+                            <span id="total_summery"></span>
+                        </div>
+                        <div class="col-2 h5">
+                            บาท
                         </div>
 
+                        <div class="col-7 h5">
+                            จำนวนเงิน
+                        </div>
+                        <div class="col-3 h5">
+                            <span></span>
+                        </div>
+                        <div class="col-2 h5">
+                            บาท
+                        </div>
+                        <div class="col-7 h5">
+                            เงินทอน
+                        </div>
+                        <div class="col-3 h5">
+                            <span></span>
+                        </div>
+                        <div class="col-2 h5">
+                            บาท
+                        </div>
                         <table class="table" id="table_order_detail_summery">
                             <thead>
                                 <tr>
@@ -269,22 +308,15 @@
                             </thead>
                             <tbody>
 
-                                        </tbody>
+                            </tbody>
                         </table>
-                        <div class="col-7 h4">
-                            ยอดรวมทั้งหมด
-                        </div>
-                        <div class="col-3 h4">
-                            <span id="total_summery"></span>
-                        </div>
-                        <div class="col-2 h4">
-                            บาท
-                        </div>
+
+
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-primary" onclick="save_pharmacy()">ยืนยัน</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_order_detail()">ยืนยัน</button>
                 </div>
             </div>
         </div>
@@ -311,37 +343,37 @@
 
     function pay_summery() {
 
-        
-       let customer_name = $('#customer_name').val();
-       let payment_type = $('#payment_type').val();
-       let total = $("#total").html();
-       let chk_phamacy_list = false;
+        let money_pay = $('#money_pay').val();
+        let customer_name = $('#customer_name').val();
+        let payment_type = $('#payment_type').val();
+        let total = $("#total").html();
+        let chk_phamacy_list = false;
 
-       let price_list = $(".phamacy_detail");
+        $("#table_order_detail_summery > tbody").html("");
+        let price_list = $(".phamacy_detail");
         $.each(price_list, function(key, v) {
             chk_phamacy_list = true;
             let arr = v.value.split("||");
-            let tag_html = '<tr><td>' + arr[0]+ '</td>' +
-                            '<td>' + arr[1] + '</td>' +
-                            '<td>' + arr[2] + '</td>' +
-                            '</tr>';
-                        $("#table_order_detail_summery tbody").append(tag_html);
+            let tag_html = '<tr><td>' + arr[0] + '</td>' +
+                '<td>' + arr[1] + '</td>' +
+                '<td>' + arr[2] + '</td>' +
+                '</tr>';
+            $("#table_order_detail_summery tbody").append(tag_html);
         });
-        // console.log(price_list);
+        console.log(price_list);
 
-       $('#total_summery').html(total);
-       $('#customer').val(customer_name);
-       $('#payment_type_detail').val((payment_type == '1') ? 'เงินสด' :'โอนเงิน');
-       $("#table_order_detail_summery > tbody").html("");
+        $('#total_summery').html(total);
+        $('#customer').val(customer_name);
+        $('#payment_type_detail').val((payment_type == '1') ? 'เงินสด' : 'โอนเงิน');
 
-       if(chk_phamacy_list){
+
+        if (chk_phamacy_list == false) {
+            alert("กรุณาเลือกรายการสินค้า");
+        } else if (money_pay == "" || (parseFloat(money_pay) < parseFloat(total))) {
+            alert("กรุณาระบุจำนวนเงินให้ถูกต้อง");
+        } else {
             $('#newModal').modal('show');
-       }else{
-        alert("กรุณาเลือกรายการสินค้า");
-       }
-        
-
-
+        }
     }
 
 
@@ -374,12 +406,13 @@
                 .done(function(data) {
                     console.log(data);
                     $.each(data.data, function(i, item) {
-                        let phamacy_detail = amount+"||"+item.pharmacy_name+"||"+ (item.price * amount);
+                        let phamacy_detail = amount + "||" + item.pharmacy_name + "||" + (item.price *
+                            amount);
                         let tag_html = '<tr><td>' + item.pharmacy_name + '</td>' +
                             '<td>' + amount + '</td>' +
                             '<td>' + item.price + '</td>' +
                             '<td>' + (item.price * amount) +
-                            ' <input type="hidden" class="phamacy_detail" value="' + phamacy_detail +'">'+
+                            ' <input type="hidden" class="phamacy_detail" value="' + phamacy_detail + '">' +
                             ' <input type="hidden" class="price_detail" value="' + (item.price * amount) +
                             '"></td>' +
                             '<td><button type="button" class="btn btn-sm btn-warning delete-row phamacy_list" onclick="delete_phamact_list(this) ;">ลบ</button>' +
@@ -420,6 +453,7 @@
         let money_pay = $('#money_pay').val();
         let total = $("#total").html();
         let change = money_pay - total;
+
 
         $("#change").val(Number(change).toFixed(2));
         console.log(total);

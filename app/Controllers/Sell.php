@@ -22,6 +22,15 @@ class Sell extends BaseController
         view('template/footer.php');
     }
 
-   
+    public function add_user()
+    {
+        $model = new UserModel();
+        $model->save($data);
+
+        $session = session();
+        $session->setFlashdata('message_session', '201');
+        return redirect()->to('/users');
+
+    }
     
 }
