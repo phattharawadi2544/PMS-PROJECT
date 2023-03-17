@@ -139,7 +139,7 @@
                                         <option value="2">โอนเงิน</option>
                                     </select>
 
-                                    <input type="text" class="form-control form-control-sm" placeholder="ระบุจำนวนเงิน"
+                                    <input type="number" class="form-control form-control-sm" placeholder="ระบุจำนวนเงิน"
                                         id="money_pay" onchange="pay_change()" ;>
                                     <input type="text" class="form-control form-control-sm" placeholder="เงินทอน"
                                         id="change" readonly>
@@ -315,28 +315,31 @@
        let customer_name = $('#customer_name').val();
        let payment_type = $('#payment_type').val();
        let total = $("#total").html();
-
-       $('#total_summery').html(total);
-       $('#customer').val(customer_name);
-       $('#payment_type_detail').val((payment_type == '1') ? 'เงินสด' :'โอนเงิน');
-       $("#table_order_detail_summery > tbody").html("");
+       let chk_phamacy_list = false;
 
        let price_list = $(".phamacy_detail");
         $.each(price_list, function(key, v) {
+            chk_phamacy_list = true;
             let arr = v.value.split("||");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-
             let tag_html = '<tr><td>' + arr[0]+ '</td>' +
                             '<td>' + arr[1] + '</td>' +
                             '<td>' + arr[2] + '</td>' +
                             '</tr>';
                         $("#table_order_detail_summery tbody").append(tag_html);
         });
-        console.log(price_list);
+        // console.log(price_list);
 
-        $('#newModal').modal('show');
+       $('#total_summery').html(total);
+       $('#customer').val(customer_name);
+       $('#payment_type_detail').val((payment_type == '1') ? 'เงินสด' :'โอนเงิน');
+       $("#table_order_detail_summery > tbody").html("");
+
+       if(chk_phamacy_list){
+            $('#newModal').modal('show');
+       }else{
+        alert("กรุณาเลือกรายการสินค้า");
+       }
+        
 
 
     }

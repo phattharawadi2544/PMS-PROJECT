@@ -141,9 +141,9 @@
                                                 <option value="2">โอนเงิน</option>
                                             </select>
 
-                                            <input type="text" class="form-control form-control-sm"
+                                            <input type="number" class="form-control form-control-sm"
                                                 placeholder="จำนวนเงิน">
-                                            <input type="text" class="form-control form-control-sm"
+                                            <input type="number" class="form-control form-control-sm"
                                                 placeholder="เงินทอน" readonly>
                                         </div>
 
