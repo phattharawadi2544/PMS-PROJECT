@@ -27,7 +27,7 @@ class Users extends BaseController
 
         $data = array(
             'user_id'=>null, 
-            'license'=>$_POST['license'], 
+            'id_license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
             'password' => md5($_POST['password'], PASSWORD_DEFAULT), 
             'email'=>$_POST['email'], 
@@ -38,6 +38,7 @@ class Users extends BaseController
             'address'=>$_POST['address'], 
             'hiredate'=>$_POST['hiredate'], 
             'licenseexp'=>$_POST['licenseexp'], 
+            'salary'=>$_POST['salary'],
             'status'=>$_POST['status'], 
             'user_role'=>$_POST['role']
         );
@@ -59,7 +60,7 @@ class Users extends BaseController
         //  var_dump($_POST);
         $id = $_POST['userID'];
         $data = array(
-            'license'=>$_POST['license'], 
+            'id_license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
             'email'=>$_POST['email'], 
             'f_name'=>$_POST['fname'], 

@@ -20,19 +20,22 @@ class Pharmacies extends BaseController
         view('pharmacy/pharmacies.php',$data).
         view('template/footer.php');
     }
+
     public function add_pharmacy()
     {
         $data = array(
             'pharmacy_id'=>null, 
-            // 'img'=>$_POST['img'], 
-            'reg_no'=>$_POST['reg'], 
+            'reg_no'=>$_POST['reg'],
+            'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
             'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
-            // 'pharmacy_type'=>$_POST['pharmacytype'], 
-            'Status'=>1,
+            'price'=>$_POST['price'], 
+            'cost'=>$_POST['cost'], 
+            'amount'=>$_POST['amount'], 
+            'Status'=>1
         );
         // var_dump($data);
         // // die();
@@ -42,7 +45,6 @@ class Pharmacies extends BaseController
 
         $session = session();
         $session->setFlashdata('message_code', '201');
-        // die();
         return redirect()->to('/pharmacies');
 
 
@@ -58,16 +60,16 @@ class Pharmacies extends BaseController
         //  var_dump($_POST);
         $id = $_POST['pharmacy_id'];
         $data = array(
-            'pharmacy_id'=>null, 
-            // 'img'=>$_POST['img'], 
-            'reg_no'=>$_POST['reg'], 
+            'reg_no'=>$_POST['reg'],
+            'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
             'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
-            
-            'Status'=>1,
+            'price'=>$_POST['price'], 
+            'cost'=>$_POST['cost'], 
+            'Status'=>1
         );
         
         
@@ -79,7 +81,7 @@ class Pharmacies extends BaseController
         return redirect()->to('/pharmacies');
 
     }
-    //delete_pharmacy
+   
     public function delete_pharmacy()
     {
         //  var_dump($_POST);
@@ -92,7 +94,7 @@ class Pharmacies extends BaseController
 
         $session = session();
         $session->setFlashdata('message_session', '203');
-        return redirect()->to('/Pharmacies');
+        return redirect()->to('/pharmacies');
 
     }
     

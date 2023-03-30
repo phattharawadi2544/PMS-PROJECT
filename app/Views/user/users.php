@@ -30,8 +30,7 @@
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
                     <div>
-                        <h4 class="mb-3">การจัดการข้อมูลผู้ใช้</h4>
-                        <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
+                        <h4 class="mb-3">จัดการข้อมูลผู้ใช้</h4>
                     </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
                         data-bs-whatever="@mdo">เพิ่มผู้ใช้</button>
@@ -41,68 +40,87 @@
             <table class="data-tables table mb-0 tbl-server-info">
                 <thead class="bg-white text-uppercase">
                     <tr class="ligth ligth-data">
-                        <th>ลำดับ</th>
-                        <th>รหัสผู้ใช้</th>
-                        <th>ชื่อ</th>
-                        <th>สกุล</th>
-                        <!-- <th>username</th> -->
-                        <!-- <th>password</th> -->
-                        <th>Email</th>
-                        <th>เบอร์โทร</th>
-                        <!-- <th>ที่อยู่</th> -->
-                        <th>สถานะ</th>
-                        <th>หน้าที่</th>
-                        <th>จัดการ</th>
+
+                        <th>
+                            <center>ลำดับ</center>
+                        </th>
+                        <th>
+                            <center>รหัสผู้ใช้</center>
+                        </th>
+                        <th>
+                            <center>ชื่อผู้ใช้</center>
+                        </th>
+                        <th>
+                            <center>ชื่อ</center>
+                        </th>
+                        <th>
+                            <center>สกุล</center>
+                        </th>
+                        <th>
+                            <center>อีเมลล์</center>
+                        </th>
+                        <th>
+                            <center>เบอร์โทร</center>
+                        </th>
+                        <th>
+                            <center>หน้าที่</center>
+                        </th>
+                        <th>
+                            <center>สถานะ</center>
+                        </th>
+
+                        <th>
+                            <center>จัดการ</center>
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="ligth-body">
                     <?php
-
                             // var_dump($users_list);
                             $count = 0;
                             foreach ($users_list as $users_row):
                                 $count++; ?>
                     <tr>
                         <td>
+
                             <div class="d-flex align-items-center">
-                                <!-- <img src="../assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image"> -->
+
                                 <div>
-                                    <?php echo $count; ?>
-                                    <!-- <p class="mb-0"><small>This is test Product</small></p> -->
+                                    <center><?php echo $count; ?></center>
                                 </div>
+
                             </div>
+
                         </td>
                         <td>
-                            <?php echo $users_row["user_id"]; ?>
+                            <center><?php echo $users_row["user_id"]; ?></center>
                         </td>
                         <td>
-                            <?php echo $users_row["f_name"]; ?>
+                            <center><?php echo $users_row["username"]; ?></center>
                         </td>
                         <td>
-                            <?php echo $users_row["l_name"]; ?>
+                            <center><?php echo $users_row["f_name"]; ?></center>
                         </td>
                         <td>
-                            <?php echo $users_row["email"]; ?>
-                        </td>
-                        <!-- <td>
-                                        <?php echo $users_row["username"]; ?>
-                                    </td> -->
-                        <!-- <td>
-                                        <?php echo $users_row["password"]; ?>
-                                    </td> -->
-                        <td>
-                            <?php echo $users_row["tel"]; ?>
-                        </td>
-                        <!-- <td>
-                                        <?php echo $users_row["address"]; ?>
-                                    </td> -->
-                        <td>
-                            <?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?>
+                            <center><?php echo $users_row["l_name"]; ?></center>
                         </td>
                         <td>
-                            <?php echo ($users_row["user_role"] == '1' ? "ผู้จัดการร้าน" : "เภสัชกร"); ?>
+                            <center><?php echo $users_row["email"]; ?></center>
                         </td>
 
+                        <td>
+                            <center><?php echo $users_row["tel"]; ?></center>
+                        </td>
+                        <td>
+                            <center><?php echo ($users_row["user_role"] == '1' ? "ผู้จัดการร้าน" : "เภสัชกร"); ?>
+                            </center>
+                        </td>
+                        <td>
+                            <span class="badge bg-primary">
+                                <center><?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?></center>
+                            </span>
+
+                        </td>
 
                         <td>
                             <div class="d-flex align-items-center list-action">
@@ -130,13 +148,12 @@
 <!-- Page end  -->
 </div>
 
-
 <!-- viewmodal -->
 <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">ประวัติ</h5>
+                <h4 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูลผู้ใช้</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -145,42 +162,176 @@
                     </svg></button>
             </div>
 
-            <div class="profile-box">
-                <div class="profile-card rounded">
-                    <h3 class="font-600 text-white text-center mb-0">ชื่อผู้ใช้</h3>
-                    <p class="text-white text-center mb-5">หน้าที่</p>
-                </div>
+            <div class="card">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>รหัสผู้ใช้:</h5>
+                                    </strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_userid"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>วันที่เริ่มทำงาน:</h5>
+                                    </strong>
 
-                <div class="pro-content rounded">
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0 eml">เลขที่ใบอนุญาต</p>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0">วันที่ใบอนุญาตหมดอายุ</p>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0">ประสบการณ์ทำงาน</p>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0">ที่อยู่</p>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0">เบอร์โทร</p>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <p class="mb-0">วันที่เริ่มทำงาน</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_hiredate"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>ชื่อผู้ใช้:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_username"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>เลขที่ใบอนุญาต:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_idlicense"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>วันที่ใบอนุญาตหมดอายุ:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_licenseexp"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>ชื่อ:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_f_name"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>สกุล:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_l_name"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>อีเมล:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>เบอร์โทร:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_tel"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>หน้าที่:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_role"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>ประสบการณ์ทำงาน:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_work"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>
+                                        <h5>สถานะ:</h5>
+                                    </strong>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <span id="view_status"></span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-
             <div class="modal-footer">
                 <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
             </div>
-
         </div>
     </div>
 </div>
-
 
 <!-- newmodal -->
 <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -197,9 +348,19 @@
             </div>
             <div class="modal-body">
                 <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
+                        <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
+                        <input type="date" class="form-control" id="inputhiredate" name="hiredate"
+                            onchange="clr_border(this);">
+                    </div>
+                    <div class="col-md-6">
                         <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต *</label>
                         <input type="text" class="form-control was-validated" id="inputlicense" name="license"
+                            onchange="clr_border(this);">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
+                        <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
@@ -215,17 +376,17 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="inputusername" class="form-label">username *</label>
+                        <label for="inputusername" class="form-label">ชื่อผู้ใช้ *</label>
                         <input type="text" class="form-control" id="inputusername" name="username"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputpassword" class="form-label">password *</label>
+                        <label for="inputpassword" class="form-label">รหัสผ่าน *</label>
                         <input type="password" class="form-control" id="inputpassword" name="password"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputemail" class="form-label">Email *</label>
+                        <label for="inputemail" class="form-label">อีเมล *</label>
                         <input type="text" class="form-control" id="inputemail" name="email"
                             onchange="clr_border(this);">
                     </div>
@@ -243,16 +404,12 @@
                         <textarea type="text" class="form-control" id="inputwork" name="work"
                             onchange="clr_border(this);"></textarea>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
-                        <input type="date" class="form-control" id="inputhiredate" name="hiredate"
+                    <div class="col-6">
+                        <label for="inputsalary" class="form-label">เงินเดือน *</label>
+                        <input type="number" class="form-control " id="inputsalary" name="salary"
                             onchange="clr_border(this);">
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
-                        <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp"
-                            onchange="clr_border(this);">
-                    </div>
+
 
                     <div class="col-md-6">
                         <label for="" class="form-label">หน้าที่ *</label>
@@ -331,17 +488,17 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="edit_username" class="form-label">username *</label>
+                        <label for="edit_username" class="form-label">ชื่อผู้ใช้ *</label>
                         <input type="text" class="form-control" id="edit_username" name="username"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_password" class="form-label">password *</label>
+                        <label for="edit_password" class="form-label">รหัสผ่าน *</label>
                         <input type="password" class="form-control" id="edit_password" name="password"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_email" class="form-label">Email *</label>
+                        <label for="edit_email" class="form-label">อีเมล *</label>
                         <input type="text" class="form-control" id="edit_email" name="email"
                             onchange="clr_border(this);">
                     </div>
@@ -460,6 +617,11 @@ function save_user() {
             ch = false;
             $("#inputlicenseexp").css("border-color", "red");
         }
+        if ($("#inputsalary").val().trim().length == 0) {
+            ch = false;
+            $("#inputsalary").css("border-color", "red");
+        }
+
     }
     if ($("#inputfname").val().trim().length == 0) {
         ch = false;
@@ -490,63 +652,43 @@ function save_user() {
         ch = false;
         $("#inputtel").css("border-color", "red");
     }
+    if ($("#inputhiredate").val().trim().length == 0) {
+        ch = false;
+        $("#inputhiredate").css("border-color", "red");
+    }
     if (ch) {
         $('#form_user_new').submit();
     } else {
         alert("กรุณากรอกข้อมูลให้ครบ");
     }
 
-    function view_data(id) {
-        $('#viewModal').modal('show');
-    }
-}
-let ch = true;
-if ($('#role2').is(":checked")) {
-    if ($("#inputlicense").val().trim().length == 0) {
-        ch = false;
-        $("#inputlicense").css("border-color", "red");
-    }
-    if ($("#inputlicenseexp").val().trim().length == 0) {
-        ch = false;
-        $("#inputlicenseexp").css("border-color", "red");
-    }
-}
-if ($("#inputfname").val().trim().length == 0) {
-    ch = false;
-    $("#inputfname").css("border-color", "red");
-}
-if ($("#inputlname").val().trim().length == 0) {
-    ch = false;
-    $("#inputlname").css("border-color", "red");
-}
-if ($("#inputusername").val().trim().length == 0) {
-    ch = false;
-    $("#inputusername").css("border-color", "red");
 }
 
-if ($("#inputemail").val().trim().length == 0) {
-    ch = false;
-    $("#inputemail").css("border-color", "red");
-}
-if ($("#inputaddress").val().trim().length == 0) {
-    ch = false;
-    $("#inputaddress").css("border-color", "red");
-}
-if ($("#inputwork").val().trim().length == 0) {
-    ch = false;
-    $("#inputwork").css("border-color", "red");
-}
-if ($("#inputtel").val().trim().length == 0) {
-    ch = false;
-    $("#inputtel").css("border-color", "red");
-}
-if (ch) {
-    $('#form_user_new').submit();
-} else {
-    alert("กรุณากรอกข้อมูลให้ครบ");
-}
 
 function view_data(id) {
+    $.ajax({
+            method: "GET",
+            url: "<?php echo site_url('api/getUser')?>" + "/" + id,
+            data: {}
+        })
+        .done(function(data) {
+            $.each(data.data, function(i, item) {
+                console.log(item);
+                $("#view_userid").html(item.user_id);
+                $("#view_username").html(item.username);
+                $("#view_f_name").html(item.f_name);
+                $('#view_l_name').html(item.l_name);
+                $('#view_email').html(item.email);
+                $('#view_role').html(item.user_role);
+                $('#view_tel').html(item.tel);
+                $('#view_address').html(item.address);
+                $('#view_work').html(item.work_experience);
+                $('#view_hiredate').html(item.hiredate);
+                $('#view_idlicense').html(item.id_license);
+                $('#view_licenseexp').html(item.licenseexp);
+                $('#view_status').html(item.status);
+            });
+        });
     $('#viewModal').modal('show');
 }
 
@@ -575,10 +717,6 @@ function save_edit_user() {
         ch = false;
         $("#edit_username").css("border-color", "red");
     }
-    // if($("#edit_password").val().trim().length==0){
-    //     ch = false;
-    //     $("#edit_password").css("border-color","red");
-    // }
     if ($("#edit_email").val().trim().length == 0) {
         ch = false;
         $("#edit_email").css("border-color", "red");
@@ -601,14 +739,10 @@ function save_edit_user() {
     }
     if (ch) {
         $('#form_user_edit').submit();
-    } else {
-        alert("กรุณากรอกข้อมูลให้ครบ");
     }
 }
 
-function view_data(id) {
-    $('#viewModal').modal('show');
-}
+
 
 function edit_data(id) {
     $.ajax({

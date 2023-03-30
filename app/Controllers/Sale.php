@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\OrderModel;
+use App\Models\OrderDetailModel;
 use App\Models\PharmacyModel;
 
 class Sale extends BaseController

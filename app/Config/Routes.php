@@ -45,6 +45,12 @@ $routes->post('/edit_user', 'Users::edit_user');
 $routes->post('/del_user', 'Users::delete_user');
 
 $routes->get('/sell', 'Sell::index');
+$routes->get('/sale_all', 'Sell::sale_all');
+$routes->post('/add_order', 'Sell::add_order');
+
+$routes->get('/order_detail', 'Order::order_detail');
+$routes->get('/sales_specially', 'Order::sales_specially');
+$routes->get('/sales_dangerous', 'Order::sales_dangerous');
 
 
 $routes->get('/pharmacies', 'Pharmacies::index');
@@ -57,8 +63,10 @@ $routes->post('/del_pharmacy', 'Pharmacies::delete_pharmacy');
 $routes->get('/sale_all', 'Sale::sale_all');
 $routes->get('/sale_today', 'Sale::sale_today');
 $routes->get('/sale_week', 'Sale::sale_week');
-$routes->get('/sale_new', 'Sale::sale_new');
+
 $routes->get('/sale_test', 'Sale::sale_test');
+
+
 
 
 $routes->get('/pharmacy_type', 'Management::pharmacies_type');
@@ -75,7 +83,8 @@ $routes->get('/user_role', 'Management::user_role');
 
 
 
-$routes->get('/supplier', 'Supplier::index');
+$routes->get('/supplier', 'Supplier::supplier');
+$routes->post('/add_supplier', 'Supplier::add_supplier');
 
 $routes->get('/lot', 'Lot::index');
 

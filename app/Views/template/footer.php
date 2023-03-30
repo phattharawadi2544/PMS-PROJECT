@@ -31,7 +31,7 @@
     <script src="<?php echo base_url();?>/assets/js/customizer.js"></script>
     
     <!-- Chart Custom JavaScript -->
-    <script async src="<?php echo base_url();?>/assets/js/chart-custom.js"></script>
+    <!-- <script async src="<?php echo base_url();?>/assets/js/chart-custom.js"></script> -->
     
     <!-- app JavaScript -->
     <script src="<?php echo base_url();?>/assets/js/app.js"></script>

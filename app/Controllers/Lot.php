@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\LotModel;
+use App\Models\SupplierModel;
+use App\Models\PharmacyModel;
 
 class Lot extends BaseController
 {
@@ -28,13 +30,16 @@ class Lot extends BaseController
 
         $data = array(
             'lot_id'=>null, 
-            'batch'=>$_POST['batch'], 
-            'manu'=>$_POST['manu'], 
-            'exp'=>$_POST['exp'], 
+            'pharmacy_id'=>null,
+            'id_supplie'=>null,
+            'batch_no'=>$_POST['batch'], 
+            'manu_date'=>$_POST['manu'], 
+            'exp_date'=>$_POST['exp'], 
             'amount'=>$_POST['amount'], 
-            'cost'=>$_POST['cost'], 
-            'sale'=>$_POST['sale'], 
-            'shelf'=>$_POST['shelf']
+            'cost_price'=>$_POST['cost'], 
+            'sale_price'=>$_POST['sale'], 
+            'remain'=>$_POST['remain'], 
+            'shelf_life'=>$_POST['shelf']
            
         );
         

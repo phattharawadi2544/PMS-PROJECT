@@ -30,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
                     <div>
-                        <h4 class="mb-3">การจัดการข้อมูลยา</h4>
+                        <h4 class="mb-3">จัดการข้อมูลยา</h4>
 
                     </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"
@@ -43,14 +43,31 @@
                     <table class="data-tables table mb-0 tbl-server-info">
                         <thead class="bg-white text-uppercase">
                             <tr class="ligth ligth-data">
-                                <th>ลำดับ</th>
-                                <th>รหัสยา</th>
-                                <th>บาร์โค้ด</th>
-                                <th>ชื่อยา</th>
-                                <th>ข้อบ่งใช้</th>
-                                <th>หมวดหมู่</th>
-                                <th>หน่วยนับ</th>
-                                <th>จัดการ</th>
+
+                                <th>
+                                    <center>ลำดับ</center>
+                                </th>
+                                <th>
+                                    <center>รหัสยา</center>
+                                </th>
+                                <th>
+                                    <center>บาร์โค้ด</center>
+                                </th>
+                                <th>
+                                    <center>ชื่อยา</center>
+                                </th>
+                                <th>
+                                    <center>ข้อบ่งใช้</center>
+                                </th>
+                                <th>
+                                    <center>หมวดหมู่</center>
+                                </th>
+                                <th>
+                                    <center>หน่วยนับ</center>
+                                </th>
+                                <th>
+                                    <center>จัดการ</center>
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="ligth-body">
@@ -69,40 +86,53 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <?php echo  $phamacy_row["pharmacy_id"];?>
+                                    <center><?php echo  $phamacy_row["pharmacy_id"];?></center>
                                 </td>
                                 <td>
-                                    <?php echo  $phamacy_row["barcode"];?>
+                                    <center><?php echo  $phamacy_row["barcode"];?></center>
                                 </td>
                                 <td>
-                                    <?php echo  $phamacy_row["pharmacy_name"];?>
+                                    <center><?php echo  $phamacy_row["pharmacy_name"];?></center>
                                 </td>
                                 <td>
-                                    <?php echo  $phamacy_row["pharmacy_details"];?>
+                                    <center><?php echo  $phamacy_row["pharmacy_details"];?></center>
                                 </td>
                                 <td>
-                                    <?php echo ($phamacy_row["pharmacy_group"] == '1' ? "ยาสามัญประจำบ้าน" : "ยาควบคุมพิเศษ" ); ?>
+                                    <center>
+                                        <?php 
+                                            if ($phamacy_row["pharmacy_group"] == 1) {
+                                                echo "ยาสามัญประจำบ้าน";
+                                            } else if ($phamacy_row["pharmacy_group"] == 2) {
+                                                echo "ยาอันตราย";
+                                            } else {
+                                                echo "ยาควบคุมพิเศษ";
+                                            }
+                                        ?>
+                                    </center>
                                 </td>
                                 <td>
-                                    <?php echo  $phamacy_row["counting_unit"];?>
+                                    <center><?php echo  $phamacy_row["counting_unit"];?></center>
                                 </td>
 
 
                                 <td>
-                                    <div class="d-flex align-items-center list-action">
-                                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
-                                            title="" data-original-title="ดู" href="#"
-                                            onclick="view_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
-                                                class="ri-eye-line mr-0"></i></a>
-                                        <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
-                                            title="" data-original-title="แก้ไข" href="#"
-                                            onclick="edit_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
-                                                class="ri-pencil-line mr-0"></i></a>
-                                        <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                            title="" data-original-title="ลบ" href="#"
-                                            onclick="delete_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
-                                                class="ri-delete-bin-line mr-0"></i></a>
-                                    </div>
+                                    <center>
+                                        <div class="d-flex align-items-center list-action">
+                                            <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ดู" href="#"
+                                                onclick="view_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-eye-line mr-0"></i></a>
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="แก้ไข" href="#"
+                                                onclick="edit_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="ลบ" href="#"
+                                                onclick="delete_data('<?php echo $phamacy_row["pharmacy_id"]; ?>')"><i
+                                                    class="ri-delete-bin-line mr-0"></i></a>
+                                        </div>
+                                    </center>
+
                                 </td>
                             </tr>
                             <?php endforeach;?>
@@ -134,34 +164,53 @@
                     <form class="row g-3" id="form_pharmacy_new" method="post"
                         action="<?php echo site_url('add_pharmacy'); ?>">
                         <div class="col-md-6">
-                            <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
-                            <input type="text" class="form-control" id="inputreg" name="reg"
+                            <label for="input_barcode" class="form-label">บาร์โค้ด *</label>
+                            <input type="text" class="form-control" id="input_barcode" name="barcode"
                                 onchange="clr_border(this);">
                         </div>
+
                         <div class="col-md-6">
+                            <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
+                            <input type="text" class="form-control" id="input_reg" name="reg"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-md-12">
                             <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
-                            <input type="text" class="form-control" id="inputpharmacyname" name="pharmacyname"
+                            <input type="text" class="form-control" id="input_pharmacyname" name="pharmacyname"
                                 onchange="clr_border(this);">
                         </div>
 
                         <div class="col-6">
                             <label for="inputdetails" class="form-label">ข้อบ่งใช้ *</label>
-                            <textarea type="text" class="form-control" id="inputdetails" name="pharmacydetails"
+                            <textarea type="text" class="form-control" id="input_details" name="pharmacydetails"
                                 onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-6">
                             <label for="inputwarning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
-                            <textarea type="text" class="form-control" id="inputwarning" name="pharmacywarning"
+                            <textarea type="text" class="form-control" id="input_warning" name="pharmacywarning"
                                 onchange="clr_border(this);"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="inputcost" class="form-label">ราคาต้นทุน *</label>
+                            <input type="number" class="form-control " id="input_cost" name="cost"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputprice" class="form-label">ราคาขาย *</label>
+                            <input type="number" class="form-control " id="input_price" name="price"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputamount" class="form-label">จำนวน *</label>
+                            <input type="number" class="form-control " id="input_amount" name="amount"
+                                onchange="clr_border(this);">
                         </div>
 
                         <div class="col-6">
                             <label for="inputunit" class="form-label">หน่วยนับ *</label>
-                            <input type="text" class="form-control" id="inputunit" name="unit"
+                            <input type="text" class="form-control" id="input_unit" name="unit"
                                 onchange="clr_border(this);">
                         </div>
-
-
 
                         <div class="col-md-12">
                             <fieldset class="row mb-3">
@@ -169,7 +218,7 @@
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="pharmacygroup1" name="pharmacygroup"
-                                            class="custom-control-input" value='1'>
+                                            class="custom-control-input" checked value='1'>
                                         <label class="custom-control-label"
                                             for="pharmacygroup1">ยาสามัญประจำบ้าน</label>
                                     </div>
@@ -198,12 +247,13 @@
         </div>
     </div>
 
+
     <!-- viewmodal -->
     <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ข้อมูลยา</h5>
+                    <h4 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูลยา</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -211,39 +261,117 @@
                                 d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
                         </svg></button>
                 </div>
-                <div class="modal-body">
-                    <div class="card card-block p-card">
-                        <div class="profile-box">
-                            <div class="profile-card rounded">
-                                <img src="../assets/images/user/12.jpg" alt="profile-bg"
-                                    class="avatar-100 rounded d-block mx-auto img-fluid mb-3">
-                                <h3 class="font-600 text-white text-center mb-0">ชื่อยา</h3>
-                                <p class="text-white text-center mb-5">เลขทะเบียนยา</p>
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">รหัสยา: </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_pharmacyid"></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="pro-content rounded">
-                                <div class="d-flex align-items-center mb -3">
-                                    <div class="p-icon mr-3">
-                                        <i class="las la-envelope-open-text"></i>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">เลขที่ทะเบียนยา: </p>
                                     </div>
-                                    <p class="mb-0 eml">ข้อบ่งใช้:</p>
+                                    <div class="col-md-6">
+                                        <span id="view_reg"></span>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="p-icon bg-success mr-3">
-                                        <i class="las la-phone"></i>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">บาร์โค้ด: </p>
                                     </div>
-                                    <p class="mb-0">ผลข้างเคียง/ข้อควรระวัง:</p>
+                                    <div class="col-md-6">
+                                        <span id="view_barcode"></span>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="p-icon  bg-danger mr-3">
-                                        <i class="las la-map-marked"></i>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ชื่อยา:</p>
                                     </div>
-                                    <p class="mb-0">หน่วยนับ:</p>
+                                    <div class="col-md-6">
+                                        <span id="view_pharmacyname"></span>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="p-icon  bg-danger mr-3">
-                                        <i class="las la-map-marked"></i>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ข้อบ่งใช้:</p>
                                     </div>
-                                    <p class="mb-0">หมวดหมู่:</p>
+                                    <div class="col-md-6">
+                                        <span id="view_details"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ผลข้างเคียง/ข้อควรระวัง:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_warning"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">หมวดหมู่:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_group"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">หน่วยนับ:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_unit"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ราคาต้นทุน:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_cost"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ราคาขาย:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_price"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">จำนวนคงเหลือ:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_amount"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -253,8 +381,11 @@
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                 </div>
             </div>
+
         </div>
     </div>
+
+
 </div>
 </div>
 
@@ -276,61 +407,72 @@
             <div class="modal-body">
                 <form class="row g-3" id="form_pharmacy_edit" method="post"
                     action="<?php echo site_url('edit_pharmacy'); ?>">
+
                     <div class="col-md-12">
                         <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
-                        <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacyid"
+                        <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacy_id"
                             readonly>
                     </div>
-                    <!-- <div class="col-md-6">
-                        <label for="edit_img" class="form-label">รูป</label>
-                            <input type="text" class="form-control" id="edit_img" name="img" onchange="clr_border(this);">
-                        </div> -->
                     <div class="col-md-6">
-                        <label for="edit_reg" class="form-label">เลขทะเบียนยา *</label>
-                        <input type="text" class="form-control" id="edit_reg" name="reg" onchange="clr_border(this);">
+                        <label for="edit_barcode" class="form-label">บาร์โค้ด</label>
+                        <input type="text" class="form-control" id="edit_barcode" name="barcode">
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_pharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
-                        <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname"
-                            onchange="clr_border(this);">
+                        <label for="edit_reg" class="form-label">เลขทะเบียนยา</label>
+                        <input type="text" class="form-control" id="edit_reg" name="reg">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="edit_pharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ)</label>
+                        <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname">
                     </div>
 
                     <div class="col-6">
-                        <label for="edit_details" class="form-label">ข้อบ่งใช้ *</label>
-                        <textarea type="text" class="form-control" id="edit_details" name="pharmacydetails"
-                            onchange="clr_border(this);"></textarea>
+                        <label for="edit_details" class="form-label">ข้อบ่งใช้</label>
+                        <textarea type="text" class="form-control" id="edit_details" name="pharmacydetails"></textarea>
                     </div>
                     <div class="col-6">
-                        <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
-                        <textarea type="text" class="form-control" id="edit_warning" name="pharmacywarning"
-                            onchange="clr_border(this);"></textarea>
+                        <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง</label>
+                        <textarea type="text" class="form-control" id="edit_warning" name="pharmacywarning"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label for="edit_cost" class="form-label">ราคาต้นทุน</label>
+                        <input type="number" class="form-control " id="edit_cost" name="cost">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit_price" class="form-label">ราคาขาย</label>
+                        <input type="number" class="form-control " id="edit_price" name="price">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit_amount" class="form-label">จำนวน</label>
+                        <input type="number" class="form-control " id="edit_amount" name="amount">
                     </div>
 
                     <div class="col-6">
                         <label for="edit_unit" class="form-label">หน่วยนับ</label>
-                        <input type="text" class="form-control" id="edit_unit" name="unit" onchange="clr_border(this);">
+                        <input type="text" class="form-control" id="edit_unit" name="unit">
                     </div>
 
 
                     <div class="col-md-12">
                         <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่ *</legend>
+                            <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่</legend>
                             <div class="col-sm-10">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup" name="pharmacygroup"
-                                        class="custom-control-input" value='1'>
+                                    <input type="radio" id="edit_pharmacygroup1" name="pharmacygroup"
+                                        class="custom-control-input" checked value='1'>
                                     <label class="custom-control-label"
                                         for="edit_pharmacygroup1">ยาสามัญประจำบ้าน</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup2" name="edit_pharmacygroup"
+                                    <input type="radio" id="edit_pharmacygroup2" name="pharmacygroup"
                                         class="custom-control-input" checked value='2'>
-                                    <label class="custom-control-label" for="pharmacygroup2"> ยาอันตราย </label>
+                                    <label class="custom-control-label" for="edit_pharmacygroup2"> ยาอันตราย </label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup3" name="edit_pharmacygroup"
+                                    <input type="radio" id="edit_pharmacygroup3" name="pharmacygroup"
                                         class="custom-control-input" checked value='3'>
-                                    <label class="custom-control-label" for="pharmacygroup3"> ยาควบคุมพิเศษ </label>
+                                    <label class="custom-control-label" for="edit_pharmacygroup3"> ยาควบคุมพิเศษ
+                                    </label>
                                 </div>
                             </div>
                         </fieldset>
@@ -339,7 +481,7 @@
             </div>
             <div class="modal-footer">
                 <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                <button type="submit" class="btn btn-primary" onclick="save_pharmacy()">บันทึก</button>
+                <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy()">บันทึก</button>
             </div>
         </div>
     </div>
@@ -390,15 +532,20 @@
 
 <script>
 function save_pharmacy() {
+
     let ch = true;
 
     if ($("#input_reg").val().trim().length == 0) {
         ch = false;
         $("#input_reg").css("border-color", "red");
     }
+    if ($("#input_barcode").val().trim().length == 0) {
+        ch = false;
+        $("#input_barcode").css("border-color", "red");
+    }
     if ($("#input_pharmacyname").val().trim().length == 0) {
         ch = false;
-        $("#inpup_tharmacyname").css("border-color", "red");
+        $("#input_pharmacyname").css("border-color", "red");
     }
     if ($("#input_details").val().trim().length == 0) {
         ch = false;
@@ -412,16 +559,18 @@ function save_pharmacy() {
         ch = false;
         $("#input_warning").css("border-color", "red");
     }
-    if ($("#edit_group").val().trim().length == 0) {
+    if ($("#input_amount").val().trim().length == 0) {
         ch = false;
-        $("#edit_group").css("border-color", "red");
+        $("#input_amount").css("border-color", "red");
     }
-
-    if ($("#edit_type").val().trim().length == 0) {
+    if ($("#input_cost").val().trim().length == 0) {
         ch = false;
-        $("#edit_type").css("border-color", "red");
+        $("#input_cost").css("border-color", "red");
     }
-
+    if ($("#input_price").val().trim().length == 0) {
+        ch = false;
+        $("#input_price").css("border-color", "red");
+    }
     if (ch) {
         $('#form_pharmacy_new').submit();
     } else {
@@ -436,6 +585,10 @@ function save_edit_pharmacy() {
         ch = false;
         $("#edit_reg").css("border-color", "red");
     }
+    if ($("#edit_barcode").val().trim().length == 0) {
+        ch = false;
+        $("#edit_barcode").css("border-color", "red");
+    }
     if ($("#edit_pharmacyname").val().trim().length == 0) {
         ch = false;
         $("#edit_pharmacyname").css("border-color", "red");
@@ -448,34 +601,54 @@ function save_edit_pharmacy() {
         ch = false;
         $("#edit_unit").css("border-color", "red");
     }
-
     if ($("#edit_warning").val().trim().length == 0) {
         ch = false;
         $("#edit_warning").css("border-color", "red");
     }
-
-    if ($("#edit_group").val().trim().length == 0) {
+    if ($("#edit_cost").val().trim().length == 0) {
         ch = false;
-        $("#edit_group").css("border-color", "red");
+        $("#edit_cost").css("border-color", "red");
     }
-
-    if ($("#edit_type").val().trim().length == 0) {
+    if ($("#edit_price").val().trim().length == 0) {
         ch = false;
-        $("#edit_type").css("border-color", "red");
+        $("#edit_price").css("border-color", "red");
     }
-
     if (ch) {
         $('#form_pharmacy_edit').submit();
-    } else {
-        alert("กรุณากรอกข้อมูลให้ครบ");
     }
 }
 
 
 
 function view_data(id) {
+    $.ajax({
+            method: "GET",
+            url: "<?php echo site_url('api/getPharmacy')?>" + "/" + id,
+            data: {}
+        })
+        .done(function(data) {
+            $.each(data.data, function(i, item) {
+                // console.log(item);
+                $("#view_pharmacyid").html(item.pharmacy_id);
+                $("#view_reg").html(item.reg_no);
+                $('#view_barcode').html(item.barcode);
+                $('#view_pharmacyname').html(item.pharmacy_name);
+                $('#view_details').html(item.pharmacy_details);
+                $('#view_unit').html(item.counting_unit);
+                $('#view_warning').html(item.pharmacy_warning);
+                $('#view_group').html(item.pharmacy_group);
+                $('#view_cost').html(item.cost);
+                $('#view_price').html(item.price);
+                $('#view_amount').html(item.amount);
+
+
+            });
+        });
     $('#viewModal').modal('show');
 }
+
+
+
 
 function edit_data(id) {
     $.ajax({
@@ -485,14 +658,17 @@ function edit_data(id) {
         })
         .done(function(data) {
             $.each(data.data, function(i, item) {
+                console.log(item);
                 $("#edit_pharmacyid").val(item.pharmacy_id);
+                $('#edit_barcode').val(item.barcode);
                 $("#edit_reg").val(item.reg_no);
-                $('#edit_pharmacyname').val(itempharmacy_name);
+                $('#edit_pharmacyname').val(item.pharmacy_name);
                 $('#edit_details').val(item.pharmacy_details);
                 $('#edit_unit').val(item.counting_unit);
                 $('#edit_warning').val(item.pharmacy_warning);
-                $('#edit_group').val(item.pharmacy_group);
-                $('#edit_type').val(item.pharmacy_type);
+                $('#edit_cost').val(item.cost);
+                $('#edit_price').val(item.price);
+                $('#edit_amount').val(item.amount)
 
             });
         });

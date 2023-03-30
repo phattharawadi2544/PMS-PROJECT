@@ -15,6 +15,7 @@
     <link rel="stylesheet"
         href="<?php echo base_url();?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/remixicon/fonts/remixicon.css">
+
 </head>
 
 <body class="  ">
@@ -42,7 +43,7 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu">
 
-                        <!-- <?php if($session->get('user_role')==1){?>
+                        <?php if($session->get('user_role')==1){?>
                         <li class="">
                             <a href="<?php echo site_url('/');?>" class="svg-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -53,7 +54,7 @@
                                 <span class="ml-4">หน้าหลัก</span>
                             </a>
                         </li>
-                        <?php } ?> -->
+                        <?php } ?>
 
                         <?php if($session->get('user_role')==1){?>
                         <li class="">
@@ -213,99 +214,81 @@
                             </a>
                             <ul id="report" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li class="">
-                                    <a href="<?php echo base_url('sale_new');?>">
+                                    <a href="<?php echo base_url('order_detail');?>">
                                         <i class="las la-minus"></i><span>ประวัติการขาย</span>
                                     </a>
                                 </li>
-                                <?php if($session->get('user_role')==1){?>
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_all');?>">
-                                        <i class="las la-minus"></i><span>รายการขายทั้งหมด</span>
-                                    </a>
-                                </li>
 
-                                <!-- <li class="">
-                                    <a href="<?php echo base_url('sale_today');?>">
-                                        <i class="las la-minus"></i><span>รายการขายวันนี้</span>
+                                <li class="">
+                                    <a href="<?php echo base_url('sales_specially');?>">
+                                        <i class="las la-minus"></i><span>รายงานบัญชีการขายยาควบคุมพิเศษ</span>
                                     </a>
                                 </li>
 
                                 <li class="">
-                                    <a href="<?php echo base_url('sale_week');?>">
-                                        <i class="las la-minus"></i><span>รายการขายสัปดาห์นี้</span>
+                                    <a href="<?php echo base_url('sales_dangerous');?>">
+                                        <i class="las la-minus"></i><span>รายงานบัญชีการขายยาอันตราย</span>
                                     </a>
-                                </li> -->
-                                <?php } ?>
-
+                                </li>
                             </ul>
+                        <li class="">
+                            <a href="<?php echo site_url('logout');?>" class="svg-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path fill-rule="evenodd"
+                                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>
+                                <span class="ml-4">ออกจากระบบ</span>
+                            </a>
+                        </li>
                 </nav>
 
-                <div class="p-3"></div>
             </div>
-        </div>
-        <div class="iq-top-navbar">
-            <div class="iq-navbar-custom">
-                <nav class="navbar navbar-expand-lg navbar-light p-0">
-                    <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
-                        <i class="ri-menu-line wrapper-menu"></i>
-                        <a href="<?php echo base_url();?>/backend/index.html" class="header-logo">
-                            <img src="<?php echo base_url();?>/assets/images/logo.png" class="img-fluid rounded-normal"
-                                alt="logo">
-                            <h5 class="logo-title ml-3">Mini Pharmacy</h5>
+            <div class="iq-top-navbar">
+                <div class="iq-navbar-custom">
+                    <nav class="navbar navbar-expand-lg navbar-light p-0">
+                        <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                            <i class="ri-menu-line wrapper-menu"></i>
+                            <a href="<?php echo base_url();?>/backend/index.html" class="header-logo">
+                                <img src="<?php echo base_url();?>/assets/images/login/logo4.png"
+                                    class="img-fluid rounded-normal light-logo" alt="logo">
+                                <h5 class="logo-title ml-3">Mini Pharmacy</h5>
 
-                        </a>
-                    </div>
-                    <div class="iq-search-bar device-search">
-                        <!-- <form action="#" class="searchbox">
+                            </a>
+                        </div>
+                        <div class="iq-search-bar device-search">
+                            <!-- <form action="#" class="searchbox">
                           <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                           <input type="text" class="text search-input" placeholder="ค้นหา">
-                      </form> -->
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-label="Toggle navigation">
-                            <i class="ri-menu-3-line"></i>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto navbar-list align-items-center">
-                                <li class="nav-item nav-icon dropdown caption-content">
-                                    <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <?php 
+                      </form>  -->
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-label="Toggle navigation">
+                                <i class="ri-menu-3-line"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto navbar-list align-items-center">
+                                    <li class="nav-item nav-icon dropdown caption-content">
+                                        <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <?php 
                                       $name = $session->get('f_name')." ".$session->get('l_name'); 
                                       echo $name ?>
-                                      <?php echo (($session->get('user_role')==1)?"ผู้จัดการร้าน":"เภสัชกร"); ?>
-                                        <img src="<?php echo base_url();?>/assets/images/user/1.png"
-                                            class="img-fluid rounded" alt="user">
-                                    </a>
-                                    <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="card shadow-none m-0">
-                                            <div class="card-body p-0 text-center">
-                                                <div class="media-body profile-detail text-center">
-                                                    <img src="<?php echo base_url();?>/assets/images/page-img/profile-bg.jpg"
-                                                        alt="profile-bg" class="rounded-top img-fluid mb-4">
-                                                    <img src="<?php echo base_url();?>/assets/images/user/1.png"
-                                                        alt="profile-img"
-                                                        class="rounded profile-img img-fluid avatar-70">
-                                                </div>
-                                                <div class="p-3">
-                                                    <p class="mb-0">หน้าที่
-                                                        <?php echo (($session->get('user_role')==1)?"ผู้บริหาร":"เภสัชกร"); ?>
-                                                    </p>
-                                                    
-                                                    <div class="d-flex align-items-center justify-content-center mt-3">
-                                                        <a href="<?php echo site_url('logout');?>"
-                                                            class="btn border">ออกจากระบบ</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                            <?php echo (($session->get('user_role')==1)?"ผู้จัดการร้าน":"เภสัชกร"); ?>
+                                            <img src="<?php echo base_url();?>/assets/images/user/1.png"
+                                                class="img-fluid rounded" alt="user">
+                                        </a>
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                </div>
+                </li>
+                </ul>
             </div>
         </div>
+        </nav>
+    </div>
+    </div>
