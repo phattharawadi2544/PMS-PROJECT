@@ -32,7 +32,10 @@
                                     <center>รหัสยา</center>
                                 </th>
                                 <th>
-                                    <center>รหัสผู้ขาย</center>
+                                    <center>รหัสผู้ซื้อ</center>
+                                </th>
+                                <th>
+                                    <center>วันที่นำเข้า</center>
                                 </th>
                                 <th>
                                     <center>เลขที่ครั้งที่ผลิต</center>
@@ -47,17 +50,12 @@
                                     <center>จำนวน</center>
                                 </th>
                                 <th>
-                                    <center>ราคาต้นทุน</center>
-                                </th>
-                                <th>
-                                    <center>ราคาขาย</center>
-                                </th>
-                                <th>
                                     <center>จำนวนคงเหลือ</center>
                                 </th>
                                 <th>
-                                    <center>อายุการเก็บรักษา</center>
+                                    <center>ราคาต้นทุน</center>
                                 </th>
+
                                 <th>
                                     <center>จัดการ</center>
                                 </th>
@@ -91,23 +89,16 @@
                                     <center><?php echo $lot_row["id_supplie"]; ?></center>
                                 </td>
                                 <td>
+                                    <center><?php echo $lot_row["import_date"]; ?></center>
+                                </td>
+                                <td>
                                     <center><?php echo $lot_row["batch_no"]; ?></center>
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["manu_date"]; ?></center>
                                 </td>
-
                                 <td>
                                     <center><?php echo $lot_row["exp_date"]; ?></center>
-                                </td>
-                                <td>
-                                    <center><?php echo $lot_row["shelf_life"]; ?></center>
-                                </td>
-                                <td>
-                                    <center><?php echo $lot_row["cost_price"]; ?></center>
-                                </td>
-                                <td>
-                                    <center><?php echo $lot_row["sale_price"]; ?></center>
                                 </td>
 
                                 <td>
@@ -116,14 +107,11 @@
                                 <td>
                                     <center><?php echo $lot_row["amount"]; ?></center>
                                 </td>
-
-
+                                <td>
+                                    <center><?php echo $lot_row["cost_price"]; ?></center>
+                                </td>
                                 <td>
                                     <div class="d-flex align-items-center list-action">
-                                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
-                                            title="" data-original-title="ดู" href="#"
-                                            onclick="view_data('<?php echo $lot_row["lot_id"]; ?>')"><i
-                                                class="ri-eye-line mr-0"></i></a>
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
                                             title="" data-original-title="แก้ไข" href="#"
                                             onclick="edit_data('<?php echo $lot_row["lot_id"]; ?>')"><i
@@ -140,7 +128,7 @@
         <!-- Page end  -->
     </div>
 
-    <!-- Button trigger modal -->
+    <!-- new modal -->
     <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -157,11 +145,25 @@
                 <div class="modal-body">
                     <form class="row g-3" id="form_lot_new" method="post" action="<?php echo site_url('add_lot'); ?>">
                         <div class="col-md-6">
+                            <label for="inputimport" class="form-label">วันที่นำเข้า*</label>
+                            <input type="date" class="form-control" id="inputimport" name="import"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-md-6">
                             <label for="inputbatch" class="form-label">เลขที่ครั้งที่ผลิต *</label>
                             <input type="text" class="form-control was-validated" id="inputbatch" name="batch"
                                 onchange="clr_border(this);">
                         </div>
-
+                        <div class="col-md-6">
+                            <label for="inputpharmacy" class="form-label">รหัสยา *</label>
+                            <input type="text" class="form-control was-validated" id="inputpharmacy" name="pharmacy"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputsupplie" class="form-label">รหัสผู้ซื้อ *</label>
+                            <input type="text" class="form-control was-validated" id="inputsupplie" name="supplie"
+                                onchange="clr_border(this);">
+                        </div>
                         <div class="col-md-6">
                             <label for="inputmanu" class="form-label">วันที่ผลิต *</label>
                             <input type="date" class="form-control" id="inputmanu" name="manu"
@@ -176,24 +178,15 @@
 
                         <div class="col-md-6">
                             <label for="inputamount" class="form-label">จำนวน *</label>
-                            <input type="text" class="form-control" id="inputamount" name="amount"
+                            <input type="number" class="form-control" id="inputamount" name="amount"
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
                             <label for="inputcost" class="form-label">ราคาทุน *</label>
-                            <input type="text" class="form-control" id="inputcost" name="cost"
+                            <input type="number" class="form-control" id="inputcost" name="cost"
                                 onchange="clr_border(this);">
                         </div>
-                        <div class="col-md-6">
-                            <label for="inputsale" class="form-label">ราคาขาย *</label>
-                            <input type="text" class="form-control" id="inputsale" name="sale"
-                                onchange="clr_border(this);">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputshelf" class="form-label">อายุการเก็บรักษา *</label>
-                            <input type="text" class="form-control" id="inputshelf" name="shelf"
-                                onchange="clr_border(this);">
-                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -220,6 +213,18 @@ function save_lot() {
         ch = false;
         $("#inputmanu").css("border-color", "red");
     }
+    if ($("#inputimport").val().trim().length == 0) {
+        ch = false;
+        $("#inputimport").css("border-color", "red");
+    }
+    if ($("#inputsupplie").val().trim().length == 0) {
+        ch = false;
+        $("#inputsupplie").css("border-color", "red");
+    }
+    if ($("#inputpharmacy").val().trim().length == 0) {
+        ch = false;
+        $("#inputpharmacy").css("border-color", "red");
+    }
     if ($("#inputexp").val().trim().length == 0) {
         ch = false;
         $("#inputexp").css("border-color", "red");
@@ -232,14 +237,7 @@ function save_lot() {
         ch = false;
         $("#inputcost").css("border-color", "red");
     }
-    if ($("#inputsale").val().trim().length == 0) {
-        ch = false;
-        $("#inputsale").css("border-color", "red");
-    }
-    if ($("#inputshelf").val().trim().length == 0) {
-        ch = false;
-        $("#inputshelf").css("border-color", "red");
-    }
+    
     if (ch) {
         $('#form_lot_new').submit();
     } else {

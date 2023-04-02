@@ -54,13 +54,16 @@
                                     <center>บาร์โค้ด</center>
                                 </th>
                                 <th>
-                                    <center>ชื่อยา</center>
+                                    <center>เลขทะเบียนยา</center>
                                 </th>
                                 <th>
-                                    <center>ข้อบ่งใช้</center>
+                                    <center>ชื่อทางการค้า</center>
                                 </th>
                                 <th>
                                     <center>หมวดหมู่</center>
+                                </th>
+                                <th>
+                                    <center>ราคาขาย</center>
                                 </th>
                                 <th>
                                     <center>หน่วยนับ</center>
@@ -92,10 +95,10 @@
                                     <center><?php echo  $phamacy_row["barcode"];?></center>
                                 </td>
                                 <td>
-                                    <center><?php echo  $phamacy_row["pharmacy_name"];?></center>
+                                    <center><?php echo  $phamacy_row["reg_no"];?></center>
                                 </td>
                                 <td>
-                                    <center><?php echo  $phamacy_row["pharmacy_details"];?></center>
+                                    <center><?php echo  $phamacy_row["pharmacy_name"];?></center>
                                 </td>
                                 <td>
                                     <center>
@@ -111,10 +114,12 @@
                                     </center>
                                 </td>
                                 <td>
+                                    <center><?php echo  $phamacy_row["price"];?></center>
+                                </td>
+                                
+                                <td>
                                     <center><?php echo  $phamacy_row["counting_unit"];?></center>
                                 </td>
-
-
                                 <td>
                                     <center>
                                         <div class="d-flex align-items-center list-action">
@@ -168,14 +173,18 @@
                             <input type="text" class="form-control" id="input_barcode" name="barcode"
                                 onchange="clr_border(this);">
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
                             <input type="text" class="form-control" id="input_reg" name="reg"
                                 onchange="clr_border(this);">
                         </div>
-                        <div class="col-md-12">
-                            <label for="inputpharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                        <div class="col-md-6">
+                            <label for="input_pha_name" class="form-label">ชื่อสามัญ(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                            <input type="text" class="form-control" id="input_pha_name" name="commonpha_name"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputpharmacyname" class="form-label">ชื่อทางการค้า(ภาษาไทย/ภาษาอังกฤษ)*</label>
                             <input type="text" class="form-control" id="input_pharmacyname" name="pharmacyname"
                                 onchange="clr_border(this);">
                         </div>
@@ -191,18 +200,18 @@
                                 onchange="clr_border(this);"></textarea>
                         </div>
                         <div class="col-6">
-                            <label for="inputcost" class="form-label">ราคาต้นทุน *</label>
-                            <input type="number" class="form-control " id="input_cost" name="cost"
-                                onchange="clr_border(this);">
-                        </div>
-                        <div class="col-6">
                             <label for="inputprice" class="form-label">ราคาขาย *</label>
                             <input type="number" class="form-control " id="input_price" name="price"
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-6">
-                            <label for="inputamount" class="form-label">จำนวน *</label>
-                            <input type="number" class="form-control " id="input_amount" name="amount"
+                            <label for="inputamount" class="form-label">ปริมาณน้อยสุด *</label>
+                            <input type="number" class="form-control " id="input_amount" name="min"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputamount" class="form-label">ปริมาณมากสุด *</label>
+                            <input type="number" class="form-control " id="input_amount" name="max"
                                 onchange="clr_border(this);">
                         </div>
 
@@ -297,10 +306,20 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p class="mb-0 h5">ชื่อยา:</p>
+                                        <p class="mb-0 h5">ชื่อทางการค้า:</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span id="view_pharmacyname"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ชื่อยาสามัญ:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_pha_name"></span>
                                     </div>
                                 </div>
                             </div>
@@ -347,16 +366,6 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p class="mb-0 h5">ราคาต้นทุน:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_cost"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
                                         <p class="mb-0 h5">ราคาขาย:</p>
                                     </div>
                                     <div class="col-md-6">
@@ -367,10 +376,20 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p class="mb-0 h5">จำนวนคงเหลือ:</p>
+                                        <p class="mb-0 h5">ปริมาณน้อยสุด:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span id="view_amount"></span>
+                                        <span id="view_min"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-0 h5">ปริมาณมากสุด:</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="view_max"></span>
                                     </div>
                                 </div>
                             </div>
@@ -408,24 +427,27 @@
                 <form class="row g-3" id="form_pharmacy_edit" method="post"
                     action="<?php echo site_url('edit_pharmacy'); ?>">
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
                         <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacy_id"
                             readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="edit_barcode" class="form-label">บาร์โค้ด</label>
-                        <input type="text" class="form-control" id="edit_barcode" name="barcode">
+                        <input type="text" class="form-control" id="edit_barcode" name="barcode" readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="edit_reg" class="form-label">เลขทะเบียนยา</label>
-                        <input type="text" class="form-control" id="edit_reg" name="reg">
+                        <input type="text" class="form-control" id="edit_reg" name="reg" readonly>
                     </div>
-                    <div class="col-md-12">
-                        <label for="edit_pharmacyname" class="form-label">ชื่อยา(ภาษาไทย/ภาษาอังกฤษ)</label>
-                        <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname">
+                    <div class="col-md-6">
+                        <label for="input_pha_name" class="form-label">ชื่อยาสามัญ(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                        <input type="text" class="form-control" id="input_pha_name" name="commonpha_name">
                     </div>
-
+                    <div class="col-md-6">
+                        <label for="inputpharmacyname" class="form-label">ชื่อทางการค้า(ภาษาไทย/ภาษาอังกฤษ) * </label>
+                        <input type="text" class="form-control" id="input_pharmacyname" name="pharmacyname">
+                    </div>
                     <div class="col-6">
                         <label for="edit_details" class="form-label">ข้อบ่งใช้</label>
                         <textarea type="text" class="form-control" id="edit_details" name="pharmacydetails"></textarea>
@@ -435,24 +457,21 @@
                         <textarea type="text" class="form-control" id="edit_warning" name="pharmacywarning"></textarea>
                     </div>
                     <div class="col-6">
-                        <label for="edit_cost" class="form-label">ราคาต้นทุน</label>
-                        <input type="number" class="form-control " id="edit_cost" name="cost">
-                    </div>
-                    <div class="col-6">
                         <label for="edit_price" class="form-label">ราคาขาย</label>
                         <input type="number" class="form-control " id="edit_price" name="price">
                     </div>
                     <div class="col-6">
-                        <label for="edit_amount" class="form-label">จำนวน</label>
-                        <input type="number" class="form-control " id="edit_amount" name="amount">
-                    </div>
-
-                    <div class="col-6">
                         <label for="edit_unit" class="form-label">หน่วยนับ</label>
                         <input type="text" class="form-control" id="edit_unit" name="unit">
                     </div>
-
-
+                    <div class="col-6">
+                        <label for="edit_unit" class="form-label">ปริมาณน้อยสุด</label>
+                        <input type="text" class="form-control" id="edit_min" name="min">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit_unit" class="form-label">ปริมาณมากสุด</label>
+                        <input type="text" class="form-control" id="edit_max" name="max">
+                    </div>
                     <div class="col-md-12">
                         <fieldset class="row mb-3">
                             <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่</legend>
@@ -532,12 +551,14 @@
 
 <script>
 function save_pharmacy() {
-
     let ch = true;
-
     if ($("#input_reg").val().trim().length == 0) {
         ch = false;
         $("#input_reg").css("border-color", "red");
+    }
+    if ($("#input_pha_name").val().trim().length == 0) {
+        ch = false;
+        $("#input_pha_name").css("border-color", "red");
     }
     if ($("#input_barcode").val().trim().length == 0) {
         ch = false;
@@ -559,17 +580,17 @@ function save_pharmacy() {
         ch = false;
         $("#input_warning").css("border-color", "red");
     }
-    if ($("#input_amount").val().trim().length == 0) {
-        ch = false;
-        $("#input_amount").css("border-color", "red");
-    }
-    if ($("#input_cost").val().trim().length == 0) {
-        ch = false;
-        $("#input_cost").css("border-color", "red");
-    }
     if ($("#input_price").val().trim().length == 0) {
         ch = false;
         $("#input_price").css("border-color", "red");
+    }
+    if ($("#input_min").val().trim().length == 0) {
+        ch = false;
+        $("#input_min").css("border-color", "red");
+    }
+    if ($("#input_max").val().trim().length == 0) {
+        ch = false;
+        $("#input_max").css("border-color", "red");
     }
     if (ch) {
         $('#form_pharmacy_new').submit();
@@ -584,6 +605,10 @@ function save_edit_pharmacy() {
     if ($("#edit_reg").val().trim().length == 0) {
         ch = false;
         $("#edit_reg").css("border-color", "red");
+    }
+    if ($("#edit_pha_name").val().trim().length == 0) {
+        ch = false;
+        $("#edit_pha_name").css("border-color", "red");
     }
     if ($("#edit_barcode").val().trim().length == 0) {
         ch = false;
@@ -605,13 +630,17 @@ function save_edit_pharmacy() {
         ch = false;
         $("#edit_warning").css("border-color", "red");
     }
-    if ($("#edit_cost").val().trim().length == 0) {
-        ch = false;
-        $("#edit_cost").css("border-color", "red");
-    }
     if ($("#edit_price").val().trim().length == 0) {
         ch = false;
         $("#edit_price").css("border-color", "red");
+    }
+    if ($("#edit_min").val().trim().length == 0) {
+        ch = false;
+        $("#edit_min").css("border-color", "red");
+    }
+    if ($("#edit_max").val().trim().length == 0) {
+        ch = false;
+        $("#edit_max").css("border-color", "red");
     }
     if (ch) {
         $('#form_pharmacy_edit').submit();
@@ -630,6 +659,7 @@ function view_data(id) {
             $.each(data.data, function(i, item) {
                 // console.log(item);
                 $("#view_pharmacyid").html(item.pharmacy_id);
+                $("#view_pha_name").html(item.commonpha_name);
                 $("#view_reg").html(item.reg_no);
                 $('#view_barcode').html(item.barcode);
                 $('#view_pharmacyname').html(item.pharmacy_name);
@@ -637,9 +667,9 @@ function view_data(id) {
                 $('#view_unit').html(item.counting_unit);
                 $('#view_warning').html(item.pharmacy_warning);
                 $('#view_group').html(item.pharmacy_group);
-                $('#view_cost').html(item.cost);
                 $('#view_price').html(item.price);
-                $('#view_amount').html(item.amount);
+                $('#view_min').html(item.min_stock);
+                $('#view_max').html(item.max_stock);
 
 
             });
@@ -666,9 +696,9 @@ function edit_data(id) {
                 $('#edit_details').val(item.pharmacy_details);
                 $('#edit_unit').val(item.counting_unit);
                 $('#edit_warning').val(item.pharmacy_warning);
-                $('#edit_cost').val(item.cost);
                 $('#edit_price').val(item.price);
-                $('#edit_amount').val(item.amount)
+                $('#edit_min').val(item.min_stock)
+                $('#edit_max').val(item.max_stock)
 
             });
         });

@@ -171,6 +171,24 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
+        }elseif($api_name=='getStock'){
+            $model = new StockModel();
+
+            if($id!=NULL){
+                $get_data = $model_order->where('order_id',$id)->findAll();
+                $data_order_d   = $db->query('SELECT o.*,p.barcode,p.pharmacy_name,p.pharmacy_group,p.counting_unit FROM order_detail o JOIN pharmacy p ON o.pharmacy_id = p.pharmacy_id WHERE o.order_id = '.$id)->getResultArray();
+                $get_data[0]['order_detail'] =  $data_order_d;
+                // var_dump($get_data);
+            }else{
+                $get_data = $model_order->orderBy('order_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
         }elseif($api_name=='getLot'){
             $model = new LotModel();
             if($id!=NULL){

@@ -28,13 +28,14 @@ class Pharmacies extends BaseController
             'reg_no'=>$_POST['reg'],
             'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
+            'commonpha_name' => $_POST['commonpha_name'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
             'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
             'price'=>$_POST['price'], 
-            'cost'=>$_POST['cost'], 
-            'amount'=>$_POST['amount'], 
+            'min_stock'=>$_POST['min'], 
+            'max_stock'=>$_POST['max'], 
             'Status'=>1
         );
         // var_dump($data);
@@ -63,13 +64,17 @@ class Pharmacies extends BaseController
             'reg_no'=>$_POST['reg'],
             'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
+            'commonpha_name' => $_POST['commonpha_name'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
             'counting_unit'=>$_POST['unit'], 
             'pharmacy_warning'=>$_POST['pharmacywarning'], 
             'pharmacy_group'=>$_POST['pharmacygroup'], 
             'price'=>$_POST['price'], 
-            'cost'=>$_POST['cost'], 
+            'min_stock'=>$_POST['min'], 
+            'max_stock'=>$_POST['max'], 
             'Status'=>1
+
+
         );
         
         

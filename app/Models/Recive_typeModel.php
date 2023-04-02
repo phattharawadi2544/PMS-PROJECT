@@ -5,6 +5,6 @@ use CodeIgniter\Model;
 class Recive_typeModel extends Model {
     protected $table = 'recive_type';
     
-    protected $allowedFields = ['recive_type_id', 'recive_name','recive_detail','status'];
+    protected $allowedFields = ['recive_type_id', 'recive_name','status'];
     
 }

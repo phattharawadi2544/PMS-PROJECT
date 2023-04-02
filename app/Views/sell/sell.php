@@ -9,7 +9,7 @@
             </button>
         </div>
         <?php }?>
-       
+
 
         <div class="container-fluid">
             <div class="row">
@@ -203,6 +203,9 @@
                                 <thead class="bg-white text-uppercase">
                                     <tr class="ligth ligth-data">
                                         <th>
+                                            <center>ลำดับ</center>
+                                        </th>
+                                        <th>
                                             <center>รหัสยา</center>
                                         </th>
                                         <th>
@@ -336,6 +339,7 @@
                             <table class="table" id="table_order_detail_summary">
                                 <thead>
                                     <tr>
+                                        <th scope="col">ลำดับ</th>
                                         <th scope="col">จำนวน</th>
                                         <th scope="col">ชื่อยา</th>
                                         <th scope="col">ราคา</th>
@@ -451,7 +455,7 @@
             let amount = $('#amount').val();
             let barcode = $('#barcode').val();
             const customer_name = $('#customer_name').val().trim();
-            
+
 
             if (pha_id == "") {
                 alert("กรุณาเลือกรายการยา");

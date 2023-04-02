@@ -37,9 +37,8 @@ class Lot extends BaseController
             'exp_date'=>$_POST['exp'], 
             'amount'=>$_POST['amount'], 
             'cost_price'=>$_POST['cost'], 
-            'sale_price'=>$_POST['sale'], 
-            'remain'=>$_POST['remain'], 
-            'shelf_life'=>$_POST['shelf']
+            'import_date'=>$_POST['import'], 
+            
            
         );
         
