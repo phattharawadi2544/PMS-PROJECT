@@ -87,6 +87,8 @@ $routes->get('/supplier', 'Supplier::supplier');
 $routes->post('/add_supplier', 'Supplier::add_supplier');
 
 $routes->get('/lot', 'Lot::index');
+$routes->get('/add_lot', 'Lot::add_lot');
+
 
 
 

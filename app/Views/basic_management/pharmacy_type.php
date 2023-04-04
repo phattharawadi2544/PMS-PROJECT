@@ -39,10 +39,10 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                <div class="table-responsive rounded mb-3">
-                    <table class="data-tables table mb-0 tbl-server-info">
-                        <thead class="bg-white text-uppercase">
-                            <tr class="ligth ligth-data">
+                    <div class="table-responsive rounded mb-3">
+                        <table class="data-tables table mb-0 tbl-server-info">
+                            <thead class="bg-white text-uppercase">
+                                <tr class="ligth ligth-data">
                                     <th>
                                         <center>ลำดับ</center>
                                     </th>
@@ -64,16 +64,8 @@
                         $count = 0;
                         foreach($pharmacy_group as $pharmacy_row):$count++; ?>
                                 <tr>
-
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <!-- <img src="../assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image"> -->
-                                            <div>
-                                                <?php echo $count;?>
-                                                <!-- <p class="mb-0"><small>This is test Product</small></p> -->
-                                            </div>
-                                        </div>
-
+                                        <center><?php echo $count;?></center>
                                     </td>
                                     <td>
                                         <center><?php echo  $pharmacy_row["id_pharmacy_type"];?></center>

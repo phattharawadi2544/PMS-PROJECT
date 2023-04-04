@@ -81,7 +81,7 @@
                             </a>
                         </li>
 
-                        <?php if($session->get('user_role')==1){?>
+                        <!-- <?php if($session->get('user_role')==1){?>
                         <li class=" ">
                             <a href="#basic_management" class="collapsed" data-toggle="collapse" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -111,17 +111,17 @@
                                         <i class="las la-minus"></i><span>ประเภทการรับเงิน</span>
                                     </a>
                                 </li>
-                                <!-- <li class="">
+                                <li class="">
                                           <a href="<?php echo base_url('user_role');?>">
                                               <i class="las la-minus"></i><span>ประเภทผู้ใช้</span>
                                           </a>
-                                  </li> -->
+                                  </li>
                             </ul>
                         </li>
-                        <?php } ?>
+                        <?php } ?> -->
 
 
-
+<!-- 
                         <li class="">
                             <a href="<?php echo site_url('/supplier');?>" class="svg-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -133,9 +133,9 @@
                                 </svg>
                                 <span class="ml-4">รายการสั่งซื้อ</span>
                             </a>
-                        </li>
+                        </li> -->
 
-                        <?php if($session->get('user_role')==1){?>
+                        <!-- <?php if($session->get('user_role')==1){?>
                         <li class="">
                             <a href="<?php echo site_url('/lot');?>" class="svg-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -146,7 +146,7 @@
                                 <span class="ml-4">คลังยา</span>
                             </a>
                         </li>
-                        <?php } ?>
+                        <?php } ?> -->
 
 
                         <li class="">

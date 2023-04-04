@@ -43,297 +43,188 @@
                         <thead class="bg-white text-uppercase">
                             <tr class="ligth ligth-data">
 
-                        <th>
-                            <center>ลำดับ</center>
-                        </th>
-                        <th>
-                            <center>รหัสผู้ใช้</center>
-                        </th>
-                        <th>
-                            <center>ชื่อผู้ใช้</center>
-                        </th>
-                        <th>
-                            <center>ชื่อ</center>
-                        </th>
-                        <th>
-                            <center>สกุล</center>
-                        </th>
-                        <th>
-                            <center>อีเมลล์</center>
-                        </th>
-                        <th>
-                            <center>เบอร์โทร</center>
-                        </th>
-                        <th>
-                            <center>หน้าที่</center>
-                        </th>
-                        <th>
-                            <center>สถานะ</center>
-                        </th>
+                                <th>
+                                    <center>ลำดับ</center>
+                                </th>
+                                <th>
+                                    <center>รหัสผู้ใช้</center>
+                                </th>
+                                <th>
+                                    <center>ชื่อผู้ใช้</center>
+                                </th>
+                                <th>
+                                    <center>ชื่อ</center>
+                                </th>
+                                <th>
+                                    <center>สกุล</center>
+                                </th>
+                                <th>
+                                    <center>อีเมลล์</center>
+                                </th>
+                                <th>
+                                    <center>เบอร์โทร</center>
+                                </th>
+                                <th>
+                                    <center>หน้าที่</center>
+                                </th>
+                                <th>
+                                    <center>สถานะ</center>
+                                </th>
 
-                        <th>
-                            <center>จัดการ</center>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="ligth-body">
-                    <?php
+                                <th>
+                                    <center>จัดการ</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="ligth-body">
+                            <?php
                             // var_dump($users_list);
                             $count = 0;
                             foreach ($users_list as $users_row):
                                 $count++; ?>
-                    <tr>
-                        <td>
+                            <tr>
+                                <td>
+                                    <center><?php echo $count;?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $users_row["user_id"]; ?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $users_row["username"]; ?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $users_row["f_name"]; ?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $users_row["l_name"]; ?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $users_row["email"]; ?></center>
+                                </td>
 
-                            <div class="d-flex align-items-center">
+                                <td>
+                                    <center><?php echo $users_row["tel"]; ?></center>
+                                </td>
+                                <td>
+                                    <center>
+                                        <?php echo ($users_row["user_role"] == '1' ? "ผู้จัดการร้าน" : "เภสัชกร"); ?>
+                                    </center>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        <center><?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?>
+                                        </center>
+                                    </span>
 
-                                <div>
-                                    <center><?php echo $count; ?></center>
-                                </div>
+                                </td>
 
-                            </div>
-
-                        </td>
-                        <td>
-                            <center><?php echo $users_row["user_id"]; ?></center>
-                        </td>
-                        <td>
-                            <center><?php echo $users_row["username"]; ?></center>
-                        </td>
-                        <td>
-                            <center><?php echo $users_row["f_name"]; ?></center>
-                        </td>
-                        <td>
-                            <center><?php echo $users_row["l_name"]; ?></center>
-                        </td>
-                        <td>
-                            <center><?php echo $users_row["email"]; ?></center>
-                        </td>
-
-                        <td>
-                            <center><?php echo $users_row["tel"]; ?></center>
-                        </td>
-                        <td>
-                            <center><?php echo ($users_row["user_role"] == '1' ? "ผู้จัดการร้าน" : "เภสัชกร"); ?>
-                            </center>
-                        </td>
-                        <td>
-                            <span class="badge bg-primary">
-                                <center><?php echo ($users_row["status"] == '1' ? "ใช้งาน" : "ไม้ใช้งาน"); ?></center>
-                            </span>
-
-                        </td>
-
-                        <td>
-                            <div class="d-flex align-items-center list-action">
-                                <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="ดู" href="#"
-                                    onclick="view_data('<?php echo $users_row["user_id"]; ?>')"><i
-                                        class="ri-eye-line mr-0"></i></a>
-                                <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="แก้ไข" href="#"
-                                    onclick="edit_data('<?php echo $users_row["user_id"]; ?>')"><i
-                                        class="ri-pencil-line mr-0"></i></a>
-                                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="ลบ" href="#"
-                                    onclick="delete_data('<?php echo $users_row["user_id"]; ?>')"><i
-                                        class="ri-delete-bin-line mr-0"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<!-- Page end  -->
-</div>
-
-<!-- viewmodal -->
-<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูลผู้ใช้</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-                    </svg></button>
-            </div>
-
-            <div class="card">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>รหัสผู้ใช้:</h5>
-                                    </strong>
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_userid"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>วันที่เริ่มทำงาน:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_hiredate"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>ชื่อผู้ใช้:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_username"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>เลขที่ใบอนุญาต:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_idlicense"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>วันที่ใบอนุญาตหมดอายุ:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_licenseexp"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>ชื่อ:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_f_name"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>สกุล:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_l_name"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>อีเมล:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_email"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>เบอร์โทร:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_tel"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>หน้าที่:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_role"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>ประสบการณ์ทำงาน:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_work"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <strong>
-                                        <h5>สถานะ:</h5>
-                                    </strong>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <span id="view_status"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                                <td>
+                                    <div class="d-flex align-items-center list-action">
+                                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="ดู" href="#"
+                                            onclick="view_data('<?php echo $users_row["user_id"]; ?>')"><i
+                                                class="ri-eye-line mr-0"></i></a>
+                                        <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="แก้ไข" href="#"
+                                            onclick="edit_data('<?php echo $users_row["user_id"]; ?>')"><i
+                                                class="ri-pencil-line mr-0"></i></a>
+                                        <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="ลบ" href="#"
+                                            onclick="delete_data('<?php echo $users_row["user_id"]; ?>')"><i
+                                                class="ri-delete-bin-line mr-0"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+        </div>
+        <!-- Page end  -->
+    </div>
+
+    <!-- viewmodal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูลผู้ใช้</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_userid" class="form-label h5">รหัสผู้ใช้:</label>
+                            <span id="view_userid"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_hiredate" class="form-label h5">วันที่เริ่มทำงาน:</label>
+                            <span id="view_hiredate"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_idlicense" class="form-label h5">เลขที่ใบอนุญาต:</label>
+                            <span id="view_idlicense"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_licenseexp" class="form-label h5">วันที่ใบอนุญาตหมดอายุ:</label>
+                            <span id="view_licenseexp"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_f_name" class="form-label h5">ชื่อ:</label>
+                            <span id="view_f_name"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_l_name" class="form-label h5">สกุล:</label>
+                            <span id="view_l_name"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_email" class="form-label h5">อีเมล:</label>
+                            <span id="view_email"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_tel" class="form-label h5">เบอร์โทร:</label>
+                            <span id="view_tel"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_role" class="form-label h5">หน้าที่:</label>
+                            <span id="view_role"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_work" class="form-label h5">ประสบการณ์ทำงาน:</label>
+                            <span id="view_work"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_status" class="form-label h5">สถานะ:</label>
+                            <span id="view_status"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <!-- newmodal -->
 <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -418,7 +309,8 @@
                         <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="role1" name="role" class="custom-control-input" value='1'>
-                                <label class="custom-control-label" for="role1"> ผู้ประกอบการ</label>
+                                <label class="custom-control-label" for="role1">
+                                    ผู้ประกอบการ</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="role2" name="role" class="custom-control-input" checked
@@ -434,11 +326,13 @@
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="status1" name="status" class="custom-control-input" checked
                                     value="1">
-                                <label class="custom-control-label" for="status1"> ใช้งานอยู่ </label>
+                                <label class="custom-control-label" for="status1"> ใช้งานอยู่
+                                </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="status2" name="status" class="custom-control-input" value="0">
-                                <label class="custom-control-label" for="status2"> ปิดการใช้งาน </label>
+                                <label class="custom-control-label" for="status2"> ปิดการใช้งาน
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -454,10 +348,10 @@
 
 <!-- editmodal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">แก้ไขผู้ใช้</h5>
+                <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลผู้ใช้</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -534,12 +428,14 @@
                         <div class="col-10">
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="edit_role1" name="role" class="custom-control-input" value='1'>
-                                <label class="custom-control-label" for="edit_role1"> ผู้ประกอบการ</label>
+                                <label class="custom-control-label" for="edit_role1">
+                                    ผู้ประกอบการ</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="edit_role2" name="role" class="custom-control-input" checked
                                     value='2'>
-                                <label class="custom-control-label" for="edit_role2"> เภสัชกร </label>
+                                <label class="custom-control-label" for="edit_role2"> เภสัชกร
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -550,12 +446,14 @@
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="edit_status1" name="status" class="custom-control-input" checked
                                     value="1">
-                                <label class="custom-control-label" for="edit_status1"> ใช้งานอยู่ </label>
+                                <label class="custom-control-label" for="edit_status1"> ใช้งานอยู่
+                                </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="edit_status2" name="status" class="custom-control-input"
                                     value="0">
-                                <label class="custom-control-label" for="edit_status2"> ปิดการใช้งาน </label>
+                                <label class="custom-control-label" for="edit_status2"> ปิดการใช้งาน
+                                </label>
                             </div>
                         </div>
                     </div>

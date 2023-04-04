@@ -45,7 +45,7 @@ class Pharmacies extends BaseController
         $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_code', '201');
+        $session->setFlashdata('message_code', '211');
         return redirect()->to('/pharmacies');
 
 
@@ -61,7 +61,6 @@ class Pharmacies extends BaseController
         //  var_dump($_POST);
         $id = $_POST['pharmacy_id'];
         $data = array(
-            'reg_no'=>$_POST['reg'],
             'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'commonpha_name' => $_POST['commonpha_name'],

@@ -1,7 +1,7 @@
 <?php  $session = session(); ?>
 <div class="content-page">
     <div class="container-fluid">
-        <?php  if($session->getFlashdata('message_session')=='201'){ ?>
+        <?php  if($session->getFlashdata('message_session')=='211'){ ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             บันทึกข้อมูลสำเร็จ
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -82,11 +82,7 @@
                         $count++; ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <?php echo $count; ?>
-                                        </div>
-                                    </div>
+                                    <center><?php echo $count;?></center>
                                 </td>
                                 <td>
                                     <center><?php echo  $phamacy_row["pharmacy_id"];?></center>
@@ -116,7 +112,7 @@
                                 <td>
                                     <center><?php echo  $phamacy_row["price"];?></center>
                                 </td>
-                                
+
                                 <td>
                                     <center><?php echo  $phamacy_row["counting_unit"];?></center>
                                 </td>
@@ -173,7 +169,7 @@
                             <input type="text" class="form-control" id="input_barcode" name="barcode"
                                 onchange="clr_border(this);">
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="inputreg" class="form-label">เลขทะเบียนยา *</label>
                             <input type="text" class="form-control" id="input_reg" name="reg"
                                 onchange="clr_border(this);">
@@ -205,21 +201,22 @@
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-6">
-                            <label for="inputamount" class="form-label">ปริมาณน้อยสุด *</label>
-                            <input type="number" class="form-control " id="input_amount" name="min"
-                                onchange="clr_border(this);">
-                        </div>
-                        <div class="col-6">
-                            <label for="inputamount" class="form-label">ปริมาณมากสุด *</label>
-                            <input type="number" class="form-control " id="input_amount" name="max"
-                                onchange="clr_border(this);">
-                        </div>
-
-                        <div class="col-6">
                             <label for="inputunit" class="form-label">หน่วยนับ *</label>
                             <input type="text" class="form-control" id="input_unit" name="unit"
                                 onchange="clr_border(this);">
                         </div>
+                        <div class="col-6">
+                            <label for="input_min" class="form-label">ปริมาณน้อยสุด *</label>
+                            <input type="number" class="form-control " id="input_min" name="min"
+                                onchange="clr_border(this);">
+                        </div>
+                        <div class="col-6">
+                            <label for="input_max" class="form-label">ปริมาณมากสุด *</label>
+                            <input type="number" class="form-control " id="input_max" name="max"
+                                onchange="clr_border(this);">
+                        </div>
+
+
 
                         <div class="col-md-12">
                             <fieldset class="row mb-3">
@@ -244,8 +241,6 @@
                                 </div>
                             </fieldset>
                         </div>
-
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -256,143 +251,79 @@
         </div>
     </div>
 
-
-    <!-- viewmodal -->
+<!-- view_data -->
     <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูลยา</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
                                 d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-                        </svg></button>
+                        </svg>
+                    </button>
                 </div>
-                <div class="card">
-                    <div class="card-body ">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">รหัสยา: </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_pharmacyid"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">เลขที่ทะเบียนยา: </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_reg"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">บาร์โค้ด: </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_barcode"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ชื่อทางการค้า:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_pharmacyname"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ชื่อยาสามัญ:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_pha_name"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ข้อบ่งใช้:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_details"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ผลข้างเคียง/ข้อควรระวัง:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_warning"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">หมวดหมู่:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_group"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">หน่วยนับ:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_unit"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ราคาขาย:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_price"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ปริมาณน้อยสุด:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_min"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ปริมาณมากสุด:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="view_max"></span>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_pharmacyid" class="form-label h5">รหัสยา:</label>
+                            <span id="view_pharmacyid"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_reg" class="form-label h5">เลขที่ทะเบียนยา:</label>
+                            <span id="view_reg"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_pharmacyname" class="form-label h5">ชื่อทางการค้า:</label>
+                            <span id="view_pharmacyname"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_pha_name" class="form-label h5">ชื่อยาสามัญ:</label>
+                            <span id="view_pha_name"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_detail" class="form-label h5">ข้อบ่งใช้:</label>
+                            <span id="view_detail"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_warning" class="form-label h5">ผลข้างเคียง/ข้อควรระวัง:</label>
+                            <span id="view_warning"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_barcode" class="form-label h5">บาร์โค้ด:</label>
+                            <span id="view_barcode"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_group" class="form-label h5">หมวดหมู่:</label>
+                            <span id="view_group"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_price" class="form-label h5">ราคา:</label>
+                            <span id="view_price"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_unit" class="form-label h5">หน่วยนับ:</label>
+                            <span id="view_unit"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="view_min" class="form-label h5">ปริมาณน้อยสุด:</label>
+                            <span id="view_min"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="view_max" class="form-label h5">ปริมาณมากสุด:</label>
+                            <span id="view_max"></span>
                         </div>
                     </div>
                 </div>
@@ -400,111 +331,113 @@
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                 </div>
             </div>
-
         </div>
     </div>
 
 
-</div>
-</div>
 
+    <!-- editmodal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลยา</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                        </svg></button>
+                </div>
 
-<!-- editmodal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">แก้ไขข้อมูลยา</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-                    </svg></button>
-            </div>
+                <div class="modal-body">
+                    <form class="row g-3" id="form_pharmacy_edit" method="post"
+                        action="<?php echo site_url('edit_pharmacy'); ?>">
 
-            <div class="modal-body">
-                <form class="row g-3" id="form_pharmacy_edit" method="post"
-                    action="<?php echo site_url('edit_pharmacy'); ?>">
-
-                    <div class="col-md-6">
-                        <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
-                        <input type="text" class="form-control was-validated" id="edit_pharmacyid" name="pharmacy_id"
-                            readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="edit_barcode" class="form-label">บาร์โค้ด</label>
-                        <input type="text" class="form-control" id="edit_barcode" name="barcode" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="edit_reg" class="form-label">เลขทะเบียนยา</label>
-                        <input type="text" class="form-control" id="edit_reg" name="reg" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="input_pha_name" class="form-label">ชื่อยาสามัญ(ภาษาไทย/ภาษาอังกฤษ) *</label>
-                        <input type="text" class="form-control" id="input_pha_name" name="commonpha_name">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputpharmacyname" class="form-label">ชื่อทางการค้า(ภาษาไทย/ภาษาอังกฤษ) * </label>
-                        <input type="text" class="form-control" id="input_pharmacyname" name="pharmacyname">
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_details" class="form-label">ข้อบ่งใช้</label>
-                        <textarea type="text" class="form-control" id="edit_details" name="pharmacydetails"></textarea>
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง</label>
-                        <textarea type="text" class="form-control" id="edit_warning" name="pharmacywarning"></textarea>
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_price" class="form-label">ราคาขาย</label>
-                        <input type="number" class="form-control " id="edit_price" name="price">
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_unit" class="form-label">หน่วยนับ</label>
-                        <input type="text" class="form-control" id="edit_unit" name="unit">
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_unit" class="form-label">ปริมาณน้อยสุด</label>
-                        <input type="text" class="form-control" id="edit_min" name="min">
-                    </div>
-                    <div class="col-6">
-                        <label for="edit_unit" class="form-label">ปริมาณมากสุด</label>
-                        <input type="text" class="form-control" id="edit_max" name="max">
-                    </div>
-                    <div class="col-md-12">
-                        <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่</legend>
-                            <div class="col-sm-10">
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup1" name="pharmacygroup"
-                                        class="custom-control-input" checked value='1'>
-                                    <label class="custom-control-label"
-                                        for="edit_pharmacygroup1">ยาสามัญประจำบ้าน</label>
+                        <div class="col-md-4">
+                            <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
+                            <input type="text" class="form-control was-validated" id="edit_pharmacyid"
+                                name="pharmacy_id" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="edit_barcode" class="form-label">บาร์โค้ด</label>
+                            <input type="text" class="form-control" id="edit_barcode" name="barcode" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="edit_reg" class="form-label">เลขทะเบียนยา</label>
+                            <input type="text" class="form-control" id="edit_reg" name="reg" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edit_pha_name" class="form-label">ชื่อยาสามัญ(ภาษาไทย/ภาษาอังกฤษ) *</label>
+                            <input type="text" class="form-control" id="edit_pha_name" name="commonpha_name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editpharmacyname" class="form-label">ชื่อทางการค้า(ภาษาไทย/ภาษาอังกฤษ) *
+                            </label>
+                            <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname">
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_details" class="form-label">ข้อบ่งใช้</label>
+                            <textarea type="text" class="form-control" id="edit_details"
+                                name="pharmacydetails"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง</label>
+                            <textarea type="text" class="form-control" id="edit_warning"
+                                name="pharmacywarning"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_price" class="form-label">ราคาขาย</label>
+                            <input type="number" class="form-control " id="edit_price" name="price">
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_unit" class="form-label">หน่วยนับ</label>
+                            <input type="text" class="form-control" id="edit_unit" name="unit">
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_min" class="form-label">ปริมาณน้อยสุด</label>
+                            <input type="text" class="form-control" id="edit_min" name="min">
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_max" class="form-label">ปริมาณมากสุด</label>
+                            <input type="text" class="form-control" id="edit_max" name="max">
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่</legend>
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="edit_pharmacygroup1" name="pharmacygroup"
+                                            class="custom-control-input" checked value='1'>
+                                        <label class="custom-control-label"
+                                            for="edit_pharmacygroup1">ยาสามัญประจำบ้าน</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="edit_pharmacygroup2" name="pharmacygroup"
+                                            class="custom-control-input" checked value='2'>
+                                        <label class="custom-control-label" for="edit_pharmacygroup2">
+                                            ยาอันตราย
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="edit_pharmacygroup3" name="pharmacygroup"
+                                            class="custom-control-input" checked value='3'>
+                                        <label class="custom-control-label" for="edit_pharmacygroup3">
+                                            ยาควบคุมพิเศษ
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup2" name="pharmacygroup"
-                                        class="custom-control-input" checked value='2'>
-                                    <label class="custom-control-label" for="edit_pharmacygroup2"> ยาอันตราย </label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="edit_pharmacygroup3" name="pharmacygroup"
-                                        class="custom-control-input" checked value='3'>
-                                    <label class="custom-control-label" for="edit_pharmacygroup3"> ยาควบคุมพิเศษ
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy()">บันทึก</button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary" onclick="save_edit_pharmacy()">บันทึก</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 </div>
@@ -552,6 +485,7 @@
 <script>
 function save_pharmacy() {
     let ch = true;
+    
     if ($("#input_reg").val().trim().length == 0) {
         ch = false;
         $("#input_reg").css("border-color", "red");
@@ -592,20 +526,31 @@ function save_pharmacy() {
         ch = false;
         $("#input_max").css("border-color", "red");
     }
+    
+    var min = parseFloat($("#input_min").val().trim());
+    var max = parseFloat($("#input_max").val().trim());
+
+    if (min >= max) {
+        ch = false;
+        $("#input_min, #input_max").css("border-color", "red");
+        if (min > max) {
+            alert("กรุณาระบุให้ถูกต้อง");
+        }
+    }
+    else {
+        $("#input_min, #input_max").css("border-color", "");
+    }
+    
     if (ch) {
         $('#form_pharmacy_new').submit();
     } else {
         alert("กรุณากรอกข้อมูลให้ครบ");
     }
-
 }
+
 
 function save_edit_pharmacy() {
     let ch = true;
-    if ($("#edit_reg").val().trim().length == 0) {
-        ch = false;
-        $("#edit_reg").css("border-color", "red");
-    }
     if ($("#edit_pha_name").val().trim().length == 0) {
         ch = false;
         $("#edit_pha_name").css("border-color", "red");
@@ -663,7 +608,7 @@ function view_data(id) {
                 $("#view_reg").html(item.reg_no);
                 $('#view_barcode').html(item.barcode);
                 $('#view_pharmacyname').html(item.pharmacy_name);
-                $('#view_details').html(item.pharmacy_details);
+                $('#view_detail').html(item.pharmacy_details);
                 $('#view_unit').html(item.counting_unit);
                 $('#view_warning').html(item.pharmacy_warning);
                 $('#view_group').html(item.pharmacy_group);

@@ -29,7 +29,7 @@ class Users extends BaseController
             'user_id'=>null, 
             'id_license'=>$_POST['license'], 
             'username'=>$_POST['username'], 
-            'password' => md5($_POST['password'], PASSWORD_DEFAULT), 
+            'password' => md5($_POST['password']), 
             'email'=>$_POST['email'], 
             'f_name'=>$_POST['fname'], 
             'l_name'=>$_POST['lname'], 
@@ -43,7 +43,7 @@ class Users extends BaseController
             'user_role'=>$_POST['role']
         );
         // var_dump($data);
-        // die();
+        die();
 
 
         $model = new UserModel();
@@ -57,7 +57,7 @@ class Users extends BaseController
 
     public function edit_user()
     {
-        //  var_dump($_POST);
+        // var_dump($_POST);
         $id = $_POST['userID'];
         $data = array(
             'id_license'=>$_POST['license'], 
@@ -73,9 +73,12 @@ class Users extends BaseController
             'status'=>$_POST['status'], 
             'user_role'=>$_POST['role']
         );
+
         if($_POST['password']!=''){
-            $data['password'] = md5($_POST['password'], PASSWORD_DEFAULT);
+            $data['password'] = md5($_POST['password']);
         }
+        // var_dump($data);
+
         $model = new UserModel();
         $model->where('user_id',$id)->set($data)->update();
 

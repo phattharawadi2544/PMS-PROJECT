@@ -23,11 +23,10 @@ class Lot extends BaseController
         view('lot/lot.php',$data).
         view('template/footer.php');
     }
+
     public function add_lot()
     {
         // var_dump($_POST);
-
-
         $data = array(
             'lot_id'=>null, 
             'pharmacy_id'=>null,

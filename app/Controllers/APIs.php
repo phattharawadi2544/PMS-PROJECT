@@ -171,23 +171,42 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
-        }elseif($api_name=='getStock'){
-            $model = new StockModel();
+        // }elseif($api_name=='getStock'){
+        //     $model = new LotModel();
+        //     $model_p = new PharmacyModel();
+        //     if($id!=NULL){
+        //         $sql = "SELECT p.*, SUM(l.amount),SUM(l.remain) as remain, SUM(l.amount*l.cost_price)/SUM(l.amount) as cost_price FROM pharmacy p JOIN lot l ON p.pharmacy_id = l.pharmacy_id WHERE p.pharmacy_id = ".$id;
+        //         $data   = $db->query($sql)->getResultArray();
+        //         $get_data[0]['order_detail'] =  $data_order_d;
+        //         // var_dump($get_data);
+        //     }else{
+        //         $get_data = $model->orderBy('lot_id','ASC')->findAll();
+        //     }
+        //     $data = [
+        //         'success' => true,
+        //         'message' => "OK",
+        //         'data' => $get_data,
+        //     ];
+        //     return $this->response->setJSON($data);
 
-            if($id!=NULL){
-                $get_data = $model_order->where('order_id',$id)->findAll();
-                $data_order_d   = $db->query('SELECT o.*,p.barcode,p.pharmacy_name,p.pharmacy_group,p.counting_unit FROM order_detail o JOIN pharmacy p ON o.pharmacy_id = p.pharmacy_id WHERE o.order_id = '.$id)->getResultArray();
-                $get_data[0]['order_detail'] =  $data_order_d;
-                // var_dump($get_data);
-            }else{
-                $get_data = $model_order->orderBy('order_id','ASC')->findAll();
-            }
-            $data = [
-                'success' => true,
-                'message' => "OK",
-                'data' => $get_data,
-            ];
-            return $this->response->setJSON($data);
+        // }elseif($api_name=='getCurrentStock'){
+        //     $model = new LotModel();
+        //     $model_p = new PharmacyModel();
+            
+        //     if($id!=NULL){
+        //         $sql = "SELECT pharmacy_id, SUM(l.remain + l.amount) AS total_remain FROM lot l GROUP BY pharmacy_id;"
+        //         $data_order_d   = $db->query($sql)->getResultArray();
+        //         $get_data[0]['order'] =  $data_order_d;
+        //         // var_dump($get_data);
+        //     }else{
+        //         $get_data = $model_order->orderBy('pharmacy_id','ASC')->findAll();
+        //     }
+        //     $data = [
+        //         'success' => true,
+        //         'message' => "OK",
+        //         'data' => $get_data,
+        //     ];
+        //     return $this->response->setJSON($data);
 
         }elseif($api_name=='getLot'){
             $model = new LotModel();
@@ -233,5 +252,6 @@ class APIs extends BaseController
     }
 
 }
+// SELECT pharmacy_id, SUM(l.remain) AS total_remain FROM lot l GROUP BY pharmacy_id;
 
    

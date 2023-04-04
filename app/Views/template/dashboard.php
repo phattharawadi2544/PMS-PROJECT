@@ -13,7 +13,7 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">ยอดขายวันนี้</h4>
-                                    <h2><span><?php echo $sale_price; ?></span></h2>
+                                    <h2><span><?php echo $sale_price; ?>บาท</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">กำไรวันนี้</h4>
-                                    <h2><span><?php echo ($sale_price - $cost_price);?></span></h2>
+                                    <h2><span><?php echo ($sale_price - $cost_price);?>บาท</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +53,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

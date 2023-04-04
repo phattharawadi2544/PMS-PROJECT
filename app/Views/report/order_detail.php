@@ -9,7 +9,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-4">
                             <label for="hiredate" class="form-label">วันที่เริ่ม</label>
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-4">
                             <label for="hiredate" class="form-label">วันที่สิ้นสุด</label>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <button type="submit" class="btn btn-primary" onclick="date()">ค้นหา</button>
                 </div>
             </div>
@@ -76,14 +76,7 @@
                                 $count++; ?>
                 <tr>
                     <td>
-
-                        <div class="d-flex align-items-center">
-
-                            <div>
-                                <center><?php echo $count; ?></center>
-                            </div>
-
-                        </div>
+                        <center><?php echo $count;?></center>
                     </td>
                     <td>
                         <center><?php echo $order_row["order_id"]; ?></center>
@@ -136,139 +129,98 @@
                                 d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
                         </svg></button>
                 </div>
-                <div class="card">
-                    <div class="card-body ">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">เลขที่การขาย: </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="order_id"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">รหัสผู้ขาย: </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="seller_id"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ชื่อลูกค้า:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="customer"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ที่อยู่ลูกค้า:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="address"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">เลขที่ใบกำกับภาษี:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="vat_number"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ประเภทการรับเงิน:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="recive_type_id"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ยอดรวมสุทธิ:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="total_price"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="mb-0 h5">ภาษี:</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="vat"></span>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="order_id" class="form-label h5">เลขที่การขาย:</label>
+                            <span id="order_id"></span>
                         </div>
-
-                        <div class="modal-body">
-                            <div class="table-responsive rounded mb-3 ">
-                                <table class="table mb-0 tbl-server-info" id="table_order_detail">
-                                    <thead class="bg-white text-uppercase">
-                                        <tr class="ligth ligth-data">
-                                            <th>
-                                                <center>รหัสยา</center>
-                                            </th>
-                                            <th>
-                                                <center>บาร์โค้ด</center>
-                                            </th>
-                                            <th>
-                                                <center>ชื่อยา</center>
-                                            </th>
-                                            <th>
-                                                <center>หมวดหมู่</center>
-                                            </th>
-                                            <th>
-                                                <center>จำนวน</center>
-                                            </th>
-                                            <th>
-                                                <center>หน่วยนับ</center>
-                                            </th>
-                                            <th>
-                                                <center>ราคาต่อหน่วย</center>
-                                            </th>
-                                            <th>
-                                                <center>ยอดรวม</center>
-                                            </th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="ligth-body">
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="seller_id" class="form-label h5">รหัสผู้ขาย:</label>
+                            <span id="seller_id"></span>
                         </div>
-
                     </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="customer" class="form-label h5">ชื่อลูกค้า:</label>
+                            <span id="customer"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="address" class="form-label h5">ที่อยู่ลูกค้า:</label>
+                            <span id="address"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="vat_number" class="form-label h5">เลขที่ใบกำกับภาษี:</label>
+                            <span id="vat_number"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="recive_type_id" class="form-label h5">ประเภทการรับเงิน:</label>
+                            <span id="recive_type_id"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="total_price" class="form-label h5">ยอดรวมสุทธิ:</label>
+                            <span id="total_price"></span>บาท
+                        </div>
+                        <div class="col-md-6">
+                            <label for="vat" class="form-label h5">ภาษี:</label>
+                            <span id="vat"></span>บาท
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="table-responsive rounded mb-3 ">
+                            <table class="table mb-0 tbl-server-info" id="table_order_detail">
+                                <thead class="bg-white text-uppercase">
+                                    <tr class="ligth ligth-data">
+                                        <th>
+                                            <center>รหัสยา</center>
+                                        </th>
+                                        <th>
+                                            <center>บาร์โค้ด</center>
+                                        </th>
+                                        <th>
+                                            <center>ชื่อยา</center>
+                                        </th>
+                                        <th>
+                                            <center>หมวดหมู่</center>
+                                        </th>
+                                        <th>
+                                            <center>จำนวน</center>
+                                        </th>
+                                        <th>
+                                            <center>หน่วยนับ</center>
+                                        </th>
+                                        <th>
+                                            <center>ราคาต่อหน่วย</center>
+                                        </th>
+                                        <th>
+                                            <center>ยอดรวม</center>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="ligth-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                 </div>
             </div>
-
-
         </div>
+
     </div>
+
+
+</div>
+</div>
 </div>
 </div>
 
@@ -316,18 +268,17 @@ function view_data(id) {
 }
 
 function date() {
-  const startDate = new Date(document.getElementById("start_date").value);
-  const endDate = new Date(document.getElementById("end_date").value);
-  const currentDate = new Date();
-   
+    const startDate = new Date(document.getElementById("start_date").value);
+    const endDate = new Date(document.getElementById("end_date").value);
+    const currentDate = new Date();
 
-  if (startDate > currentDate || endDate > currentDate) {
-    alert("กรุณาเลือกวันที่ให้ถูกต้อง");
-  } else if (startDate > endDate) {
-    alert("กรุณาเลือกวันที่ให้ถูกต้อง");
-  } else {
-    
-  }
+
+    if (startDate > currentDate || endDate > currentDate) {
+        alert("กรุณาเลือกวันที่ให้ถูกต้อง");
+    } else if (startDate > endDate) {
+        alert("กรุณาเลือกวันที่ให้ถูกต้อง");
+    } else {
+
+    }
 }
-
 </script>

@@ -77,7 +77,7 @@ class Sell extends BaseController
                 'order_id'      =>$order_id, 
                 'lot_id'        =>null, 
                 'sale_price'    =>$pharmacy_data[0]['price'], 
-                'cost_price'    =>$pharmacy_data[0]['cost'], 
+                // 'cost_price'    =>$pharmacy_data[0]['cost'], 
                 'amount'        =>$amount_arr[$key]
             );
             var_dump($order_d_data);

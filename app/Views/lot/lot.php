@@ -69,15 +69,7 @@
                                 $count++; ?>
                             <tr>
                                 <td>
-
-                                    <div class="d-flex align-items-center">
-
-                                        <div>
-                                            <center><?php echo $count; ?></center>
-                                        </div>
-
-                                    </div>
-
+                                    <center><?php echo $count;?></center>
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["lot_id"]; ?></center>
@@ -237,7 +229,7 @@ function save_lot() {
         ch = false;
         $("#inputcost").css("border-color", "red");
     }
-    
+
     if (ch) {
         $('#form_lot_new').submit();
     } else {

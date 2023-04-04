@@ -9,14 +9,12 @@
             </button>
         </div>
         <?php }?>
-
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2">
                     <div class="card card-transparent card-block card-stretch card-height border-none">
                         <div class="card-body p-0 mt-lg-2 mt-0">
-                            <h4 class="mb-3">สร้างใบสั่งซื้อ</h4>
+                            <h4 class="mb-3">รายการขาย</h4>
 
                         </div>
                     </div>
@@ -232,6 +230,9 @@
                         $count++; ?>
                                     <tr>
                                         <td>
+                                            <center><?php echo $count; ?></center>
+                                        </td>
+                                        <td>
                                             <center><?php echo  $phamacy_row["pharmacy_id"];?></center>
                                         </td>
 
@@ -299,7 +300,7 @@
                             <input type="hidden" name="recive_type" id="add_recive_type">
                             <input type="hidden" name="vat_number" id="add_vat_number">
                             <input type="hidden" name="address" id="add_address">
-
+                            
                             <div class="col-md-6">
                                 <input type="text" class="form-control form-control-sm" placeholder="ลูกค้าทั่วไป"
                                     id="customer" readonly name="customer">
@@ -339,7 +340,6 @@
                             <table class="table" id="table_order_detail_summary">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ลำดับ</th>
                                         <th scope="col">จำนวน</th>
                                         <th scope="col">ชื่อยา</th>
                                         <th scope="col">ราคา</th>
@@ -453,6 +453,7 @@
         function new_item() {
             let pha_id = $('#pha_id').val();
             let amount = $('#amount').val();
+            let remain = $('#remain').val();
             let barcode = $('#barcode').val();
             const customer_name = $('#customer_name').val().trim();
 
@@ -461,6 +462,8 @@
                 alert("กรุณาเลือกรายการยา");
             } else if (amount == "" || amount < 1) {
                 alert("กรุณาระบุจำนวน");
+            } else if (amount > remain) {
+                alert("จำนวนไม่เพียงพอ");
             } else {
 
                 $.ajax({
