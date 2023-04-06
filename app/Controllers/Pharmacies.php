@@ -26,6 +26,7 @@ class Pharmacies extends BaseController
         $data = array(
             'pharmacy_id'=>null, 
             'reg_no'=>$_POST['reg'],
+            'std_24'=>$_POST['std24'],
             'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
             'commonpha_name' => $_POST['commonpha_name'],
@@ -36,7 +37,8 @@ class Pharmacies extends BaseController
             'price'=>$_POST['price'], 
             'min_stock'=>$_POST['min'], 
             'max_stock'=>$_POST['max'], 
-            'Status'=>1
+            // 'quantity'=>$_POST['quantity'], 
+            'status'=>1
         );
         // var_dump($data);
         // // die();
@@ -45,7 +47,7 @@ class Pharmacies extends BaseController
         $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_code', '211');
+        $session->setFlashdata('message_session', '211');
         return redirect()->to('/pharmacies');
 
 
@@ -63,6 +65,7 @@ class Pharmacies extends BaseController
         $data = array(
             'barcode'=>$_POST['barcode'], 
             'pharmacy_name' => $_POST['pharmacyname'],
+            'std_24'=>$_POST['std24'],
             'commonpha_name' => $_POST['commonpha_name'],
             'pharmacy_details'=>$_POST['pharmacydetails'], 
             'counting_unit'=>$_POST['unit'], 
@@ -71,8 +74,9 @@ class Pharmacies extends BaseController
             'price'=>$_POST['price'], 
             'min_stock'=>$_POST['min'], 
             'max_stock'=>$_POST['max'], 
-            'Status'=>1
-
+            // 'quantity'=>$_POST['quantity'], 
+            'status'=>1
+            
 
         );
         

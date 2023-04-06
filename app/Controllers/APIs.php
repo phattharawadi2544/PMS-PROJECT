@@ -208,12 +208,28 @@ class APIs extends BaseController
         //     ];
         //     return $this->response->setJSON($data);
 
+
         }elseif($api_name=='getLot'){
             $model = new LotModel();
             if($id!=NULL){
                 $get_data = $model->where('lot_id',$id)->findAll();
             }else{
                 $get_data = $model->orderBy('lot_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+            // เช็ครหัสยาก่อน แล้วดูจำนวนคงเหลือใน lot ถ้าจำนวนที่ซื้อ มีไม่พอที่จะขายให้แจ้งเตือน
+        }elseif($api_name=='getRemain'){
+            $model = new LotModel();
+            if($id!=NULL){
+                $get_data = $model->where('pharmacy_id',$id)->findAll();
+            }else{
+                $get_data = $model->orderBy('pharmacy_id','ASC')->findAll();
             }
             $data = [
                 'success' => true,

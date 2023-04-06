@@ -59,7 +59,7 @@
                                     <center>สกุล</center>
                                 </th>
                                 <th>
-                                    <center>อีเมลล์</center>
+                                    <center>อีเมล</center>
                                 </th>
                                 <th>
                                     <center>เบอร์โทร</center>
@@ -482,7 +482,7 @@
                     </svg></button>
             </div>
             <div class="modal-body">
-                <p>ข้อมูลผู้ใช้ที่ต้องการลบ</p>
+                <p>ข้อมูลที่ต้องการลบ</p>
                 <form class="row g-3" id="form_user_del" method="post" action="<?php echo site_url('del_user'); ?>">
                     <div class="col-md-12">
                         <label for="del_userID" class="form-label">รหัสผู้ใช้</label>

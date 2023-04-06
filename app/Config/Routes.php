@@ -29,8 +29,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
-$routes->get('/kmild', 'Home::f_kmild');
+
 
 
 //=============================POST=================
@@ -44,9 +45,11 @@ $routes->post('/add_user', 'Users::add_user');
 $routes->post('/edit_user', 'Users::edit_user');
 $routes->post('/del_user', 'Users::delete_user');
 
+
 $routes->get('/sell', 'Sell::index');
 $routes->get('/sale_all', 'Sell::sale_all');
 $routes->post('/add_order', 'Sell::add_order');
+
 
 $routes->get('/order_detail', 'Order::order_detail');
 $routes->get('/sales_specially', 'Order::sales_specially');
@@ -63,10 +66,7 @@ $routes->post('/del_pharmacy', 'Pharmacies::delete_pharmacy');
 $routes->get('/sale_all', 'Sale::sale_all');
 $routes->get('/sale_today', 'Sale::sale_today');
 $routes->get('/sale_week', 'Sale::sale_week');
-
 $routes->get('/sale_test', 'Sale::sale_test');
-
-
 
 
 $routes->get('/pharmacy_type', 'Management::pharmacies_type');
@@ -74,20 +74,30 @@ $routes->post('/add_pharmacy_type', 'Management::add_pharmacy_type');
 $routes->post('/edit_pharmacy_type', 'Management::edit_pharmacy_type');
 $routes->post('/del_pharmacy_type', 'Management::delete_pharmacy_type');
 
+
 $routes->get('/recive_type', 'Management::recive_type');
 $routes->post('/add_recive_type', 'Management::add_recive_type');
 $routes->post('/edit_recive_type', 'Management::edit_recive_type');
 $routes->post('/del_recive_type', 'Management::delete_recive_type');
 
-$routes->get('/user_role', 'Management::user_role');
 
+$routes->get('/user_role', 'Management::user_role');
 
 
 $routes->get('/supplier', 'Supplier::supplier');
 $routes->post('/add_supplier', 'Supplier::add_supplier');
+$routes->post('/edit_supplier', 'Supplier::edit_supplier');
+$routes->post('/del_supplier', 'Supplier::del_supplier');
+
 
 $routes->get('/lot', 'Lot::index');
-$routes->get('/add_lot', 'Lot::add_lot');
+$routes->post('/add_lot', 'Lot::add_lot');
+$routes->post('/edit_lot', 'Lot::edit_lot');
+$routes->post('/del_lot', 'Lot::del_lot');
+$routes->get('/remain', 'Lot::remain');
+$routes->get('/exp_date', 'Lot::exp_date');
+
+$routes->get('/inventory', 'Inventory::index');
 
 
 

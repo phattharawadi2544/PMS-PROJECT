@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\OrderModel;
 use App\Models\OrderDetailModel;
 use App\Models\PharmacyModel;
-
+use App\Models\Pharmacy_inventoryModel;
 
 class Sell extends BaseController
 {
@@ -17,8 +17,8 @@ class Sell extends BaseController
             return redirect()->to('/login');
         }
         
-        $model = new PharmacyModel();
-        $data["pharmacy_list"] = $model->where('status',1)->orderBy('pharmacy_id','ASC')->findAll();
+        $model = new Pharmacy_inventoryModel();
+        $data["inventory_list"] = $model->where('status',1)->orderBy('pharmacy_id','ASC')->findAll();
 
         return view('template/header.php').
         view('sell/sell.php',$data).
@@ -86,7 +86,28 @@ class Sell extends BaseController
             $model_order_d->save($order_d_data);
 
             // update stock 
-            $db->query('UPDATE pharmacy SET amount = amount-'.($amount_arr[$key]).' WHERE pharmacy_id ='.$value);
+            // $db->query('UPDATE pharmacy SET amount = amount-'.($amount_arr[$key]).' WHERE pharmacy_id ='.$value);
+            $sell_amount = $amount_arr[$key];
+            $sql = "SELECT * FROM  lot  WHERE  pharmacy_id =".$value." and  remain > 0 ORDER BY exp_date,lot_id";
+            echo $sql;
+            
+            $lot_result  = $db->query($sql);
+            foreach($lot_result->getResultArray() as $lkey => $lvalue){
+                if($sell_amount > 0){
+                    if($lvalue['remain'] > $sell_amount){
+                        $sql = "UPDATE lot SET remain = remain-".$sell_amount." WHERE lot_id =".$lvalue['lot_id'];
+                        echo $sql;
+                        $db->query($sql);
+                        $sell_amount = 0;
+                        
+                    }else{
+                        $sql = "UPDATE lot SET remain = 0 WHERE lot_id =".$lvalue['lot_id'];
+                        echo $sql;
+                        $db->query($sql);
+                        $sell_amount = $sell_amount-$lvalue['remain'];
+                    }
+                }
+            }
 
         }
 

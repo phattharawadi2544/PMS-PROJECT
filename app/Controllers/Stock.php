@@ -6,8 +6,25 @@ use App\Models\SupplierModel;
 use App\Models\PharmacyModel;
 
 class Stock extends BaseController
+{
+   public function index()
+   {
+       $session = session();
+       if(is_null($session->get('login'))){
+           return redirect()->to('/login');
+       }
+       
+       $model = new LotModel();
+       $data["lot_list"] = $model->where('status <>',0)->orderBy('lot_id','ASC')->findAll();
 
+       $pharmacyModel = new PharmacyModel();
+       $data["pharmacy_list"] = $pharmacyModel->where('status <>',0)->orderBy('pharmacy_name','ASC')->findAll();
+       $supplierModel = new SupplierModel();
+       $data["supplier_list"]  = $supplierModel->where('status <>',0)->orderBy('company_name','ASC')->findAll();
 
-   //SELECT p.*, SUM(l.amount),SUM(l.remain) as remain, SUM(l.amount*l.cost_price)/SUM(l.amount) as cost_price FROM pharmacy p JOIN lot l ON p.pharmacy_id = l.pharmacy_id;
-   //
- 
+       
+       return view('template/header.php').
+       view('inventory/lot.php',$data).
+       view('template/footer.php');
+   }
+}

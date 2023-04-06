@@ -19,32 +19,39 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-10">
                     <div class="card auth-card">
                         <div class="card-body p-0">
                             <div class="d-flex align-items-center auth-content">
                                 <div class="col-lg-12 align-self-center">
-                                    <div class="p-3">
-                                        <h6 class="card-title">ข้อมูลผู้ซื้อ</h6>
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="col-4">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="ชื่อลูกค้า" id="customer_name">
+                                    <div class="row mb-3 p-3">
+                                        <div class="col-md-12">
+                                            <label for="customer" class="form-label h5">ข้อมูลผู้ซื้อ</label>
+                                            <span>(* กรุณากรอกข้อมูลผู้ซื้อ เมื่อซื้อยาควบคุมพิเศษ หรือยาอันตราย
+                                                *)</span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <form onsubmit="return customer_name();">
+                                                <div class="form-row" id="form_customeruser_new">
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            placeholder="ชื่อลูกค้า" id="customer_name"
+                                                            onchange="customer_name()">
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            placeholder="ที่อยู่" id="customer_address">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <input type="text" class="form-control form-control-sm"
+                                                            placeholder="เลขผู้เสียภาษี" id="customer_vat_no">
+                                                    </div>
                                                 </div>
-                                                <div class="col-5">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="ที่อยู่" id="customer_address">
-                                                </div>
-                                                <div class="col-3">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="เลขผู้เสียภาษี" id="customer_vat_no">
-                                                </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -84,7 +91,7 @@
                                             <thead>
                                                 <tr class="ligth">
                                                     <th scope="col">
-                                                        <center>ชื่อยา</center>
+                                                        <center>ชื่อทางการค้า</center>
                                                     </th>
                                                     <th scope="col">
                                                         <center>จำนวน</center>
@@ -93,7 +100,7 @@
                                                         <center>ราคาต่อหน่วย</center>
                                                     </th>
                                                     <th scope="col">
-                                                        <center>ราคา</center>
+                                                        <center>ราคารวม</center>
                                                     </th>
                                                     <th scope="col"></th>
 
@@ -159,15 +166,12 @@
                                             <option value="1" selected>เงินสด</option>
                                             <option value="2">โอนเงิน</option>
                                         </select>
-
                                         <input type="number" class="form-control form-control-sm"
                                             placeholder="ระบุจำนวนเงิน" id="money_pay" onchange="pay_change()" ;>
                                         <input type="text" class="form-control form-control-sm" placeholder="เงินทอน"
                                             id="change" readonly>
                                     </div>
-
                                     <div class="modal-footer">
-
                                         <button type="button" class="btn btn-primary" onclick="pay_summary()"
                                             data-bs-whatever="@mdo">ยืนยันการขาย</button>
                                     </div>
@@ -184,7 +188,7 @@
         <!-- Modal -->
         <div class="modal fade" id="viewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">ค้นหายา</h5>
@@ -207,61 +211,58 @@
                                             <center>รหัสยา</center>
                                         </th>
                                         <th>
-                                            <center>ชื่อยา</center>
+                                            <center>ชื่อทางการค้า</center>
                                         </th>
                                         <th>
                                             <center>หมวดหมู่</center>
                                         </th>
                                         <th>
-                                            <center>จำนวน</center>
+                                            <center>ราคาต่อหน่วย</center>
+                                        </th>
+                                        <th>
+                                            <center>จำนวนคงเหลือ</center>
                                         </th>
                                         <th>
                                             <center>หน่วยนับ</center>
                                         </th>
+
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody class="ligth-body">
                                     <?php 
                         
-                        // var_dump($pharmacy_list);
-                        $count = 0;
-                        foreach($pharmacy_list as $phamacy_row):
-                        $count++; ?>
+                                    // var_dump($inventory_list;
+                                    $count = 0;
+                                    foreach($inventory_list as $row):
+                                    $count++; ?>
                                     <tr>
                                         <td>
                                             <center><?php echo $count; ?></center>
                                         </td>
                                         <td>
-                                            <center><?php echo  $phamacy_row["pharmacy_id"];?></center>
+                                            <center><?php echo  $row["pharmacy_id"];?></center>
                                         </td>
 
                                         <td>
-                                            <center><?php echo  $phamacy_row["pharmacy_name"];?></center>
+                                            <center><?php echo  $row["pharmacy_name"];?></center>
                                         </td>
                                         <td>
-                                            <center>
-                                                <?php 
-                                            if ($phamacy_row["pharmacy_group"] == 1) {
-                                                echo "ยาสามัญประจำบ้าน";
-                                            } else if ($phamacy_row["pharmacy_group"] == 2) {
-                                                echo "ยาอันตราย";
-                                            } else {
-                                                echo "ยาควบคุมพิเศษ";
-                                            }
-                                        ?>
-                                            </center>
+                                            <center><?php echo  $row["pharmacy_type_name"];?></center>
                                         </td>
                                         <td>
-                                            <center><?php echo  $phamacy_row["price"];?></center>
+                                            <center><?php echo  $row["price"];?></center>
                                         </td>
                                         <td>
-                                            <center><?php echo  $phamacy_row["counting_unit"];?></center>
+                                            <center><?php echo  $row["total_remain"];?></center>
+                                        </td>
+                                        <td>
+                                            <center><?php echo  $row["counting_unit"];?></center>
                                         </td>
 
                                         <td>
                                             <center><button type="button" class="btn btn-sm btn-primary "
-                                                    onclick="selected_pha('<?php echo $phamacy_row['pharmacy_id'];?>','<?php echo $phamacy_row['barcode'];?>','<?php echo $phamacy_row['pharmacy_name'];?>');">
+                                                    onclick="selected_pha('<?php echo $row['pharmacy_id'];?>','<?php echo $row['barcode'];?>','<?php echo $row['pharmacy_name'];?>');">
                                                     เลือก</button></center>
                                         </td>
                                     </tr>
@@ -300,7 +301,7 @@
                             <input type="hidden" name="recive_type" id="add_recive_type">
                             <input type="hidden" name="vat_number" id="add_vat_number">
                             <input type="hidden" name="address" id="add_address">
-                            
+
                             <div class="col-md-6">
                                 <input type="text" class="form-control form-control-sm" placeholder="ลูกค้าทั่วไป"
                                     id="customer" readonly name="customer">
@@ -361,6 +362,21 @@
 
 
         <script>
+        function customer_name() {
+            let customer = $('#customer_name').val();
+            if (customer == "") {
+                alert("กรุณากรอกชื่อผู้ซื้อ");
+                return false;
+            } else {
+                return true;
+            }
+            $('#customer_name').val("");
+            $('#customer_address').val("");
+            $('#customer_vat_no').val("");
+        }
+
+
+
         function search_item() {
             $('#viewModal').modal('show');
         }
@@ -383,7 +399,6 @@
             let vat = $('#vat').val();
             let vat_number = $('#customer_vat_no').val();
             let recive_type = $('#recive_type').val();
-
             let total = $("#total").html();
             let = total_price_sum = $("#total_price_sum").html();
             let chk_phamacy_list = false;

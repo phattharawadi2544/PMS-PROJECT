@@ -52,11 +52,5 @@ class Home extends BaseController
         view('template/footer.php'); 
     }
     
-    public function f_kmild()
-    {
-        return view('template/header.php').
-        view('template/e_mild.php').
-        view('template/footer.php');
-    }
    
 }

@@ -43,7 +43,7 @@ class Users extends BaseController
             'user_role'=>$_POST['role']
         );
         // var_dump($data);
-        die();
+        // die();
 
 
         $model = new UserModel();
