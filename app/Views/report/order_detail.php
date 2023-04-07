@@ -186,13 +186,13 @@
                                             <center>ชื่อยา</center>
                                         </th>
                                         <th>
-                                            <center>หมวดหมู่</center>
+                                            <center>ประเภท</center>
                                         </th>
                                         <th>
                                             <center>จำนวน</center>
                                         </th>
                                         <th>
-                                            <center>หน่วยนับ</center>
+                                            <center>หน่วย</center>
                                         </th>
                                         <th>
                                             <center>ราคาต่อหน่วย</center>

@@ -60,13 +60,13 @@
                                     <center>ชื่อทางการค้า</center>
                                 </th>
                                 <th>
-                                    <center>หมวดหมู่</center>
+                                    <center>ประเภท</center>
                                 </th>
                                 <th>
                                     <center>ราคาขาย</center>
                                 </th>
                                 <th>
-                                    <center>หน่วยนับ</center>
+                                    <center>หน่วย</center>
                                 </th>
                                 <th>
                                     <center>จัดการ</center>
@@ -207,7 +207,7 @@
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-6">
-                            <label for="inputunit" class="form-label">หน่วยนับ *</label>
+                            <label for="inputunit" class="form-label">หน่วย *</label>
                             <input type="text" class="form-control" id="input_unit" name="unit"
                                 onchange="clr_border(this);">
                         </div>
@@ -226,7 +226,7 @@
 
                         <div class="col-md-12">
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่ *</legend>
+                                <legend class="col-form-label col-sm-2 pt-0">ประเภท *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="pharmacygroup1" name="pharmacygroup"
@@ -318,7 +318,7 @@
                             <span id="view_price"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="view_unit" class="form-label h5">หน่วยนับ:</label>
+                            <label for="view_unit" class="form-label h5">หน่วย:</label>
                             <span id="view_unit"></span>
                         </div>
                     </div>
@@ -402,7 +402,7 @@
                             <input type="number" class="form-control " id="edit_price" name="price">
                         </div>
                         <div class="col-6">
-                            <label for="edit_unit" class="form-label">หน่วยนับ</label>
+                            <label for="edit_unit" class="form-label">หน่วย</label>
                             <input type="text" class="form-control" id="edit_unit" name="unit">
                         </div>
                         <div class="col-6">
@@ -415,7 +415,7 @@
                         </div>
                         <div class="col-md-12">
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">หมวดหมู่</legend>
+                                <legend class="col-form-label col-sm-2 pt-0">ประเภท</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="edit_pharmacygroup1" name="pharmacygroup"

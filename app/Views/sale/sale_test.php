@@ -183,9 +183,9 @@
                                         <tr class="ligth ligth-data">
                                             <th>รหัสยา</th>
                                             <th>ชื่อยา</th>
-                                            <th>หมวดหมู่</th>
+                                            <th>ประเภท</th>
                                             <th>จำนวน</th>
-                                            <th>หน่วยนับ</th>
+                                            <th>หน่วย</th>
                                             <th></th>
                                         </tr>
                                     </thead>

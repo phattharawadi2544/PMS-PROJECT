@@ -28,24 +28,26 @@
                                     <div class="row mb-3 p-3">
                                         <div class="col-md-12">
                                             <label for="customer" class="form-label h5">ข้อมูลผู้ซื้อ</label>
-                                            <span>(* กรุณากรอกข้อมูลผู้ซื้อ เมื่อซื้อยาควบคุมพิเศษ หรือยาอันตราย
-                                                *)</span>
+                                            <span>(* กรณีลูกค้าซื้อยาควบคุมพิเศษ หรือยาอันตราย
+                                                กรุณากรอกชื่อลูกค้า*)</span>
                                         </div>
                                         <div class="col-md-12">
-                                            <form onsubmit="return customer_name();">
+                                            <form>
                                                 <div class="form-row" id="form_customeruser_new">
                                                     <div class="col-4">
                                                         <input type="text" class="form-control form-control-sm"
                                                             placeholder="ชื่อลูกค้า" id="customer_name"
-                                                            onchange="customer_name()">
+                                                            onchange="clr_border(this);">
                                                     </div>
                                                     <div class="col-5">
                                                         <input type="text" class="form-control form-control-sm"
-                                                            placeholder="ที่อยู่" id="customer_address">
+                                                            placeholder="ที่อยู่" id="customer_address"
+                                                            onchange="clr_border(this);">
                                                     </div>
                                                     <div class="col-3">
                                                         <input type="text" class="form-control form-control-sm"
-                                                            placeholder="เลขผู้เสียภาษี" id="customer_vat_no">
+                                                            placeholder="เลขผู้เสียภาษี" id="customer_vat_no"
+                                                            onchange="clr_border(this);">
                                                     </div>
                                                 </div>
                                             </form>
@@ -68,8 +70,7 @@
                                                 <div class="col-3">
                                                     <input type="hidden" name="" id="pha_id">
                                                     <input type="text" class="form-control form-control-sm"
-                                                        placeholder="บาร์โค้ด" id="barcode" onchange="search_barcode()"
-                                                        ;>
+                                                        placeholder="บาร์โค้ด" id="barcode" onchange="search_barcode()">
                                                 </div>
                                                 <div class="col-5">
                                                     <input type="text" class="form-control form-control-sm"
@@ -77,7 +78,7 @@
                                                 </div>
                                                 <div class="col-1">
                                                     <input type="number" class="form-control form-control-sm"
-                                                        placeholder="จำนวน" id="amount">
+                                                        placeholder="จำนวน" id="amount" onchange="change_amount()">
                                                 </div>
                                                 <div class="col-3">
                                                     <input type="button" class="btn btn-sm btn-primary add-row"
@@ -103,7 +104,6 @@
                                                         <center>ราคารวม</center>
                                                     </th>
                                                     <th scope="col"></th>
-
 
                                                 </tr>
                                             </thead>
@@ -182,8 +182,6 @@
                                             <input type="text" class="form-control form-control-sm"
                                                 placeholder="เงินทอน" id="change" readonly>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -231,10 +229,13 @@
                                     <center>รหัสยา</center>
                                 </th>
                                 <th>
+                                    <center>บาร์โค้ด</center>
+                                </th>
+                                <th>
                                     <center>ชื่อทางการค้า</center>
                                 </th>
                                 <th>
-                                    <center>หมวดหมู่</center>
+                                    <center>ประเภท</center>
                                 </th>
                                 <th>
                                     <center>ราคาต่อหน่วย</center>
@@ -243,7 +244,7 @@
                                     <center>จำนวนคงเหลือ</center>
                                 </th>
                                 <th>
-                                    <center>หน่วยนับ</center>
+                                    <center>หน่วย</center>
                                 </th>
 
                                 <th></th>
@@ -263,10 +264,13 @@
                                 <td>
                                     <center><?php echo  $row["pharmacy_id"];?></center>
                                 </td>
-
+                                <td>
+                                    <center><?php echo  $row["barcode"];?></center>
+                                </td>
                                 <td>
                                     <center><?php echo  $row["pharmacy_name"];?></center>
                                 </td>
+
                                 <td>
                                     <center><?php echo  $row["pharmacy_type_name"];?></center>
                                 </td>
@@ -382,21 +386,6 @@
 
 
 <script>
-function customer_name() {
-    let customer = $('#customer_name').val();
-    if (customer == "") {
-        alert("กรุณากรอกชื่อผู้ซื้อ");
-        return false;
-    } else {
-        return true;
-    }
-    $('#customer_name').val("");
-    $('#customer_address').val("");
-    $('#customer_vat_no').val("");
-}
-
-
-
 function search_item() {
     $('#viewModal').modal('show');
 }
@@ -426,6 +415,7 @@ function pay_summary() {
 
     $("#table_order_detail_summary > tbody").html("");
     let price_list = $(".phamacy_detail");
+    let is_dager_phamacy = false;
     $.each(price_list, function(key, v) {
         chk_phamacy_list = true;
         let arr = v.value.split("||");
@@ -436,6 +426,9 @@ function pay_summary() {
             '<td>' + arr[2] + '</td>' +
             '</tr>';
         $("#table_order_detail_summary tbody").append(tag_html);
+        if (arr[4] == '2' || arr[4] == '3') {
+            is_dager_phamacy = true;
+        }
     });
     console.log(price_list);
 
@@ -453,9 +446,21 @@ function pay_summary() {
         alert("กรุณาเลือกรายการสินค้า");
     } else if (money_pay == "" || (parseFloat(money_pay) < parseFloat(total))) {
         alert("กรุณาระบุจำนวนเงินให้ถูกต้อง");
+    } else if (is_dager_phamacy == true) {
+        if (customer_name == "") {
+            $("#customer_name").css("border-color", "red");
+            $("#customer_address").css("border-color", "red");
+            $("#customer_vat_no").css("border-color", "red");
+            alert("กรุณากรอกชื่อลูกค้า ");
+        }
+
+
     } else {
         $('#form_order').modal('show');
     }
+}
+function clr_border(obj) {
+    obj.style.removeProperty('border-color');
 }
 
 function caluate_price_sum() {
@@ -511,7 +516,7 @@ function new_item() {
                 $.each(data.data, function(i, item) {
                     let phamacy_detail = amount + "||" + item.pharmacy_name + "||" + (item
                         .price *
-                        amount + "||" + item.pharmacy_id);
+                        amount + "||" + item.pharmacy_id + "||" + item.pharmacy_group);
                     let tag_html = '<tr><td>' + item.pharmacy_name + '</td>' +
                         '<td>' + amount + '</td>' +
                         '<td>' + item.price + '</td>' +
@@ -545,6 +550,35 @@ function pay_change() {
     }
 }
 
+function change_amount() {
+    let amount = $('#amount').val();
+    let phamacy_id = $('#pha_id').val()
+
+    if (amount == "" || parseInt(amount) < 1) {
+        alert("กรุณาระบุจำนวนให้ถูกต้อง");
+    } else {
+        $.ajax({
+                method: "GET",
+                url: "<?php echo site_url('api/getRemain')?>" + "/" + phamacy_id,
+                data: {}
+            })
+            .done(function(data) {
+                console.log(data);
+                if (data.data.length > 0) {
+                    $.each(data.data, function(i, item) {
+                        if (amount > item.total_remain) {
+                            alert("ยาในคลังสินค้ามีไม่เพียงพอ (มีอยู่ " + item.total_remain + " " + item
+                                .counting_unit + ")");
+                        }
+                    });
+                } else {
+                    alert("ไม่พบรายการยาที่ต้องการ");
+                }
+
+            });
+    }
+}
+
 function search_barcode() {
     let barcode = $('#barcode').val()
     if (barcode == "") {
@@ -573,7 +607,6 @@ function search_barcode() {
         $('#barcode').val("");
         $('#name').val("");
         $('#amount').val("");
-
     }
 }
 

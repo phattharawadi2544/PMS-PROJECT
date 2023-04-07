@@ -9,6 +9,7 @@ use App\Models\Recive_typeModel;
 use App\Models\OrderModel;
 use App\Models\OrderDetailModel;
 use App\Models\LotModel;
+use App\MOdels\Pharmacy_inventoryModel;
 
 class APIs extends BaseController
 {
@@ -225,7 +226,7 @@ class APIs extends BaseController
 
             // เช็ครหัสยาก่อน แล้วดูจำนวนคงเหลือใน lot ถ้าจำนวนที่ซื้อ มีไม่พอที่จะขายให้แจ้งเตือน
         }elseif($api_name=='getRemain'){
-            $model = new LotModel();
+            $model = new Pharmacy_inventoryModel();
             if($id!=NULL){
                 $get_data = $model->where('pharmacy_id',$id)->findAll();
             }else{

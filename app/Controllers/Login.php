@@ -29,9 +29,14 @@ class Login extends BaseController
                     'user_role'=>$data["user_role"],
                     'login'=>true,
                 );
+                if($data["user_role"] == 1){
+                    $session->set($data_user);
+                    return redirect()->to('/');
+                }else {
+                    $session->set($data_user);
+                    return redirect()->to('/sell');
+                }
                 
-                $session->set($data_user);
-                return redirect()->to('/');
             }else{
                 $session->setFlashdata('message_session', '301');
                 return redirect()->to('/login');

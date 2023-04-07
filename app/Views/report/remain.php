@@ -26,7 +26,7 @@
                                 <center>จำนวนคงเหลือ</center>
                             </th>
                             <th>
-                                <center>หน่วยนับ</center>
+                                <center>หน่วย</center>
                             </th>
                         </tr>
                     </thead>
