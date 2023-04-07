@@ -268,17 +268,18 @@ function view_data(id) {
 }
 
 function date() {
-    const startDate = new Date(document.getElementById("start_date").value);
-    const endDate = new Date(document.getElementById("end_date").value);
-    const currentDate = new Date();
+    const start_date = new Date(document.getElementById("start_date").value);
+    const end_date = new Date(document.getElementById("end_date").value);
+    const current_date = new Date();
 
 
-    if (startDate > currentDate || endDate > currentDate) {
+    if (start_date > current_date || end_date > current_date) {
         alert("กรุณาเลือกวันที่ให้ถูกต้อง");
-    } else if (startDate > endDate) {
+    } else if (start_date > end_date) {
         alert("กรุณาเลือกวันที่ให้ถูกต้อง");
     } else {
 
     }
+
 }
 </script>

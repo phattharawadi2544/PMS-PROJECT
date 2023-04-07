@@ -77,13 +77,14 @@ class Sell extends BaseController
                 'order_id'      =>$order_id, 
                 'lot_id'        =>null, 
                 'sale_price'    =>$pharmacy_data[0]['price'], 
-                // 'cost_price'    =>$pharmacy_data[0]['cost'], 
+                'cost_price'    =>0, 
                 'amount'        =>$amount_arr[$key]
             );
             var_dump($order_d_data);
+
+            $cost_price = 0;
             
-            $model_order_d = new OrderDetailModel();
-            $model_order_d->save($order_d_data);
+            
 
             // update stock 
             // $db->query('UPDATE pharmacy SET amount = amount-'.($amount_arr[$key]).' WHERE pharmacy_id ='.$value);
@@ -96,22 +97,29 @@ class Sell extends BaseController
                 if($sell_amount > 0){
                     if($lvalue['remain'] > $sell_amount){
                         $sql = "UPDATE lot SET remain = remain-".$sell_amount." WHERE lot_id =".$lvalue['lot_id'];
-                        echo $sql;
+                        // echo $sql;
+                        $cost_price += $lvalue['cost_price'] * $sell_amount;
                         $db->query($sql);
                         $sell_amount = 0;
                         
                     }else{
                         $sql = "UPDATE lot SET remain = 0 WHERE lot_id =".$lvalue['lot_id'];
-                        echo $sql;
+                        // echo $sql;
+                        $cost_price += $lvalue['cost_price'] * $lvalue['remain'];
                         $db->query($sql);
                         $sell_amount = $sell_amount-$lvalue['remain'];
                     }
                 }
             }
 
+            $order_d_data['cost_price'] = $cost_price / $amount_arr[$key];
+
+            $model_order_d = new OrderDetailModel();
+            $model_order_d->save($order_d_data);
+
         }
 
-
+        
         $session = session();
         $session->setFlashdata('message_session', '201');
         return redirect()->to('/sell');

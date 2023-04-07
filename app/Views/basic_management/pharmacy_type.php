@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                         <div>
-                            <h4 class="mb-3">ประเภทของยา</h4>
+                            <h4 class="mb-3">ประเภทยา</h4>
 
                         </div>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal"

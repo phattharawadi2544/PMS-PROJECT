@@ -55,6 +55,54 @@
                             </a>
                         </li>
                         <?php } ?>
+
+
+                        <?php if($session->get('user_role')==1){?>
+                        <li class=" ">
+                            <a href="#basic_management" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-folder" viewBox="0 0 16 16">
+                                    <path
+                                        d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
+                                </svg>
+
+                                <span class="ml-4">จัดการข้อมูลพื้นฐาน</span>
+                                <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="10 15 15 20 20 15"></polyline>
+                                    <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                                </svg>
+                            </a>
+                            <ul id="basic_management" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                <li class="">
+                                    <a href="<?php echo base_url('/users');?>" class="svg-icon">
+                                        <i class="las la-minus"></i><span>จัดการข้อมูลผู้ใช้</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="<?php echo base_url('pharmacy_type');?>">
+                                        <i class="las la-minus"></i><span>ประเภทยา</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="<?php echo base_url('recive_type');?>">
+                                        <i class="las la-minus"></i><span>ประเภทการรับเงิน</span>
+                                    </a>
+                                </li>
+
+
+
+                                <!-- <li class="">
+                                          <a href="<?php echo base_url('user_role');?>">
+                                              <i class="las la-minus"></i><span>ประเภทผู้ใช้</span>
+                                          </a>
+                                  </li> -->
+                            </ul>
+                        </li>
+                        <?php } ?>
+
                         <li class="">
                             <a href="<?php echo site_url('/pharmacies');?>" class="svg-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -78,67 +126,8 @@
                         </li>
 
                         <?php if($session->get('user_role')==1){?>
-                        <li class=" ">
-                            <a href="#basic_management" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-folder" viewBox="0 0 16 16">
-                                    <path
-                                        d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
-                                </svg>
-
-                                <span class="ml-4">จัดการข้อมูลพื้นฐาน</span>
-                                <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="10 15 15 20 20 15"></polyline>
-                                    <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
-                                </svg>
-                            </a>
-                            <ul id="basic_management" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                                <li class="">
-                                    <a href="<?php echo base_url('/users');?>" class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                            <path
-                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                                        </svg>
-                                        <span class="ml-4">จัดการข้อมูลผู้ใช้</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo base_url('pharmacy_type');?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-capsule-pill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M11.02 5.364a3 3 0 0 0-4.242-4.243L1.121 6.778a3 3 0 1 0 4.243 4.243l5.657-5.657Zm-6.413-.657 2.878-2.879a2 2 0 1 1 2.829 2.829L7.435 7.536 4.607 4.707ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-.5 1.042a3 3 0 0 0 0 5.917V9.042Zm1 5.917a3 3 0 0 0 0-5.917v5.917Z" />
-                                        </svg>
-                                        <span class="ml-4">ประเภทของยา</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo base_url('recive_type');?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
-                                            <path
-                                                d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                            <path
-                                                d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                                        </svg>
-                                        <span class="ml-4">ประเภทการรับเงิน</span>
-                                    </a>
-                                </li>
 
 
-
-                                <!-- <li class="">
-                                          <a href="<?php echo base_url('user_role');?>">
-                                              <i class="las la-minus"></i><span>ประเภทผู้ใช้</span>
-                                          </a>
-                                  </li> -->
-                            </ul>
-                        </li>
-                        
 
                         <li class=" ">
                             <a href="#stock_management" class="collapsed" data-toggle="collapse" aria-expanded="false">
@@ -160,75 +149,23 @@
                             <ul id="stock_management" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li class="">
                                     <a href="<?php echo site_url('/inventory');?>" class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
-                                        </svg>
-                                        <span class="ml-4">ข้อมูลคงคลัง</span>
+                                        <i class="las la-minus"></i><span>ข้อมูลคงคลัง</span>
                                     </a>
                                 </li>
 
                                 <li class="">
                                     <a href="<?php echo site_url('/lot');?>" class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
-                                            <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                            <path
-                                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z" />
-                                        </svg>
-                                        <span class="ml-4">จัดการข้อมูลการซื้อ</span>
+                                        <i class="las la-minus"></i><span>จัดการข้อมูลการซื้อ</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a href="<?php echo site_url('/supplier');?>" class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
-                                            <path
-                                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
-                                        </svg>
-                                        <span class="ml-4">จัดการข้อมูลผู้ขาย</span>
+                                        <i class="las la-minus"></i><span>จัดการข้อมูลผู้ขาย</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <?php } ?>
-
-
-
-
-
-                        <!-- <li class=" ">
-                            <a href="#sale" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                </svg>
-                                <span class="ml-4">รายการขาย</span>
-                                <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="10 15 15 20 20 15"></polyline>
-                                    <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
-                                </svg>
-                            </a>
-
-                            <ul id="sale" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-
-                               
-                                <li class="">
-                                    <a href="<?php echo base_url('sale_test');?>">
-                                        <i class="las la-minus"></i><span>ทดลองการขาย</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> -->
-
-
 
                         <li class=" ">
                             <a href="#report" class="collapsed" data-toggle="collapse" aria-expanded="false">
@@ -268,13 +205,13 @@
                                 </li>
                                 <li class="">
                                     <a href="<?php echo base_url('sales_specially');?>">
-                                        <i class="las la-minus"></i><span>รายงานบัญชีการขายยาควบคุมพิเศษ</span>
+                                        <i class="las la-minus"></i><span>รายงานการขายยาควบคุมพิเศษ</span>
                                     </a>
                                 </li>
 
                                 <li class="">
                                     <a href="<?php echo base_url('sales_dangerous');?>">
-                                        <i class="las la-minus"></i><span>รายงานบัญชีการขายยาอันตราย</span>
+                                        <i class="las la-minus"></i><span>รายงานการขายยาอันตราย</span>
                                     </a>
                                 </li>
                             </ul>

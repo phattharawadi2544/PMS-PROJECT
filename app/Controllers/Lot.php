@@ -35,7 +35,7 @@ class Lot extends BaseController
         $data = array(
             'lot_id'=>null,  
             'pharmacy_id'=>$_POST['pharmacy_id'],
-            'id_supplie'=>$_POST['id_supplie'],
+            'id_supplie'=>$_POST['id_supplier'],
             'batch_no'=>$_POST['batch_no'], 
             'manu_date'=>$_POST['manu_date'], 
             'exp_date'=>$_POST['exp_date'], 

@@ -1,5 +1,3 @@
-
-
 <div class="content-page">
     <div class="container-fluid">
         <div class="container">
@@ -55,6 +53,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <style>
@@ -159,7 +158,7 @@ GROUP BY S_MONTH,S_YEAR; -->
         },
 
         series: [{
-            name: 'ปี',
+            name: 'เดือน',
             colorByPoint: true,
 
 

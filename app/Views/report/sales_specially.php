@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
                         <div>
-                            <h4 class="mb-3">รายงานบัญชีการขายยาควบคุมพิเศษ</h4>
+                            <h4 class="mb-3">รายงานการขายยาควบคุมพิเศษ</h4>
                         </div>
                     </div>
                 </div>
@@ -42,25 +42,63 @@
                         <center>ลำดับ</center>
                     </th>
                     <th>
-                        <center>วัน/เดือน/ปีที่ขาย</center>
+                        <center>วันที่ขาย</center>
+                    </th>
+                    <th>
+                        <center>ชื่อผู้ขาย</center>
+                    </th>
+                    <th>
+                        <center>ชื่อลูกค้า</center>
                     </th>
 
                     <th>
-                        <center>จำนวน/ปริมาณที่ขาย</center>
+                        <center>ชื่อทางการค้า</center>
                     </th>
                     <th>
-                        <center>ชื่อ-สกุลผู้ชื้อ</center>
+                        <center>จำนวน</center>
                     </th>
                     <th>
-                        <center>ชื่อ-สกุลผู้ขาย</center>
+                        <center>หน่วย</center>
                     </th>
                     <th>
-                        <center>จัดการ</center>
+                        <center>ราคา</center>
                     </th>
                 </tr>
             </thead>
             <tbody class="ligth-body">
-                <td></td>
+                <?php 
+                        
+                        // var_dump($specially_list);
+                        $count = 0;
+                        foreach($specially_list as $row):
+                        $count++; ?>
+                <tr>
+                    <td>
+                        <center><?php echo $count;?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["date(o.order_date)"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["f_name"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["customer"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["pharmacy_name"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["amount"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["counting_unit"];?></center>
+                    </td>
+                    <td>
+                        <center><?php echo  $row["sale_price"];?></center>
+                    </td>
+                </tr>
+                <?php endforeach;?>
             </tbody>
         </table>
     </div>
@@ -71,56 +109,15 @@
 
 
 <script>
-function view_data(id) {
-    $.ajax({
-            method: "GET",
-            url: "<?php echo site_url('api/getOrderSummary')?>" + "/" + id,
-            data: {}
-        })
-        .done(function(data) {
-            $.each(data.data, function(i, item) {
-                console.log(item);
-                $("#order_id").html(item.order_id);
-                $("#seller_id").html(item.seller_id);
-                $('#customer').html(item.customer);
-                $('#address').html(item.address);
-                $('#vat_number').html(item.vat_number);
-                $('#total_price').html(item.total_price);
-                $('#vat').html(item.vat);
-                $('#recive_type_id').html(item.recive_type_id);
-                // console.log(item.order_detail);
-                $("#table_order_detail > tbody").html("");
-                $.each(item.order_detail, function(j, item_detail) {
-                    let tag_html = '<tr><td>' + item_detail.pharmacy_id + '</td>' +
-                        '<td>' + item_detail.barcode + '</td>' +
-                        '<td>' + item_detail.pharmacy_name + '</td>' +
-                        '<td>' + item_detail.pharmacy_group + '</td>' +
-                        '<td>' + item_detail.amount + '</td>' +
-                        '<td>' + item_detail.counting_unit + '</td>' +
-                        '<td>' + item_detail.sale_price + '</td>' +
-                        '<td>' + (item_detail.sale_price * item_detail.amount) + '</td>' +
-                        '</td></tr>';
-                    $("#table_order_detail tbody").append(tag_html);
-
-                    console.log(item_detail);
-                });
-
-
-
-            });
-        });
-    $('#viewModal').modal('show');
-}
-
 function date() {
-    const startDate = new Date(document.getElementById("start_date").value);
-    const endDate = new Date(document.getElementById("end_date").value);
-    const currentDate = new Date();
+    const start_date = new Date(document.getElementById("start_date").value);
+    const end_date = new Date(document.getElementById("end_date").value);
+    const current_date = new Date();
 
 
-    if (startDate > currentDate || endDate > currentDate) {
+    if (start_date > current_date || end_date > current_date) {
         alert("กรุณาเลือกวันที่ให้ถูกต้อง");
-    } else if (startDate > endDate) {
+    } else if (start_date > end_date) {
         alert("กรุณาเลือกวันที่ให้ถูกต้อง");
     } else {
 

@@ -168,6 +168,9 @@
                                                 <option value="2">โอนเงิน</option>
                                             </select>
                                         </div>
+                                        <div class="col-12 h6">
+                                        (* หากระบุโอนเงิน ให้ระบุจำนวนเงิน = ยอดรวมสุทธิ)
+                                        </div>
                                         <div class="col-7 h6">
                                             ระบุจำนวนเงิน
                                         </div>
@@ -303,12 +306,15 @@
     </div>
 </div>
 
+
+
+
 <!-- form_order_detail -->
 <div class="modal fade" id="form_order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">รายการขาย</h5>
+                <h5 class="modal-title" id="exampleModalLabel">ยืนยันรายการขาย</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -331,7 +337,7 @@
                             readonly name="customer">
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control form-control-sm" placeholder="เงินสด"
+                        <input type="text" class="form-control form-control-sm" placeholder=""
                             id="recive_type_detail" readonly>
                     </div>
                     <br></br>
@@ -409,7 +415,7 @@ function pay_summary() {
     let vat_number = $('#customer_vat_no').val();
     let recive_type = $('#recive_type').val();
     let total = $("#total").html();
-    let = total_price_sum = $("#total_price_sum").html();
+    let total_price_sum = $("#total_price_sum").html();
     let chk_phamacy_list = false;
     let change = $("#change").val();
 
@@ -446,19 +452,16 @@ function pay_summary() {
         alert("กรุณาเลือกรายการสินค้า");
     } else if (money_pay == "" || (parseFloat(money_pay) < parseFloat(total))) {
         alert("กรุณาระบุจำนวนเงินให้ถูกต้อง");
-    } else if (is_dager_phamacy == true) {
-        if (customer_name == "") {
-            $("#customer_name").css("border-color", "red");
-            $("#customer_address").css("border-color", "red");
-            $("#customer_vat_no").css("border-color", "red");
+    } else if (is_dager_phamacy == true && $('#customer').val()=="") {
+        $("#customer_name").css("border-color", "red");
+            // $("#customer_address").css("border-color", "red");
+            // $("#customer_vat_no").css("border-color", "red");
             alert("กรุณากรอกชื่อลูกค้า ");
-        }
-
-
     } else {
         $('#form_order').modal('show');
     }
 }
+
 function clr_border(obj) {
     obj.style.removeProperty('border-color');
 }
@@ -484,9 +487,9 @@ function display_totalprice() {
     let total_vat = (total_price * 7) / 100;
 
     $("#total_amount_sum").html(total_amount);
-    $("#total_price_sum").html(Number(total_price).toFixed(2));
+    $("#total").html(Number(total_price).toFixed(2));
     $("#total_vat").html(Number(total_vat).toFixed(2));
-    $("#total").html(total_price + total_vat);
+    $("#total_price_sum").html(total_price - total_vat);
     pay_change();
 }
 
