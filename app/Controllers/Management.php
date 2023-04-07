@@ -18,7 +18,7 @@ class Management extends BaseController
         }
         
         $model = new Pharmacy_typeModel();
-        $data["pharmacy_group"] = $model->orderBy('id_pharmacy_type','ASC')->findAll();
+        $data["pharmacy_group"] = $model->where('status <>',0)->orderBy('id_pharmacy_type','ASC')->findAll();
 
         return view('template/header.php').
         view('basic_management/pharmacy_type.php',$data).
@@ -44,27 +44,8 @@ class Management extends BaseController
         return redirect()->to('/pharmacy_type');
 
     }
-    //delete_user
-    public function edit_pharmacy_type()
-    {
-        //  var_dump($_POST);
-        $id = $_POST['id_pharmacy_type'];
-        $data = array(
-            'pharmacy_type_name'=>$_POST['pharmacy_type_name'], 
-            
-        );
-        
-        $model = new Pharmacy_typeModel();
-        $model->where('id_pharmacy_type',$id)->set($data)->update();
-
-        $session = session();
-        $session->setFlashdata('message_session', '112');
-        return redirect()->to('/pharmacy_type');
-        
-
-    }
     //delete_pharmacies_type
-    public function delete_pharmacies_type()
+    public function delete_pharmacy_type()
     {
         //  var_dump($_POST);
         $id = $_POST['id_pharmacy_type'];
@@ -82,35 +63,43 @@ class Management extends BaseController
     }
 
 
-
-
     public function recive_type()
     {
+        $session = session();
+        if(is_null($session->get('login'))){
+            $session->setFlashdata('message_session', '302');
+            return redirect()->to('/login');
+        }
+
         $model = new Recive_typeModel();
-        $data["recive_type_list"] = $model->orderBy('recive_type_id','ASC')->findAll();
+        $data["recive_list"] =$model->where('status <>',0)->orderBy('recive_type_id','ASC')->findAll();
+      
 
         return view('template/header.php').
         view('basic_management/recive_type.php',$data).
         view('template/footer.php');
     }
-    public function edit_recive_type()
+    
+    public function add_recive_type()
     {
         //  var_dump($_POST);
-        $id = $_POST['recive_type_id'];
+
         $data = array(
+            'recive_type_id'=>null, 
             'recive_name'=>$_POST['recive_name'], 
-            'recive_detail'=>$_POST['recive_detail'], 
+            
         );
-       
+        // var_dump($data);
+        // die();
+
         $model = new Recive_typeModel();
-        $model->where('recive_type_id',$id)->set($data)->update();
+        $model->save($data);
 
         $session = session();
-        $session->setFlashdata('message_session', '114');
+        $session->setFlashdata('message_session', '202');
         return redirect()->to('/recive_type');
 
     }
-
     public function delete_recive_type()
     {
         //  var_dump($_POST);
@@ -122,7 +111,7 @@ class Management extends BaseController
         $model->where('recive_type_id',$id)->set($data)->update();
 
         $session = session();
-        $session->setFlashdata('message_session', '115');
+        $session->setFlashdata('message_session', '203');
         return redirect()->to('/recive_type');
 
     }

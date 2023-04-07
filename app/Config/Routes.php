@@ -71,14 +71,12 @@ $routes->get('/sale_test', 'Sale::sale_test');
 
 $routes->get('/pharmacy_type', 'Management::pharmacies_type');
 $routes->post('/add_pharmacy_type', 'Management::add_pharmacy_type');
-$routes->post('/edit_pharmacy_type', 'Management::edit_pharmacy_type');
-$routes->post('/del_pharmacy_type', 'Management::delete_pharmacy_type');
+$routes->post('/delete_pharmacy_type', 'Management::delete_pharmacy_type');
 
 
 $routes->get('/recive_type', 'Management::recive_type');
 $routes->post('/add_recive_type', 'Management::add_recive_type');
-$routes->post('/edit_recive_type', 'Management::edit_recive_type');
-$routes->post('/del_recive_type', 'Management::delete_recive_type');
+$routes->post('/delete_recive_type', 'Management::delete_recive_type');
 
 
 $routes->get('/user_role', 'Management::user_role');
