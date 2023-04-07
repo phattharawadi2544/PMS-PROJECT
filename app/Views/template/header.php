@@ -195,12 +195,12 @@
                                 </li>
                                 <li class="">
                                     <a href="<?php echo base_url('exp_date');?>">
-                                        <i class="las la-minus"></i><span>รายการยาที่กำลังจะหมดอายุ</span>
+                                        <i class="las la-minus"></i><span>รายการยาที่กำลังหมดอายุ</span>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a href="<?php echo base_url('remain');?>">
-                                        <i class="las la-minus"></i><span>รายการยาที่กำลังจะหมดคลัง</span>
+                                        <i class="las la-minus"></i><span>รายการยาที่กำลังหมดคลัง</span>
                                     </a>
                                 </li>
                                 <li class="">
