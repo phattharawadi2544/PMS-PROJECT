@@ -122,6 +122,7 @@ class Sell extends BaseController
         
         $session = session();
         $session->setFlashdata('message_session', '201');
+        $session->setFlashdata('message_session_orderID', $order_id);
         return redirect()->to('/sell');
 
     }

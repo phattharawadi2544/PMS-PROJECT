@@ -172,6 +172,37 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
+        }elseif($api_name=='getOrderReceipt'){
+            $model_order_d = new OrderDetailModel();
+            $model_order = new OrderModel();
+
+            if($id!=NULL){
+                $data_order   = $db->query('SELECT * FROM orders o JOIN user u ON o.seller_id = u.user_id WHERE o.order_id = '.$id)->getResultArray();
+                $get_data[0]['order']= $data_order;
+
+                $data_order_d   = $db->query('SELECT * FROM order_detail d JOIN pharmacy p ON d.pharmacy_id = p.pharmacy_id WHERE d.order_id = '.$id)->getResultArray();
+                $get_data[0]['order_detail'] =  $data_order_d;
+
+
+                // $get_data = $model_order->where('order_id',$id)->findAll();
+                // $data_order_d   = $db->query('SELECT * FROM orders WHERE order_id = '.$id)->getResultArray();
+                // $get_data[0]['order_detail'] =  $data_order_d;
+                // var_dump($get_data);
+            }else{
+                $get_data = $model_order->orderBy('order_id','ASC')->findAll();
+            }
+            $data = [
+                'success' => true,
+                'message' => "OK",
+                'data' => $get_data,
+            ];
+            return $this->response->setJSON($data);
+
+
+
+
+
+
         // }elseif($api_name=='getStock'){
         //     $model = new LotModel();
         //     $model_p = new PharmacyModel();
