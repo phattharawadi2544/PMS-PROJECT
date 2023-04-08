@@ -125,7 +125,7 @@
                             </a>
                         </li>
 
-                        <?php if($session->get('user_role')==1){?>
+                       
 
 
 
@@ -165,7 +165,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <?php } ?>
+                     
 
                         <li class=" ">
                             <a href="#report" class="collapsed" data-toggle="collapse" aria-expanded="false">
