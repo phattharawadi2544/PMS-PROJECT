@@ -265,8 +265,9 @@ function save_supplier() {
 
 }
 
-function save_edit_supplier() {
+function save_edit_lot() {
     let ch = true;
+
     if ($("#editcompanyname").val().trim().length == 0) {
         ch = false;
         $("#editcompanyname").css("border-color", "red");
@@ -284,6 +285,7 @@ function save_edit_supplier() {
     } else {
         alert("กรุณากรอกข้อมูลให้ครบ");
     }
+
 }
 
 function edit_data(id) {
@@ -294,11 +296,11 @@ function edit_data(id) {
         })
         .done(function(data) {
             $.each(data.data, function(i, item) {
-                console.log(item);
-                $('#editsupplie').val(item.id_supplie);
+                $('#editsupplie').val(item.id_supplier);
                 $('#editcompanyname').val(item.company_name);
-                $("#editaddress").val(item.address);
                 $('#edittel').val(item.tel);
+                $('#editaddress').val(item.address);
+
             });
         });
     $('#editModal').modal('show');

@@ -95,7 +95,7 @@ class APIs extends BaseController
             ];
             return $this->response->setJSON($data);
 
-        }elseif($api_name=='getsupplier'){
+        }elseif($api_name=='getSupplier'){
             $model = new SupplierModel();
             if($id!=NULL){
                 $get_data = $model->where('id_supplier',$id)->findAll();
