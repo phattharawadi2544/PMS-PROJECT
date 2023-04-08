@@ -12,7 +12,8 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">ยอดขายวันนี้</h4>
-                                    <h2><span><?php echo $sale_price; ?>บาท</span></h2>
+                                    <h2><span><?php echo $sale_price; ?> บาท</span></h2>
+                                    <div>ยอดขายเดือนนี้ <span><?php echo number_format($month_sale_price); ?></span> บาท</div>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +30,8 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">กำไรวันนี้</h4>
-                                    <h2><span><?php echo ($sale_price - $cost_price);?>บาท</span></h2>
+                                    <h2><span><?php echo ($sale_price - $cost_price);?> บาท</span></h2>
+                                    <div>กำไรเดือนนี้ <span><?php echo number_format($month_cost_price); ?></span> บาท</div>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +48,8 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">จำนวนยาที่ขายวันนี้</h4>
-                                    <h2><span><?php echo $amount;?></span></h2>
+                                    <h2><span><?php echo $amount;?></span> รายการ</h2>
+                                    <div>จำนวนที่ขายในเดือนนี้ <span><?php echo number_format($month_amount); ?></span></div>
                                 </div>
                             </div>
                         </div>
@@ -163,11 +166,11 @@ GROUP BY S_MONTH,S_YEAR; -->
 
 
             data: [
-                <?php foreach($data_year as $id=>$row){
+                <?php foreach($data_month as $id=>$row){
                     echo "{
-                        name: '".$row['S_YEAR']."',
-                        y: ".$row['sale_price'].",
-                        drilldown: '".$row['S_YEAR']."'
+                        name: '".$month_name[$row['S_MONTH']]."',
+                        y: ".($row['sale_price']).",
+                        drilldown: '".$row['S_MONTH']."'
                     },";
                 }?>
 
@@ -180,16 +183,16 @@ GROUP BY S_MONTH,S_YEAR; -->
                 }
             },
             series: [
-                <?php foreach($data_year as $id=>$row){
+                <?php foreach($data_month as $id=>$row){
                 $d_data = "";
-                foreach($data_month as $row_month){
-                    if($row_month['S_YEAR']==$row['S_YEAR']){
-                        $d_data =  $d_data."['".$month_name[$row_month['S_MONTH']]."',".$row_month['sale_price']."],";
+                foreach($data_day as $row_day){
+                    if($row_day['S_MONTH']==$row['S_MONTH']){
+                        $d_data =  $d_data."['วันที่ ".$row_day['S_DAY']."',".$row_day['sale_price']."],";
                     }
                 }
                     echo "{
-                        name: '".$row['S_YEAR']."',
-                        id: '".$row['S_YEAR']."',
+                        name: '".$row['S_MONTH']."',
+                        id: '".$row['S_MONTH']."',
                         data: [".$d_data."]
                     },";
                 }?>
