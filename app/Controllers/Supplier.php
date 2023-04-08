@@ -29,7 +29,7 @@ class Supplier extends BaseController
 
         $data = array(
             'id_supplier'=>null, 
-            'company_name'=>$_POST['companyname'], 
+            'company_name'=>$_POST['company_name'], 
             'address'=>$_POST['address'], 
             'tel'=>$_POST['tel'],  
             'status'=>1

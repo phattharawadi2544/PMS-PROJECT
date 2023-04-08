@@ -170,8 +170,8 @@
                         action="<?php echo site_url('edit_supplier'); ?>">
 
                         <div class="col-md-6">
-                            <label for="edit_idsupplie" class="form-label">รหัสผู้ขาย</label>
-                            <input type="text" class="form-control was-validated" id="edit_idsupplie" name="id_supplier"
+                            <label for="editsupplie" class="form-label">รหัสผู้ขาย</label>
+                            <input type="text" class="form-control was-validated" id="editsupplie" name="id_supplier"
                                 readonly>
                         </div>
                         <div class="col-md-6">
