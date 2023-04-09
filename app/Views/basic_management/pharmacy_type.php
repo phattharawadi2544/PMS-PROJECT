@@ -106,7 +106,7 @@
                 <form class="row g-3" id="form_pharmacy_type_new" method="post"
                     action="<?php echo site_url('add_pharmacy_type'); ?>">
                     <div class="col-md-12">
-                        <label for="input_pharmacy_type_name" class="form-label">ชื่อประเภทยา</label>
+                        <label for="input_pharmacy_type_name" class="form-label">ชื่อประเภทยา *</label>
                         <input type="text" class="form-control was-validated" id="input_pharmacy_type_name"
                             name="pharmacy_type_name" onchange="clr_border(this);">
                     </div>

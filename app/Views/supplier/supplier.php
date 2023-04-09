@@ -123,7 +123,7 @@
                     <form class="row g-3" id="form_supplier_new" method="post"
                         action="<?php echo site_url('add_supplier'); ?>">
                         <div class="col-md-6">
-                            <label for="inputcompanyname" class="form-label">ชื่อผู้ขาย</label>
+                            <label for="inputcompanyname" class="form-label">ชื่อผู้ขาย/ชื่อบริษัท *</label>
                             <input type="text" class="form-control was-validated" id="inputcompanyname"
                                 name="company_name" onchange="clr_border(this);">
                         </div>
@@ -131,12 +131,12 @@
 
 
                         <div class="col-md-6">
-                            <label for="inputtel" class="form-label">เบอร์โทร</label>
+                            <label for="inputtel" class="form-label">เบอร์โทร *</label>
                             <input type="text" class="form-control" id="inputtel" name="tel"
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputaddress" class="form-label">ที่อยู่</label>
+                            <label for="inputaddress" class="form-label">ที่อยู่ *</label>
                             <textarea type="text" class="form-control" id="inputaddress" name="address"
                                 onchange="clr_border(this);"></textarea>
                         </div>
@@ -170,18 +170,18 @@
                         action="<?php echo site_url('edit_supplier'); ?>">
 
                         <div class="col-md-6">
-                            <label for="editsupplie" class="form-label">รหัสผู้ขาย</label>
+                            <label for="editsupplie" class="form-label">รหัสผู้ขาย </label>
                             <input type="text" class="form-control was-validated" id="editsupplie" name="id_supplier"
                                 readonly>
                         </div>
                         <div class="col-md-6">
-                            <label for="editcompanyname" class="form-label">ชื่อผู้ขาย</label>
+                            <label for="editcompanyname" class="form-label">ชื่อผู้ขาย *</label>
                             <input type="text" class="form-control was-validated" id="editcompanyname"
                                 name="company_name" onchange="clr_border(this);">
                         </div>
 
                         <div class="col-md-6">
-                            <label for="editaddress" class="form-label">ที่อยู่</label>
+                            <label for="editaddress" class="form-label">ที่อยู่ *</label>
                             <textarea type="text" class="form-control" id="editaddress" name="address"
                                 onchange="clr_border(this);"></textarea>
                         </div>
@@ -265,7 +265,7 @@ function save_supplier() {
 
 }
 
-function save_edit_lot() {
+function save_edit_supplier() {
     let ch = true;
 
     if ($("#editcompanyname").val().trim().length == 0) {

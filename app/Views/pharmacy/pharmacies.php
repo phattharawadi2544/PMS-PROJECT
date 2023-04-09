@@ -361,21 +361,21 @@
                         action="<?php echo site_url('edit_pharmacy'); ?>">
 
                         <div class="col-md-6">
-                            <label for="edit_pharmacyid" class="form-label">รหัสยา</label>
+                            <label for="edit_pharmacyid" class="form-label">รหัสยา *</label>
                             <input type="text" class="form-control was-validated" id="edit_pharmacyid"
                                 name="pharmacy_id" readonly>
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_std" class="form-label">รหัสยา 24 หลัก</label>
+                            <label for="edit_std" class="form-label">รหัสยา 24 หลัก *</label>
                             <input type="text" class="form-control was-validated" id="edit_std" name="std24" readonly>
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_barcode" class="form-label">บาร์โค้ด</label>
+                            <label for="edit_barcode" class="form-label">บาร์โค้ด *</label>
                             <input type="text" class="form-control" id="edit_barcode" name="barcode" readonly>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="edit_reg" class="form-label">เลขทะเบียนยา</label>
+                            <label for="edit_reg" class="form-label">เลขทะเบียนยา *</label>
                             <input type="text" class="form-control" id="edit_reg" name="reg" readonly>
                         </div>
                         <div class="col-md-6">
@@ -388,34 +388,34 @@
                             <input type="text" class="form-control" id="edit_pharmacyname" name="pharmacyname">
                         </div>
                         <div class="col-6">
-                            <label for="edit_details" class="form-label">ข้อบ่งใช้</label>
+                            <label for="edit_details" class="form-label">ข้อบ่งใช้ *</label>
                             <textarea type="text" class="form-control" id="edit_details"
                                 name="pharmacydetails"></textarea>
                         </div>
                         <div class="col-6">
-                            <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง</label>
+                            <label for="edit_warning" class="form-label">ผลข้างเคียง/ข้อควรระวัง *</label>
                             <textarea type="text" class="form-control" id="edit_warning"
                                 name="pharmacywarning"></textarea>
                         </div>
                         <div class="col-6">
-                            <label for="edit_price" class="form-label">ราคาขาย</label>
+                            <label for="edit_price" class="form-label">ราคาขาย *</label>
                             <input type="number" class="form-control " id="edit_price" name="price">
                         </div>
                         <div class="col-6">
-                            <label for="edit_unit" class="form-label">หน่วย</label>
+                            <label for="edit_unit" class="form-label">หน่วย *</label>
                             <input type="text" class="form-control" id="edit_unit" name="unit">
                         </div>
                         <div class="col-6">
-                            <label for="edit_min" class="form-label">จำนวนน้อยสุด</label>
+                            <label for="edit_min" class="form-label">จำนวนน้อยสุด *</label>
                             <input type="text" class="form-control" id="edit_min" name="min">
                         </div>
                         <div class="col-6">
-                            <label for="edit_max" class="form-label">จำนวนมากสุด</label>
+                            <label for="edit_max" class="form-label">จำนวนมากสุด *</label>
                             <input type="text" class="form-control" id="edit_max" name="max">
                         </div>
                         <div class="col-md-12">
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">ประเภท</legend>
+                                <legend class="col-form-label col-sm-2 pt-0">ประเภท *</legend>
                                 <div class="col-sm-10">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="edit_pharmacygroup1" name="pharmacygroup"

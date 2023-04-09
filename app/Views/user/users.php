@@ -242,7 +242,7 @@
             <div class="modal-body">
                 <form class="row g-3" id="form_user_new" method="post" action="<?php echo site_url('add_user'); ?>">
                     <div class="col-md-6">
-                        <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน</label>
+                        <label for="inputhiredate" class="form-label">วันที่เริ่มทำงาน *</label>
                         <input type="date" class="form-control" id="inputhiredate" name="hiredate"
                             onchange="clr_border(this);">
                     </div>
@@ -252,7 +252,7 @@
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
+                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ *</label>
                         <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp"
                             onchange="clr_border(this);">
                     </div>
@@ -413,12 +413,12 @@
                             onchange="clr_border(this);"></textarea>
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_hiredate" class="form-label">วันที่เริ่มทำงาน</label>
+                        <label for="edit_hiredate" class="form-label">วันที่เริ่มทำงาน *</label>
                         <input type="date" class="form-control" id="edit_hiredate" name="hiredate"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_licenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ</label>
+                        <label for="edit_licenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ *</label>
                         <input type="date" class="form-control" id="edit_licenseexp" name="licenseexp"
                             onchange="clr_border(this);">
                     </div>

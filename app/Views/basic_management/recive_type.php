@@ -110,7 +110,7 @@
                         <form class="row g-3" id="form_recive_type_new" method="post"
                             action="<?php echo site_url('add_recive_type'); ?>">
                             <div class="col-md-12">
-                                <label for="inputrecive_name" class="form-label">ชื่อประเภทการรับเงิน</label>
+                                <label for="inputrecive_name" class="form-label">ชื่อประเภทการรับเงิน *</label>
                                 <input type="text" class="form-control was-validated" id="inputrecive_name"
                                     name="recive_name" onchange="clr_border(this);">
                             </div>
