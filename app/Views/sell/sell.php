@@ -306,97 +306,7 @@
     </div>
 </div>
 
-<!-- formmodal -->
-<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xxl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">ใบเสร็จรับเงิน</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z" />
-                            <path
-                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-                        </svg></button>
-                </div>
-                <!-- SELECT o.*,u.f_name,p.pharmacy_name, od.amount,od.sale_price,o.total_price FROM orders o JOIN user u ON o.seller_id = u.user_id JOIN order_detail od ON o.order_id = od.pharmacy_id JOIN pharmacy p ON od.pharmacy_id = p.pharmacy_id; -->
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <center><label for="name_pharmacy" class="form-label h5">ร้านยา มินิฮาร์ท</label>
-                            </center>
-                        </div>
-                        <div class="col-md-12">
-                            <center><label  class="form-label h5">222 มหาวิทยาลัยวลัยลักษณ์ ม.10 ต.ท่าศาลา
-                                    อ.ท่าศาลา จ.นครศรีธรรมราช 80160</label>
-                                
-                            </center>
-                        </div>
-                        <div class="col-md-12">
-                            <center><label for="vat_no" class="form-label h5">เลขผู้เสียภาษี:CA1212100000</label>
-                            </center>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="f_name" class="form-label h5">ชื่อผู้ขาย:</label>
-                            <span id="f_name"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="date" class="form-label h5">วันและเวลาที่ขาย:</label>
-                            <span id="date"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <center>
-                                <hr>
-                                </hr>
-                            </center>
-                        </div>
-                        <div class="col-12">
-                            <center><label for="recpt" class="form-label h5">ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ</label>
-                                <span id="recpt"></span>
-                            </center>
-                        </div>
-                        <div class="table-responsive  col-md-12">
-                            <table class="table" id="table_order_receipt">
-                                <thead class="text-uppercase">
-                                    <tr class="ligth ligth-data">
-                                        <th>
-                                            <center>จำนวน</center>
-                                        </th>
-                                        <th>
-                                            <center>รายการ</center>
-                                        </th>
-                                        <th>
-                                            <center>ราคา</center>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="ligth-body">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="total_slipt" class="form-label h5">ยอดรวมสุทธิ</label>
-                        <span id="total_slipt"></span> บาท
-                    </div>
-                    <div class="col-md-12">
-                        <center>
-                            <hr>
-                            </hr>
-                        </center>
-                    </div>
-                    <div class="col-md-12">
-                        <center><label for="tel" class="form-label h5">เบอร์โทร:098-082-3967</label>
-                            <span id="tel"></span>
-                        </center>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 
@@ -722,45 +632,7 @@ function delete_phamact_list(x) {
 }
 
 
-function form_data(id) {
-    //alert($("#order_id").html());
-    // let id = $("#order_id").html();
-    alert(id);
-    $.ajax({
-            method: "GET",
-            url: "<?php echo site_url('api/getOrderReceipt')?>" + "/" + id,
-            data: {}
-        })
-        .done(function(data) {
-            $.each(data.data, function(i, item) {
-                console.log(item.order[0]);
-                console.log(item.order_detail);
 
-                $("#f_name").html(item.order[0].f_name);
-                $("#total_slipt").html(item.order[0].total_price);
-                $("#date").html(item.order[0].order_date);
-
-                $("#table_order_receipt > tbody").html("");
-                $.each(item.order_detail, function(j, item_detail) {
-                    let tag_html = '<tr><td>' + item_detail.amount + '</td>' +
-                        '<td>' + item_detail.pharmacy_name + '</td>' +
-                        '<td>' + item_detail.sale_price + '</td>' +
-                        '</td></tr>';
-                    $("#table_order_receipt tbody").append(tag_html);
-
-                    //     console.log(item_detail);
-                });
-
-
-
-            });
-        });
-    $('#formModal').modal('show');
-}
-
-<?php if($print_slipt==true){
-    //echo " form_data(".$session->getFlashdata('message_session_orderID').");";
-}?>
 
 
 </script>
