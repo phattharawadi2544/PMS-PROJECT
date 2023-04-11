@@ -94,6 +94,9 @@ $routes->post('/edit_lot', 'Lot::edit_lot');
 $routes->post('/del_lot', 'Lot::del_lot');
 $routes->get('/remain', 'Lot::remain');
 $routes->get('/exp_date', 'Lot::exp_date');
+$routes->get('/lot_detail', 'Lot::lot_detail');
+
+
 
 $routes->get('/inventory', 'Inventory::index');
 

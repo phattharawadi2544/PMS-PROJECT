@@ -48,8 +48,8 @@
                                 </div>
                                 <div class="col-8 text-right">
                                     <h4 class="m-b-20">จำนวนยาที่ขายวันนี้</h4>
-                                    <h2><span><?php echo $amount;?></span> รายการ</h2>
-                                    <div>จำนวนที่ขายในเดือนนี้ <span><?php echo number_format($month_amount); ?></span></div>
+                                    <h2><span><?php echo $amount;?></span>จำนวน</h2>
+                                    <div>จำนวนที่ขายในเดือนนี้ <span><?php echo number_format($month_amount); ?> จำนวน</span></div>
                                 </div>
                             </div>
                         </div>

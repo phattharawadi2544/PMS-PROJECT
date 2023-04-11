@@ -127,8 +127,6 @@
 
                        
 
-
-
                         <li class=" ">
                             <a href="#stock_management" class="collapsed" data-toggle="collapse" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -204,6 +202,11 @@
                                     </a>
                                 </li>
                                 <li class="">
+                                    <a href="<?php echo base_url('lot_detail');?>">
+                                        <i class="las la-minus"></i><span>รายงานบัญชีซื้อยา</span>
+                                    </a>
+                                </li>
+                                <li class="">
                                     <a href="<?php echo base_url('sales_specially');?>">
                                         <i class="las la-minus"></i><span>รายงานการขายยาควบคุมพิเศษ</span>
                                     </a>
@@ -262,7 +265,7 @@
                                             <?php 
                                       $name = $session->get('f_name')." ".$session->get('l_name'); 
                                       echo $name ?>
-                                            <?php echo (($session->get('user_role')==1)?"ผู้จัดการร้าน":"เภสัชกร"); ?>
+                                            <?php echo (($session->get('user_role')==1)?"ผู้ประกอบการ":"เภสัชกร"); ?>
                                             <img src="<?php echo base_url();?>/assets/images/user/1.png"
                                                 class="img-fluid rounded" alt="user">
                                         </a>

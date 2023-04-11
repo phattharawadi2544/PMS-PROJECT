@@ -247,12 +247,12 @@
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต *</label>
+                        <label for="inputlicense" class="form-label">เลขที่ใบอนุญาต (เฉพาะเภสัชกรเท่านั้น *)</label>
                         <input type="text" class="form-control was-validated" id="inputlicense" name="license"
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ *</label>
+                        <label for="inputlicenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ (เฉพาะเภสัชกรเท่านั้น *)</label>
                         <input type="date" class="form-control" id="inputlicenseexp" name="licenseexp"
                             onchange="clr_border(this);">
                     </div>
@@ -296,11 +296,6 @@
                         <label for="inputwork" class="form-label">ประสบการณ์ทำงาน *</label>
                         <textarea type="text" class="form-control" id="inputwork" name="work"
                             onchange="clr_border(this);"></textarea>
-                    </div>
-                    <div class="col-6">
-                        <label for="inputsalary" class="form-label">เงินเดือน *</label>
-                        <input type="number" class="form-control " id="inputsalary" name="salary"
-                            onchange="clr_border(this);">
                     </div>
 
 
@@ -367,7 +362,7 @@
                             onchange="clr_border(this);" readonly>
                     </div>
                     <div class="col-md-9">
-                        <label for="edit_license" class="form-label">เลขที่ใบอนุญาต *</label>
+                        <label for="edit_license" class="form-label">เลขที่ใบอนุญาต (เฉพาะเภสัชกรเท่านั้น *)</label>
                         <input type="text" class="form-control was-validated" id="edit_license" name="license"
                             onchange="clr_border(this);">
                     </div>
@@ -418,7 +413,7 @@
                             onchange="clr_border(this);">
                     </div>
                     <div class="col-md-6">
-                        <label for="edit_licenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ *</label>
+                        <label for="edit_licenseexp" class="form-label">วันที่ใบอนุญาตหมดอายุ (เฉพาะเภสัชกรเท่านั้น *)</label>
                         <input type="date" class="form-control" id="edit_licenseexp" name="licenseexp"
                             onchange="clr_border(this);">
                     </div>
@@ -489,6 +484,7 @@
                         <input type="text" class="form-control was-validated" id="del_userID" name="userID"
                             onchange="clr_border(this);" readonly>
                     </div>
+                    
                 </form>
 
             </div>

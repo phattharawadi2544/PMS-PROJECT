@@ -18,6 +18,9 @@ class Lot extends BaseController
         }
         
         $model = new LotModel();
+
+
+        
         $data["lot_list"] = $model->where('status <>',0)->orderBy('lot_id','ASC')->findAll();
 
         $pharmacyModel = new PharmacyModel();
@@ -151,6 +154,29 @@ class Lot extends BaseController
         
         return view('template/header.php').
         view('report/exp_date.php',$data).
+        view('template/footer.php');
+
+
+    }
+
+    public function lot_detail()
+    {
+        $db = \Config\Database::connect();
+        $session = session();
+        if(is_null($session->get('login'))){
+            return redirect()->to('/login');
+        }
+
+       $sql = "SELECT * FROM lot l JOIN pharmacy p ON l.lot_id = p.pharmacy_id JOIN supplier s ON l.id_supplie = s.id_supplier";
+       $query  = $db->query($sql);
+
+        $data["detail_list"] = $query->getResultArray();
+
+       
+
+        
+        return view('template/header.php').
+        view('report/lot_detail.php',$data).
         view('template/footer.php');
 
 

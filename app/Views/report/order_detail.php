@@ -338,7 +338,13 @@ function view_data(id) {
                 $('#vat_number').html(item.vat_number);
                 $('#total_price').html(item.total_price);
                 $('#vat').html(item.vat);
-                $('#recive_type_id').html(item.recive_type_id);
+                if (item.recive_type_id === '1') {
+                    $('#recive_type_id').html('เงินสด');
+                } else if (item.recive_type_id === '2') {
+                    $('#recive_type_id').html('โอนเงิน');
+                } else {
+                    
+                }
                 // console.log(item.order_detail);
                 $("#table_order_detail > tbody").html("");
                 $.each(item.order_detail, function(j, item_detail) {

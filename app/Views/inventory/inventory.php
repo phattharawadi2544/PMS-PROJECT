@@ -30,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
                     <div>
-                        <h4 class="mb-3">คลังยา</h4>
+                        <h4 class="mb-3">ข้อมูลคงคลัง</h4>
                         <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                                 <th>
                                     <center>ต้นทุนเฉลี่ย</center>
                                 </th>
-                               
+
                             </tr>
                         </thead>
                         <tbody class="ligth-body">
@@ -97,9 +97,9 @@
                                     <center><?php echo $row["price"]; ?></center>
                                 </td>
                                 <td>
-                                    <center><?php echo $row["average_cost"]; ?></center>
+                                    <center><?php echo number_format($row["average_cost"], 2); ?></center>
                                 </td>
-                               
+
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -110,121 +110,121 @@
         <!-- Page end  -->
     </div>
 
-   
-
-<script>
-function save_lot() {
-    let ch = true;
-
-    if ($("#inputbatch").val().trim().length == 0) {
-        ch = false;
-        $("#inputbatch").css("border-color", "red");
-    }
-    if ($("#inputmanu").val().trim().length == 0) {
-        ch = false;
-        $("#inputmanu").css("border-color", "red");
-    }
-    if ($("#inputimport").val().trim().length == 0) {
-        ch = false;
-        $("#inputimport").css("border-color", "red");
-    }
-    if ($("#inputsupplie").val().trim().length == 0) {
-        ch = false;
-        $("#inputsupplie").css("border-color", "red");
-    }
-    if ($("#inputpharmacy").val().trim().length == 0) {
-        ch = false;
-        $("#inputpharmacy").css("border-color", "red");
-    }
-    if ($("#inputexp").val().trim().length == 0) {
-        ch = false;
-        $("#inputexp").css("border-color", "red");
-    }
-    if ($("#inputamount").val().trim().length == 0) {
-        ch = false;
-        $("#inputamount").css("border-color", "red");
-    }
-    if ($("#inputcost").val().trim().length == 0) {
-        ch = false;
-        $("#inputcost").css("border-color", "red");
-    }
-    if (ch) {
-        $('#form_lot_new').submit();
-    } else {
-        alert("กรุณากรอกข้อมูลให้ครบ");
-    }
-}
-
-function save_edit_lot() {
-    let ch = true;
-
-    if ($("#editbatch").val().trim().length == 0) {
-        ch = false;
-        $("#editbatch").css("border-color", "red");
-    }
-    if ($("#editmanu").val().trim().length == 0) {
-        ch = false;
-        $("#editmanu").css("border-color", "red");
-    }
-    if ($("#editimport").val().trim().length == 0) {
-        ch = false;
-        $("#editimport").css("border-color", "red");
-    }
-    if ($("#editexp").val().trim().length == 0) {
-        ch = false;
-        $("#editexp").css("border-color", "red");
-    }
-    if ($("#editamount").val().trim().length == 0) {
-        ch = false;
-        $("#editamount").css("border-color", "red");
-    }
-    if ($("#editcost").val().trim().length == 0) {
-        ch = false;
-        $("#editcost").css("border-color", "red");
-    }
-    if (ch) {
-        $('#form_lot_edit').submit();
-    } else {
-        alert("กรุณากรอกข้อมูลให้ครบ");
-    }
-
-}
-
-function edit_data(id) {
-    $.ajax({
-            method: "GET",
-            url: "<?php echo site_url('api/getLot')?>" + "/" + id,
-            data: {}
-        })
-        .done(function(data) {
-            $.each(data.data, function(i, item) {
-                $("#editlotid").val(item.lot_id);
-                $('#editsupplie').val(item.id_supplie);
-                $('#editpharmacy').val(item.pharmacy_id);
-                $('#editbatch').val(item.batch_no);
-                $('#editmanu').val(item.manu_date);
-                $('#editimport').val(item.import_date);
-                $('#editexp').val(item.exp_date);
-                $('#editamount').val(item.amount);
-                $('#editcost').val(item.cost_price);
 
 
+    <script>
+    function save_lot() {
+        let ch = true;
+
+        if ($("#inputbatch").val().trim().length == 0) {
+            ch = false;
+            $("#inputbatch").css("border-color", "red");
+        }
+        if ($("#inputmanu").val().trim().length == 0) {
+            ch = false;
+            $("#inputmanu").css("border-color", "red");
+        }
+        if ($("#inputimport").val().trim().length == 0) {
+            ch = false;
+            $("#inputimport").css("border-color", "red");
+        }
+        if ($("#inputsupplie").val().trim().length == 0) {
+            ch = false;
+            $("#inputsupplie").css("border-color", "red");
+        }
+        if ($("#inputpharmacy").val().trim().length == 0) {
+            ch = false;
+            $("#inputpharmacy").css("border-color", "red");
+        }
+        if ($("#inputexp").val().trim().length == 0) {
+            ch = false;
+            $("#inputexp").css("border-color", "red");
+        }
+        if ($("#inputamount").val().trim().length == 0) {
+            ch = false;
+            $("#inputamount").css("border-color", "red");
+        }
+        if ($("#inputcost").val().trim().length == 0) {
+            ch = false;
+            $("#inputcost").css("border-color", "red");
+        }
+        if (ch) {
+            $('#form_lot_new').submit();
+        } else {
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+    }
+
+    function save_edit_lot() {
+        let ch = true;
+
+        if ($("#editbatch").val().trim().length == 0) {
+            ch = false;
+            $("#editbatch").css("border-color", "red");
+        }
+        if ($("#editmanu").val().trim().length == 0) {
+            ch = false;
+            $("#editmanu").css("border-color", "red");
+        }
+        if ($("#editimport").val().trim().length == 0) {
+            ch = false;
+            $("#editimport").css("border-color", "red");
+        }
+        if ($("#editexp").val().trim().length == 0) {
+            ch = false;
+            $("#editexp").css("border-color", "red");
+        }
+        if ($("#editamount").val().trim().length == 0) {
+            ch = false;
+            $("#editamount").css("border-color", "red");
+        }
+        if ($("#editcost").val().trim().length == 0) {
+            ch = false;
+            $("#editcost").css("border-color", "red");
+        }
+        if (ch) {
+            $('#form_lot_edit').submit();
+        } else {
+            alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+
+    }
+
+    function edit_data(id) {
+        $.ajax({
+                method: "GET",
+                url: "<?php echo site_url('api/getLot')?>" + "/" + id,
+                data: {}
+            })
+            .done(function(data) {
+                $.each(data.data, function(i, item) {
+                    $("#editlotid").val(item.lot_id);
+                    $('#editsupplie').val(item.id_supplie);
+                    $('#editpharmacy').val(item.pharmacy_id);
+                    $('#editbatch').val(item.batch_no);
+                    $('#editmanu').val(item.manu_date);
+                    $('#editimport').val(item.import_date);
+                    $('#editexp').val(item.exp_date);
+                    $('#editamount').val(item.amount);
+                    $('#editcost').val(item.cost_price);
+
+
+                });
             });
-        });
-    $('#editModal').modal('show');
-}
+        $('#editModal').modal('show');
+    }
 
-function delete_data(id) {
-    $("#del_lotid").val(id);
-    $('#dedeteModal').modal('show');
-}
+    function delete_data(id) {
+        $("#del_lotid").val(id);
+        $('#dedeteModal').modal('show');
+    }
 
-function save_del_lot() {
-    $('#form_lot_del').submit();
-}
+    function save_del_lot() {
+        $('#form_lot_del').submit();
+    }
 
 
-function clr_border(obj) {
-    obj.style.removeProperty('border-color');
-}
-</script>
+    function clr_border(obj) {
+        obj.style.removeProperty('border-color');
+    }
+    </script>

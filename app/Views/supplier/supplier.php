@@ -83,7 +83,7 @@
                                     <center><?php echo  $supplier_row["tel"];?></center>
                                 </td>
                                 <td>
-                                    <center><?php echo  $supplier_row["address"];?></center>
+                                    <?php echo  $supplier_row["address"];?>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center list-action">

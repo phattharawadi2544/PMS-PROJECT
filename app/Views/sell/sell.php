@@ -29,7 +29,8 @@
                                         <div class="col-md-12">
                                             <label for="customer" class="form-label h5">ข้อมูลผู้ซื้อ</label>
                                             <span>(* กรณีลูกค้าซื้อยาควบคุมพิเศษ หรือยาอันตราย
-                                                กรุณากรอกชื่อลูกค้า*)</span>
+                                                กรุณากรอกชื่อลูกค้า *) (* กรณีลูกค้าซื้อยาสามัญประจำบ้าน กรุณากรอกชื่อ
+                                                ลูกค้าทั่วไป *)</span>
                                         </div>
                                         <div class="col-md-12">
                                             <form>
@@ -46,8 +47,8 @@
                                                     </div>
                                                     <div class="col-3">
                                                         <input type="text" class="form-control form-control-sm"
-                                                            placeholder="เลขผู้เสียภาษี" id="customer_vat_no"
-                                                            onchange="clr_border(this);">
+                                                            placeholder="เลขประจำตัวผู้เสียภาษีอากร"
+                                                            id="customer_vat_no" onchange="clr_border(this);">
                                                     </div>
                                                 </div>
                                             </form>
@@ -136,7 +137,7 @@
                                             ยอดรวม
                                         </div>
                                         <div class="col-3 h6">
-                                            <span id="total_price_sum"></span>
+                                            <span id="total_price_sum" ></span>
                                         </div>
                                         <div class="col-2 h6">
                                             บาท
@@ -169,7 +170,7 @@
                                             </select>
                                         </div>
                                         <div class="col-12 h6">
-                                        (* หากระบุโอนเงิน ให้ระบุจำนวนเงิน = ยอดรวมสุทธิ)
+                                            (* หากระบุโอนเงิน ให้ระบุจำนวนเงิน = ยอดรวมสุทธิ)
                                         </div>
                                         <div class="col-7 h6">
                                             ระบุจำนวนเงิน
@@ -339,8 +340,8 @@
                             readonly name="customer">
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control form-control-sm" placeholder=""
-                            id="recive_type_detail" readonly>
+                        <input type="text" class="form-control form-control-sm" placeholder="" id="recive_type_detail"
+                            readonly>
                     </div>
                     <br></br>
                     <div class="col-7 h5">
@@ -454,11 +455,11 @@ function pay_summary() {
         alert("กรุณาเลือกรายการสินค้า");
     } else if (money_pay == "" || (parseFloat(money_pay) < parseFloat(total))) {
         alert("กรุณาระบุจำนวนเงินให้ถูกต้อง");
-    } else if (is_dager_phamacy == true && $('#customer').val()=="") {
+    } else if (is_dager_phamacy == true && $('#customer').val() == "") {
         $("#customer_name").css("border-color", "red");
-            // $("#customer_address").css("border-color", "red");
-            // $("#customer_vat_no").css("border-color", "red");
-            alert("กรุณากรอกชื่อลูกค้า ");
+        $("#customer_address").css("border-color", "red");
+        $("#customer_vat_no").css("border-color", "red");
+        alert("กรุณากรอกชื่อลูกค้า ");
     } else {
         $('#form_order').modal('show');
     }
@@ -505,8 +506,8 @@ function new_item() {
 
     if (pha_id == "") {
         alert("กรุณาเลือกรายการยา");
-    } else if (amount == "" || amount < 1) {
-        alert("กรุณาระบุจำนวน");
+        // } else if (amount == "" || amount < 1) {
+        //     alert("กรุณาระบุจำนวน");
     } else if (amount > remain) {
         alert("จำนวนไม่เพียงพอ");
     } else {
@@ -522,10 +523,10 @@ function new_item() {
                     let phamacy_detail = amount + "||" + item.pharmacy_name + "||" + (item
                         .price *
                         amount + "||" + item.pharmacy_id + "||" + item.pharmacy_group);
-                    let tag_html = '<tr><td>' + item.pharmacy_name + '</td>' +
-                        '<td>' + amount + '</td>' +
-                        '<td>' + item.price + '</td>' +
-                        '<td>' + (item.price * amount) +
+                    let tag_html = '<tr><td style="text-align:center">' + item.pharmacy_name + '</td>' +
+                        '<td style="text-align:center">' + amount + '</td>' +
+                        '<td style="text-align:center">' + item.price + '</td>' +
+                        '<td style="text-align:center">' + (item.price * amount) +
                         ' <input type="hidden" class="phamacy_detail" value="' +
                         phamacy_detail +
                         '">' +
@@ -630,11 +631,6 @@ function delete_phamact_list(x) {
     $("#table_order_detail tbody").find("tr:eq(" + row + ")").remove();
     display_totalprice();
 }
-
-
-
-
-
 </script>
 
 

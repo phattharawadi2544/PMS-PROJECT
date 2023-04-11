@@ -71,12 +71,8 @@
                                     <center>จำนวน</center>
                                 </th>
                                 <th>
-                                    <center>จำนวนคงเหลือ</center>
-                                </th>
-                                <th>
                                     <center>ราคาทุน</center>
                                 </th>
-
                                 <th>
                                     <center>จัดการ</center>
                                 </th>
@@ -115,9 +111,6 @@
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["amount"]; ?></center>
-                                </td>
-                                <td>
-                                    <center><?php echo $lot_row["remain"]; ?></center>
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["cost_price"]; ?></center>
@@ -166,7 +159,7 @@
                                 onchange="clr_border(this);">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputpharmacy" class="form-label">รหัสยา *</label>
+                            <label for="inputpharmacy" class="form-label">ชื่อทางการค้า *</label>
                             <select name="pharmacy_id" id="inputpharmacy" class="form-control">
                                 <?php  foreach ($pharmacy_list as $row): 
                                 echo '<option value="'.$row['pharmacy_id'].'">'.$row['pharmacy_name'].'</option>';
@@ -175,7 +168,7 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputsupplie" class="form-label">รหัสผู้ขาย *</label>
+                            <label for="inputsupplie" class="form-label">ชื่อผู้ขาย / ชื่อบริษัท *</label>
                             <select name="id_supplier" id="inputsupplie" class="form-control">
                                 <?php  foreach ($supplier_list as $row): 
                                 echo '<option value="'.$row['id_supplier'].'">'.$row['company_name'].'</option>';
@@ -191,13 +184,13 @@
                         <div class="col-md-6">
                             <label for="inputmanu" class="form-label">วันที่ผลิต *</label>
                             <input type="date" class="form-control" id="inputmanu" name="manu_date"
-                                onchange="clr_border(this);">
+                                onchange="clr_border(this); check_date(1);">
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputexp" class="form-label">วันหมดอายุ *</label>
                             <input type="date" class="form-control" id="inputexp" name="exp_date"
-                                onchange="clr_border(this);">
+                                onchange="clr_border(this); check_date(1);">
                         </div>
 
                         <div class="col-md-6">
@@ -267,13 +260,13 @@
                         <div class="col-md-6">
                             <label for="editmanu" class="form-label">วันที่ผลิต *</label>
                             <input type="date" class="form-control" id="editmanu" name="manu_date"
-                                onchange="clr_border(this);">
+                                onchange="clr_border(this);check_date(2);">
                         </div>
 
                         <div class="col-md-6">
                             <label for="editexp" class="form-label">วันหมดอายุ *</label>
                             <input type="date" class="form-control" id="editexp" name="exp_date"
-                                onchange="clr_border(this);">
+                                onchange="clr_border(this);check_date(2);">
                         </div>
 
                         <div class="col-md-6">
@@ -442,6 +435,31 @@ function delete_data(id) {
 
 function save_del_lot() {
     $('#form_lot_del').submit();
+}
+
+function check_date(type) {
+
+    let manu_date = new Date(document.getElementById("inputmanu").value);
+    let exp_date = new Date(document.getElementById("inputexp").value);
+    let current_date = new Date();
+    if(type==1){
+        manu_date = new Date(document.getElementById("inputmanu").value);
+        exp_date = new Date(document.getElementById("inputexp").value);
+    }else{
+        manu_date = new Date(document.getElementById("editmanu").value);
+        exp_date = new Date(document.getElementById("editexp").value);
+    }
+
+    // alert(manu_date);
+    // alert(exp_date);
+    if (manu_date > current_date || exp_date > current_date) {
+        alert("กรุณาเลือกวันที่ให้ถูกต้อง");
+    } else if (manu_date > exp_date) {
+        alert("กรุณาเลือกวันที่ให้ถูกต้อง");
+    } else {
+
+    }
+
 }
 
 
