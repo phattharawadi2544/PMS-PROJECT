@@ -56,6 +56,9 @@
                                     <center>รหัสผู้ขาย</center>
                                 </th>
                                 <th>
+                                    <center>รหัสกำกับสินค้า</center>
+                                </th>
+                                <th>
                                     <center>วันที่นำเข้า</center>
                                 </th>
                                 <th>
@@ -96,6 +99,9 @@
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["id_supplie"]; ?></center>
+                                </td>
+                                <td>
+                                    <center><?php echo $lot_row["lot_number"]; ?></center>
                                 </td>
                                 <td>
                                     <center><?php echo $lot_row["import_date"]; ?></center>
@@ -157,6 +163,11 @@
                             <label for="inputimport" class="form-label">วันที่นำเข้า *</label>
                             <input type="date" class="form-control" id="inputimport" name="import_date"
                                 onchange="clr_border(this);">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputlotnumber" class="form-label">รหัสกำกับสินค้า *</label>
+                            <input type="text" class="form-control" id="inputlotnumber" name="lot_number">
+                         </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputpharmacy" class="form-label">ชื่อทางการค้า *</label>
@@ -247,6 +258,11 @@
                                 onchange="clr_border(this);" readonly>
                         </div>
                         <div class="col-md-6">
+                            <label for="editlotnumber" class="form-label">รหัสกำกับสินค้า *</label>
+                            <input type="text" class="form-control" id="editlotnumber" name="lot_number">
+                            </select>
+                        </div>
+                        <div class="col-md-6">
                             <label for="editimport" class="form-label">วันที่นำเข้า *</label>
                             <input type="date" class="form-control" id="editimport" name="import_date"
                                 onchange="clr_border(this);">
@@ -334,6 +350,10 @@ function save_lot() {
         ch = false;
         $("#inputbatch").css("border-color", "red");
     }
+    if ($("#inputlotnumber").val().trim().length == 0) {
+        ch = false;
+        $("#inputlotnumber").css("border-color", "red");
+    }
     if ($("#inputmanu").val().trim().length == 0) {
         ch = false;
         $("#inputmanu").css("border-color", "red");
@@ -375,6 +395,10 @@ function save_edit_lot() {
     if ($("#editbatch").val().trim().length == 0) {
         ch = false;
         $("#editbatch").css("border-color", "red");
+    }
+    if ($("#editlotnumber").val().trim().length == 0) {
+        ch = false;
+        $("#editlotnumber").css("border-color", "red");
     }
     if ($("#editmanu").val().trim().length == 0) {
         ch = false;
@@ -442,10 +466,10 @@ function check_date(type) {
     let manu_date = new Date(document.getElementById("inputmanu").value);
     let exp_date = new Date(document.getElementById("inputexp").value);
     let current_date = new Date();
-    if(type==1){
+    if (type == 1) {
         manu_date = new Date(document.getElementById("inputmanu").value);
         exp_date = new Date(document.getElementById("inputexp").value);
-    }else{
+    } else {
         manu_date = new Date(document.getElementById("editmanu").value);
         exp_date = new Date(document.getElementById("editexp").value);
     }
